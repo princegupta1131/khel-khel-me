@@ -23,6 +23,9 @@ import { BackbarComponent } from './components/backbar/backbar.component';
 import { CardComponent } from './components/card/card.component';
 import { CardPComponent } from './components/pitara/card/card.component';
 import { PitaraSearchComponent } from './components/pitara-search/pitara-search.component';
+import { UtilService } from './components/services/utils.service';
+import {  HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -52,9 +55,10 @@ import { PitaraSearchComponent } from './components/pitara-search/pitara-search.
     MatFormFieldModule,
     MatListModule,
     MatSelectModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

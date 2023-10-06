@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UtilService } from '../services/utils.service';
 
 @Component({
   selector: 'app-home',
@@ -38,30 +39,26 @@ export class HomeComponent implements OnInit {
 
   result:any;
 
+  constructor(public router: Router, public utils: UtilService) {
+
+  }
+
   ngOnInit(): void {
-  }
-  constructor(public router:Router){
-
-  }
-
-  themeChange() {
-    // this.data = this.source.filter((item) => {
-    //   return (this.language && this.type) ? (item.theme === this.theme && item.language === this.language && item.typec === this.type) : (this.language && !this.type) ? (item.language === this.language && item.theme === this.theme) : (!this.language && this.type) ? (item.typec === this.type && item.theme === this.theme) : item.theme === this.theme;
-    // })
+    this.utils.search().subscribe((data) => {
+     this.result=data.result
+     console.log(this.result)
+    })
   }
 
-  languageChange() {
-    // this.data = this.source.filter((item) => {
-    //   return (this.theme && this.type) ? (item.theme === this.theme && item.language === this.language && item.typec === this.type) : (this.type && !this.theme) ? (item.typec === this.type && item.language === this.language) : (!this.type && this.theme) ? (item.theme === this.theme && item.language === this.language) : item.language === this.language;
-    // })
-  }
-
-  typeChange() {
-  //   this.data = this.source.filter((item) => {
-  //     return (this.theme && this.language) ? (item.theme === this.theme && item.language === this.language && item.typec === this.type) : (this.language && !this.theme) ? (item.language === this.language && item.typec === this.type) : (!this.language && this.theme) ? (item.theme === this.theme && item.typec === this.type) : item.typec === this.type;
-  //   })
-   }
-   search() {
+  search() {
+    // this.router.navigate(['/explore'])
+    const arr = [this.category.value, this.theme.value, this.type.value];
+    const searchArray = arr.flat().filter((e)=>e);
+    console.log(searchArray)
+    let araaa=this.result.content.filter((content:any) => {return content.keywords.some((item:any)=>{searchArray.includes(item)})})
+    console.log(araaa)
     this.router.navigate(['/explore'])
+
+
   }
 }
