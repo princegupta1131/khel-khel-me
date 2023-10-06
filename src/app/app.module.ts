@@ -18,6 +18,11 @@ import { MatSelectModule } from '@angular/material/select';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ExploreComponent } from './components/explore/explore.component';
 import { PitaraComponent } from './components/pitara/pitara.component';
+import { HeaderbarComponent } from './components/headerbar/headerbar.component';
+import { BackbarComponent } from './components/backbar/backbar.component';
+import { CardComponent } from './components/card/card.component';
+import { CardPComponent } from './components/pitara/card/card.component';
+import { PitaraSearchComponent } from './components/pitara-search/pitara-search.component';
 
 
 
@@ -26,7 +31,12 @@ import { PitaraComponent } from './components/pitara/pitara.component';
     AppComponent,
     HomeComponent,
     ExploreComponent,
-    PitaraComponent
+    PitaraComponent,
+    HeaderbarComponent,
+    BackbarComponent,
+    CardComponent,
+    CardPComponent,
+    PitaraSearchComponent
   ],
   imports: [
     BrowserModule,

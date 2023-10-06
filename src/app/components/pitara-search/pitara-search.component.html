@@ -1,0 +1,62 @@
+<div class="fluid-container">
+  <div class="container">
+    <app-headerbar class="py-5"></app-headerbar>
+    <div class="row pt-5 align-items-center">
+      <div class="col-8 text-center pt-5">
+        <h3 class="text-white">EkStep’s Jadui Pitara</h3>
+        <p class="text-white">This has poems, activities and handbooks</p>
+        <div class="row">
+          <div class="col">
+            <p class="bubble thought" [routerLink]="['/explore']">
+              अपने बच्चों के साथ मिलके कुछ करना चाहते हैं?
+            </p>
+          </div>
+          <div class="col">
+            <p class="bubble thought" [routerLink]="['/explore']">
+              खेल आधारित शिक्षा के बारे में सहायता चाहते हैं?
+            </p>
+          </div>
+          <div class="col">
+            <p class="bubble thought" [routerLink]="['/explore']">कोयि एक जादुई पिटरा खोलना चाहते हैं?</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+          <mat-card class="card-data p-5 text-center">
+            <mat-card-header>
+              <mat-card-title class="text-center w-100">Select your content</mat-card-title>
+            </mat-card-header>
+            <div class="col">
+              <mat-form-field class="w-100">
+                <mat-label>What do you want to do</mat-label>
+                <mat-select [formControl]="category" multiple>
+                  <mat-option *ngFor="let category of categoryList " [value]="category.value">{{category.key}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="w-100">
+                <mat-label>What theme</mat-label>
+                <mat-select [formControl]="theme" multiple>
+                  <mat-option *ngFor="let theme of themeList " [value]="theme.value">{{theme.key}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="w-100">
+                <mat-label>Which type</mat-label>
+                <mat-select [formControl]="type" multiple>
+                  <mat-option *ngFor="let type of typeList " [value]="type.value">{{type.key}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <button mat-raised-button class="me-3 btn-new">
+                Search
+              </button>
+            </div>
+          </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

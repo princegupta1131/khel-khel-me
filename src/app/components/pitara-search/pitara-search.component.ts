@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-pitara-search',
+  templateUrl: './pitara-search.component.html',
+  styleUrls: ['./pitara-search.component.css']
 })
-export class HomeComponent implements OnInit {
+export class PitaraSearchComponent implements OnInit {
 
   category = new FormControl('');
   categoryList = [
@@ -40,7 +39,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  constructor(public router:Router){
+  constructor(){
 
   }
 
@@ -61,7 +60,7 @@ export class HomeComponent implements OnInit {
   //     return (this.theme && this.language) ? (item.theme === this.theme && item.language === this.language && item.typec === this.type) : (this.language && !this.theme) ? (item.language === this.language && item.typec === this.type) : (!this.language && this.theme) ? (item.theme === this.theme && item.typec === this.type) : item.typec === this.type;
   //   })
    }
-   search() {
-    this.router.navigate(['/explore'])
-  }
+  //  search() {
+  //   this.router.navigate(['/explore'])
+  // }
 }
