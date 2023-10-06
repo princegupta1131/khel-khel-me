@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   //     return (this.theme && this.language) ? (item.theme === this.theme && item.language === this.language && item.typec === this.type) : (this.language && !this.theme) ? (item.language === this.language && item.typec === this.type) : (!this.language && this.theme) ? (item.theme === this.theme && item.typec === this.type) : item.typec === this.type;
   //   })
    }
-   clicked() {
+   search() {
     // this.language = '';
     // this.theme = ''
     // this.type = ''
