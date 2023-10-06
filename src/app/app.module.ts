@@ -17,6 +17,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ExploreComponent } from './components/explore/explore.component';
+import { PitaraComponent } from './components/pitara/pitara.component';
 
 
 
@@ -24,7 +25,8 @@ import { ExploreComponent } from './components/explore/explore.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    ExploreComponent
+    ExploreComponent,
+    PitaraComponent
   ],
   imports: [
     BrowserModule,
