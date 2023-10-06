@@ -24,7 +24,7 @@ export class CardComponent implements OnInit {
   {
     id: 2,
     title: "Jackal and the Drum",
-    icon:"../../../assets/icons/jackal-drum.png",
+    icon:"https://i.ytimg.com/vi/CeTMThtg0VQ/maxresdefault.jpg",
     type: "Read Along",
     about: "Animals",
     lan: "English",
@@ -67,7 +67,7 @@ export class CardComponent implements OnInit {
     id: 5,
     title: "आंब्याचं झाड (Mango Tree)",
     type: "Read Along",
-    icon:"../../../assets/icons/MangoTree.png",
+    icon:"https://i.ytimg.com/vi/V8tfQlWimCQ/sddefault.jpg",
     about: "Nature",
     lan: "Marathi",
     url: "https://prathamopenschool.org/CourseContent/Games/Ambyanch_Zad_MR/index.html",
