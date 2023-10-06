@@ -80,10 +80,14 @@ export class CardComponent implements OnInit {
   ]
 
   data = this.source
-
+// showPlayer: boolean=true;
   constructor() { }
 
   ngOnInit() {
   }
 
+  openFile(){
+// this.showPlayer=true
+
+  }
 }
