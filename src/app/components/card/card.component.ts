@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-explore',
-  templateUrl: './explore.component.html',
-  styleUrls: ['./explore.component.scss']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css']
 })
-export class ExploreComponent implements OnInit {
-title = 'Explore';
+export class CardComponent implements OnInit {
 
   source = [{
     id: 1,
@@ -81,9 +80,10 @@ title = 'Explore';
   ]
 
   data = this.source
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
