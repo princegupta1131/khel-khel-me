@@ -208,6 +208,13 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/material@14.2.0":
+  version "14.2.0"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-14.2.0.tgz#915a39bd7c6434ac2465964abb93cecd6034e5d7"
+  integrity sha512-Lh7Ccc6zi5ClFnr5w1ZFVHb5QnOye1si0xWvS5nMQG3e0OPFAt0oOhjILFIBMK7n2jq4kv6erqNX2fLkyRvTQw==
+  dependencies:
+    tslib "^2.3.0"
+
 "@angular/platform-browser-dynamic@^14.2.0":
   version "14.3.0"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-14.3.0.tgz#56b24d0408a0f0d29b84f95ab39ed31774607cbd"
