@@ -1,1 +1,33 @@
-<p>home works!</p>
+<mat-card class="card-data my-4">
+    <mat-card-header>
+      <mat-card-title>Select your content </mat-card-title>
+    </mat-card-header>
+'
+  <mat-form-field>
+    <mat-label>Toppings</mat-label>
+    <mat-select [formControl]="toppings" multiple>
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Toppings</mat-label>
+    <mat-select [formControl]="toppings" multiple>
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Toppings</mat-label>
+    <mat-select [formControl]="toppings" multiple>
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+
+      <div class="col btn">
+        <button mat-raised-button class="clear-button" (click)="clicked()">Clear</button>
+      </div>
+    
+  </mat-card>
