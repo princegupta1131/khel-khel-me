@@ -16,13 +16,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ExploreComponent } from './components/explore/explore.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ExploreComponent
   ],
   imports: [
     BrowserModule,
