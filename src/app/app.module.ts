@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -57,6 +58,8 @@ import {  HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     FormsModule, ReactiveFormsModule,
     HttpClientModule
+    MatChipsModule,
+    FormsModule, ReactiveFormsModule
   ],
   providers: [UtilService],
   bootstrap: [AppComponent]
