@@ -43,40 +43,7 @@
         </div>
       </div>
       <div class="col-sm-12 col-md-4">
-          <mat-card class="card-data p-5 text-center">
-            <mat-card-header>
-              <mat-card-title class="text-center w-100">Select your content</mat-card-title>
-            </mat-card-header>
-            <div class="col">
-              <mat-form-field class="w-100">
-                <mat-label>What do you want to do</mat-label>
-                <mat-select [formControl]="category" multiple>
-                  <mat-option *ngFor="let category of categoryList " [value]="category.value">{{category.key}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-            <div class="col">
-              <mat-form-field class="w-100">
-                <mat-label>What theme</mat-label>
-                <mat-select [formControl]="theme" multiple>
-                  <mat-option *ngFor="let theme of themeList " [value]="theme.value">{{theme.key}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-            <div class="col">
-              <mat-form-field class="w-100">
-                <mat-label>Which type</mat-label>
-                <mat-select [formControl]="type" multiple>
-                  <mat-option *ngFor="let type of typeList " [value]="type.value">{{type.key}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-            <div class="col">
-              <button mat-raised-button class="me-3 btn-new" (click)="search()">
-                Search
-              </button>
-            </div>
-          </mat-card>
+        <app-dropdown-filter></app-dropdown-filter> 
       </div>
     </div>
   </div>

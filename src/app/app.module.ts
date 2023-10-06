@@ -26,6 +26,7 @@ import { CardPComponent } from './components/pitara/card/card.component';
 import { PitaraSearchComponent } from './components/pitara-search/pitara-search.component';
 import { UtilService } from './components/services/utils.service';
 import {  HttpClientModule } from '@angular/common/http';
+import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-filter.component';
 
 
 
@@ -40,7 +41,8 @@ import {  HttpClientModule } from '@angular/common/http';
     BackbarComponent,
     CardComponent,
     CardPComponent,
-    PitaraSearchComponent
+    PitaraSearchComponent,
+    DropdownFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,7 @@ import {  HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatSelectModule,
     FormsModule, ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
     MatChipsModule,
     FormsModule, ReactiveFormsModule
   ],
