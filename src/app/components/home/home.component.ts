@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,12 @@ export class HomeComponent implements OnInit {
   language = new FormControl('');
   languageList: string[] = ['Hindi','English'];
 
- 
 
   ngOnInit(): void {
   }
+  constructor(public router:Router){
 
+  }
 
   themeChange() {
     // this.data = this.source.filter((item) => {
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
   //   })
    }
    search() {
-   console.log('topic',this.topic)
+    this.router.navigate(['/explore'])
+    console.log('topic',this.topic)
   }
 }
