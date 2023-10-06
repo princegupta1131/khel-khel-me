@@ -4,23 +4,23 @@
     </mat-card-header>
 '
   <mat-form-field>
-    <mat-label>Toppings</mat-label>
-    <mat-select [formControl]="toppings" multiple>
-      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+    <mat-label>What do you want to do</mat-label>
+    <mat-select [formControl]="theme" multiple>
+      <mat-option *ngFor="let theme of themeList" [value]="theme">{{theme}}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Toppings</mat-label>
-    <mat-select [formControl]="toppings" multiple>
-      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+    <mat-label>What topic</mat-label>
+    <mat-select [formControl]="topic" multiple>
+      <mat-option *ngFor="let topic of topicList" [value]="topic">{{topic}}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Toppings</mat-label>
-    <mat-select [formControl]="toppings" multiple>
-      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+    <mat-label>Which Language</mat-label>
+    <mat-select [formControl]="language" multiple>
+      <mat-option *ngFor="let language of languageList" [value]="language">{{language}}</mat-option>
     </mat-select>
   </mat-form-field>
 

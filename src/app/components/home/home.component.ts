@@ -8,13 +8,16 @@ import { FormControl } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  toppings = new FormControl('');
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  theme = new FormControl('');
+  themeList: string[] = ['Play','Story','Audio'];
+  topic = new FormControl('');
+  topicList: string[] = ['Animal','Birds'];
+  language = new FormControl('');
+  languageList: string[] = ['Hindi','English'];
 
  
 
   ngOnInit(): void {
-    console.log(this.toppingList)
   }
 
 
@@ -36,9 +39,6 @@ export class HomeComponent implements OnInit {
   //   })
    }
    search() {
-    // this.language = '';
-    // this.theme = ''
-    // this.type = ''
-    // this.data = this.source
+   console.log('topic',this.topic)
   }
 }
