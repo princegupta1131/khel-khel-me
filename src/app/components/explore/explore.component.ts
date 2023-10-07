@@ -21,7 +21,6 @@ vegetables: Vegetable[] = [
     {name: 'Loream item 6'},
   ];
 
-
   constructor() { }
 
   ngOnInit(): void {

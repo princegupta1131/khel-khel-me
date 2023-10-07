@@ -1,0 +1,10 @@
+<div mat-dialog-content>
+ <iframe width="1000" height="1000" [src]="data.artifactUrl | safe" frameborder="0" allowfullscreen></iframe>
+</div>
+<div mat-dialog-actions>
+  <div class="row"></div>
+    <div class="col d-flex justify-content-center">
+      <button class="primary" mat-raised-button color="warn" (click)="onNoClick()">Close</button>
+    </div>
+  
+</div>

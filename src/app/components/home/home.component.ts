@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UtilService } from '../services/utils.service';
+import { UtilService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { UtilService } from '../services/utils.service';
 export class HomeComponent implements OnInit {
 
 
-  result:any;
+  result: any;
 
   constructor(public router: Router, public utils: UtilService) {
 
@@ -19,10 +19,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.utils.search().subscribe((data) => {
-     this.result=data.result
-     console.log(this.result)
+      this.result = data.result.content
+      localStorage.setItem('result', JSON.stringify(this.result))
+      localStorage.removeItem('filteredArray')
+      console.log(this.result)
     })
   }
 
-  
+
 }

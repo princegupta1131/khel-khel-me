@@ -24,12 +24,12 @@ import { BackbarComponent } from './components/backbar/backbar.component';
 import { CardComponent } from './components/card/card.component';
 import { CardPComponent } from './components/pitara/card/card.component';
 import { PitaraSearchComponent } from './components/pitara-search/pitara-search.component';
-import { UtilService } from './components/services/utils.service';
+import { UtilService } from './services/utils.service';
 import {  HttpClientModule } from '@angular/common/http';
 import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-filter.component';
-
-
-
+import { SafePipe } from './pipes/safe.pipe';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,9 @@ import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-f
     CardComponent,
     CardPComponent,
     PitaraSearchComponent,
-    DropdownFilterComponent
+    DropdownFilterComponent,
+    SafePipe,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +63,7 @@ import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-f
     FormsModule, ReactiveFormsModule,
     HttpClientModule,
     MatChipsModule,
+    MatDialogModule,
     FormsModule, ReactiveFormsModule
   ],
   providers: [UtilService],
