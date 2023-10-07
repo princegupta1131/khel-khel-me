@@ -17,7 +17,7 @@ const routes: Routes = [
     path: 'pitara', component: PitaraComponent
   },
   {
-    path: 'pitara-search', component: PitaraSearchComponent
+    path: 'pitara-search/:id', component: PitaraSearchComponent
   },
 ];
 
