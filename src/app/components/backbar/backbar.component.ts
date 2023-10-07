@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-backbar',
@@ -7,9 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BackbarComponent implements OnInit {
   @Input() title: any; 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
   }
+goBack(){
+  this.location.back()
 
+}
 }
