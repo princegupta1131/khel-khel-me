@@ -4,12 +4,11 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-pcard',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  styleUrls: ['./card.component.scss']
 })
 export class CardPComponent implements OnInit {
 
 data:any;
- 
   constructor(public router:Router) { }
 
   ngOnInit() {
@@ -20,6 +19,5 @@ data:any;
   unboxPitara(value){
     this.router.navigate(['pitara-search', value.identifier])
   }
-
 
 }

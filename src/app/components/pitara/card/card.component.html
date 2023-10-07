@@ -1,7 +1,7 @@
-<mat-card class="pt-box-card" *ngFor="let content of data;let i=index" (click)="unboxPitara(content)">
+<mat-card class="pt-box-card" *ngFor="let content of data;let i=index" >
   <div class="pb-3"><img src="{{content.icon}}" alt="" width="100%"></div>
-  <mat-card-title>{{content.name}}</mat-card-title>
-  <mat-card-content>
+  <mat-card-title (click)="unboxPitara(content)">{{content.name}}</mat-card-title>
+  <mat-card-content (click)="unboxPitara(content)">
     <p>{{content.description}}</p>
   </mat-card-content>
   <mat-card-actions>

@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-pitara-search',
   templateUrl: './pitara-search.component.html',
-  styleUrls: ['./pitara-search.component.css']
+  styleUrls: ['./pitara-search.component.scss']
 })
 export class PitaraSearchComponent implements OnInit {
 
