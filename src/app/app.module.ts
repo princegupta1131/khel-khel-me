@@ -30,6 +30,7 @@ import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-f
 import { SafePipe } from './pipes/safe.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { PitaraContentboxComponent } from './components/pitara-contentbox/pitara-contentbox.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     PitaraSearchComponent,
     DropdownFilterComponent,
     SafePipe,
-    DialogComponent
+    DialogComponent,
+    PitaraContentboxComponent
   ],
   imports: [
     BrowserModule,

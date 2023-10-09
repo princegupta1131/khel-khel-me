@@ -1,55 +1,17 @@
-<div class="fluid-container">
-  <!-- <mat-toolbar color="primary">
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span><img src="./../../../assets/images/khelkhelme2.svg" width="188"></span>
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-          <mat-icon>share</mat-icon>
-        </button>
-      </mat-toolbar> -->
-
-  <div class="container">
+<div class="container">
     <app-headerbar></app-headerbar>
-    <div class="row pt-5 text-center">
-      <div class="py-5">
-        <h1 class="h1 text-white">World of Jadui Pitara</h1>
+    <div class="row pt-3 text-center">
+      <div class="p-5">
+        <h1 class="display-4 text-white">World of Jadui Pitara</h1>
         <p class="text-white h4">You have the option to dive into Pitaras and explore its diverse content, encompassing
           poems, activities, and handbooks. Alternatively, you can choose to initiate your search autonomously.</p>
       </div>
-      <div class="col-sm-12 col-md-8">
-        <div class="row">
-          <div class="col">
-            <p class="bubble speech light-blue" [routerLink]="['/pitara']"><img width="48"
-                src="https://cdn-icons-png.flaticon.com/512/867/867920.png"><br> एक जादुई पिटरा खोलना चाहते हैं?</p>
-          </div>
-          <div class="col">
-            <p class="bubble thought">
-              <img width="48" src="https://cdn-icons-png.flaticon.com/512/11497/11497742.png">
-              <br>
-              अपने बच्चों के साथ मिलके कुछ करना चाहते हैं?
-            </p>
-          </div>
-          <div class="col">
-            <p class="bubble thought">
-              <img width="48" src="https://cdn-icons-png.flaticon.com/512/11497/11497742.png"><br> खेल आधारित शिक्षा के
-              बारे में सहायता चाहते हैं?
-            </p>
-          </div>
-          <div class="col">
-            <p class="bubble thought"><img width="48"
-                src="https://cdn-icons-png.flaticon.com/512/11497/11497742.png"><br>कोयि एक जादुई पिटरा खोलना चाहते हैं?
-            </p>
-          </div>
-        </div>
+      <div class="col-sm-12 col-md-12 col-lg-7 d-flex align-items-lg-center justify-content-center" style="height: 26.25rem;">
+       <app-pitara-contentbox></app-pitara-contentbox>
       </div>
-      <div class="col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-12 col-lg-5">
         <app-dropdown-filter></app-dropdown-filter>
       </div>
     </div>
+
   </div>
-</div>

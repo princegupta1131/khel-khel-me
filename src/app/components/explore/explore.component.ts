@@ -11,11 +11,11 @@ export interface Vegetable {
 
 export class ExploreComponent implements OnInit {
 title = 'Explore';
-
+data: any = JSON.parse(localStorage.getItem('filteredArray'));
 vegetables: Vegetable[] = [
-    {name: 'Loream item1'},
-    {name: 'Lorep item2'},
-    {name: 'Lomip item3'},
+    {name: 'Recently added'},
+    {name: 'Top rated'},
+    {name: 'Featured'},
     {name: 'item4'},
     {name: 'Loream item 5'},
     {name: 'Loream item 6'},
