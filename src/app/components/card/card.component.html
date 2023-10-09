@@ -1,12 +1,33 @@
 
-  <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" (click)="openDialog(content)">
-    <mat-card-header>
-      <mat-card-title>{{content.name}}</mat-card-title>
-      <mat-card-subtitle>This is a {{content.primaryCategory}}</mat-card-subtitle>
-    </mat-card-header>
-    <div style="max-height:228px;overflow: hidden;"><img mat-card-image src="{{icon}}" alt="Photo of a Shiba Inu"></div>
+  <mat-card *ngFor="let content of data;let i=index" (click)="openDialog(content)" class="pt-box-card">
+      <mat-card-header>
+        <mat-card-title>{{content.name}}</mat-card-title>
+        <mat-card-subtitle>This is a {{content.primaryCategory}}</mat-card-subtitle>
+      </mat-card-header>
+      <div style="max-height:228px;overflow: hidden;"><img mat-card-image src="{{content.appIcon}}" alt="Photo of a Shiba Inu"></div>
   </mat-card>
 
 
+  <!-- <mat-card *ngIf="!isPlayerInit"class="pt-box-card">
+    <div  *ngFor="let content of data;let i=index" (click)="openPlayerPage(content)">
+      <mat-card-header>
+        <mat-card-title>{{content.name}}</mat-card-title>
+        <mat-card-subtitle>This is a {{content.primaryCategory}}</mat-card-subtitle>
+      </mat-card-header>
+      <div style="max-height:228px;overflow: hidden;"><img mat-card-image src="{{content.appIcon}}" alt="Photo of a Shiba Inu"></div>
 
+    </div>
+    
+  </mat-card>
+
+
+  <mat-card *ngIf="isPlayerInit">
+    <button matSuffix matTooltip="Back" class="back-btn"
+      (click)="exitPlayerPage()"><mat-icon>arrow_back</mat-icon></button>
+    <br>
+    <br>
+    <lib-player [playerData]="playerData"></lib-player>
+  </mat-card>
+
+ -->
 

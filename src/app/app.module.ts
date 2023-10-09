@@ -30,6 +30,8 @@ import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-f
 import { SafePipe } from './pipes/safe.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { PlayerComponent } from './components/player/player.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     PitaraSearchComponent,
     DropdownFilterComponent,
     SafePipe,
-    DialogComponent
+    DialogComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     FormsModule, ReactiveFormsModule
   ],
   providers: [UtilService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
 export class AppModule { }

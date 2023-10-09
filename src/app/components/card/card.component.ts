@@ -10,13 +10,14 @@ import { MatDialog } from '@angular/material/dialog';
 export class CardComponent implements OnInit {
   data: any = JSON.parse(localStorage.getItem('filteredArray'));
   icon:any;
-showPlayer: boolean=false;
 playerSource:any;
+  playerData: any;
+  isPlayerInit: boolean=false;
+  isContentInit: boolean=true;
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.icon="https://i.ytimg.com/vi/CeTMThtg0VQ/maxresdefault.jpg"
-    this.showPlayer=false
+   
   }
 
   openDialog(data: any): void {
@@ -29,5 +30,16 @@ playerSource:any;
     dialogRef.afterClosed().subscribe(result => {
     });
   
+}
+
+openPlayerPage(value: any) {
+  this.playerData = value;
+  console.log(value, 'test');
+  this.isPlayerInit = true;
+  this.isContentInit = false;
+}
+exitPlayerPage() {
+  this.isPlayerInit = false;
+  this.isContentInit = true;
 }
 }

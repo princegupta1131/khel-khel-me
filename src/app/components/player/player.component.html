@@ -1,0 +1,5 @@
+<h4>Title : {{playerData?.name}}</h4>
+<br>
+<div class="container">
+<div class="video" #video *ngIf="playerData.mimeType === 'video/mp4' || playerData.mimeType ==='video/webm'|| playerData.mimeType==='video/x-youtube'" ></div>
+<div class="pdf" #pdf class="pdf-player-container" *ngIf="playerData.mimeType === 'application/pdf'"> </div>

@@ -1537,6 +1537,16 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@project-sunbird/sunbird-pdf-player-web-component@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@project-sunbird/sunbird-pdf-player-web-component/-/sunbird-pdf-player-web-component-1.1.0.tgz#ccdfc67e04dc78883b8c5c331daf0d9a233d3378"
+  integrity sha512-upzGIRzRh8iOrkCFnmey/1DI9h9iyw110sXj6DluoobyonN0uXhrBwxk+oOiROGVAgm7hpTtrobGVzhGpEf40A==
+
+"@project-sunbird/sunbird-video-player-web-component@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@project-sunbird/sunbird-video-player-web-component/-/sunbird-video-player-web-component-1.0.1.tgz#645683d6e0cfe2b91741ad3b6081c759ed5a8ac8"
+  integrity sha512-mYLHCYguwyNyMdc9Y8dgtPN1upu03MFS1htLPc1RuLDQ8ujHZDQCiasVurDlDVyBWEx+qxH7HeshQDngOfCHgA==
+
 "@schematics/angular@14.2.13":
   version "14.2.13"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-14.2.13.tgz#35ee9120a3ac07077bad169fa74fdf4ce4e193d7"
@@ -4014,6 +4024,11 @@ jest-worker@^27.4.5:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
+jquery@^3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.7.1.tgz#083ef98927c9a6a74d05a6af02806566d16274de"
+  integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
+
 js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -5537,7 +5552,7 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
-reflect-metadata@^0.1.2:
+reflect-metadata@^0.1.13, reflect-metadata@^0.1.2:
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
   integrity sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==

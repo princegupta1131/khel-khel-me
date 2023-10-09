@@ -1,5 +1,8 @@
 <div mat-dialog-content>
- <iframe width="1000" height="1000" [src]="data.artifactUrl | safe" frameborder="0" allowfullscreen></iframe>
+ <iframe width="1000" height="500" [src]="data.artifactUrl | safe" frameborder="0" ></iframe>
+ <!-- <div class="video" #video *ngIf="data.mimeType === 'video/mp4' || data.mimeType ==='video/webm'" ></div>
+ <div class="pdf" #pdf class="pdf-player-container" *ngIf="data.mimeType === 'application/pdf'"> </div>
+  -->
 </div>
 <div mat-dialog-actions>
   <div class="row"></div>
