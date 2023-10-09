@@ -34,4 +34,9 @@ export class UtilService {
     }
     return this.http.post(url, body)
   }
+
+  collectionRead(doId): Observable<any> {
+    const url = `https://sunbirdsaas.com/action/content/v3/hierarchy/${doId}`
+    return this.http.get(url)
+  }
 }

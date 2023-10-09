@@ -35,20 +35,20 @@ export class DropdownFilterComponent implements OnInit {
     { key: 'Interactives', value: 'djp_type_interactive' },
     { key: 'Games', value: 'djp_type_game' }
   ];
+  data: any
   constructor(public router: Router) { }
-  data: any = JSON.parse(localStorage.getItem('result'))
   ngOnInit(): void {
+    this.data = JSON.parse(localStorage.getItem('result'))
   }
 
   search() {
     const arr = [this.category.value, this.theme.value, this.type.value];
     const searchArray = arr.flat().filter((e) => e);
     let filteredArray = this.data.filter((content: any) => {
-      return content.keywords.some((item: any) => { return searchArray.includes(item) }) && content.mimeType !== 'application/vnd.ekstep.content-collection'
+      return content.keywords ? content.keywords.some((item: any) => { return searchArray.includes(item) }) && content.mimeType !== 'application/vnd.ekstep.content-collection' : false
     })
-   console.log(filteredArray)
-   localStorage.setItem('filteredArray',JSON.stringify(filteredArray))
-   if(filteredArray.length)
-   this.router.navigate(['explore'])
+    console.log(filteredArray)
+    localStorage.setItem('filteredArray', JSON.stringify(filteredArray))
+    this.router.navigate(['explore'])
   }
 }

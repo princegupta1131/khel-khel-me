@@ -3,9 +3,9 @@
     <app-headerbar class="py-5"></app-headerbar>
     <div class="row pt-5 align-items-center">
       <div class="col-8 text-center pt-5">
-        <h3 class="text-white">{{data.name}}</h3>
-        <p class="text-white">{{data.description}}</p>
-        <div class="row">
+        <h3 *ngIf="data" class="text-white">{{data.name}}</h3>
+        <p *ngIf="data" class="text-white">{{data.description}}</p>
+        <div class="row"> 
           <div class="col">
             <p class="bubble thought">
               अपने बच्चों के साथ मिलके कुछ करना चाहते हैं?

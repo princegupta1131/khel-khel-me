@@ -1,4 +1,4 @@
-
+<ng-container *ngIf="data.length">
   <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" (click)="openDialog(content)">
     <mat-card-header>
       <mat-card-title>{{content.name}}</mat-card-title>
@@ -6,7 +6,8 @@
     </mat-card-header>
     <div style="max-height:228px;overflow: hidden;"><img mat-card-image src="{{icon}}" alt="Photo of a Shiba Inu"></div>
   </mat-card>
+</ng-container>
 
-
-
-
+<span *ngIf="!data.length">
+  No contents found for the provided filter
+</span>
