@@ -1,0 +1,15 @@
+mat-card {
+    border-radius: 1.5rem;
+   :after{
+    content: '';
+    position: absolute;
+    width: 102%;
+    background: #b23275;
+    top: 0.25rem;
+    left: 0;
+    height: 105%;
+    z-index: -1;
+    border-radius: 2rem;
+   }
+
+}

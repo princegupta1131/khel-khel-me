@@ -1,4 +1,15 @@
+/* @import './../../../../node_modules/bootstrap/scss/mixins'; */
 
 .mat-toolbar.pt_navbar {
 	background: none !important;
+	align-items: center;
+    justify-content: center;
+	height: auto;
+}
+
+.logo {
+	width: 100%;
+	/* @include media-breakpoint-up(sm) { 
+		width:40rem;
+	 } */
 }

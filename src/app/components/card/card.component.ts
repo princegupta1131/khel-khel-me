@@ -15,13 +15,14 @@ playerSource:any;
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.icon="https://i.ytimg.com/vi/CeTMThtg0VQ/maxresdefault.jpg"
+    // this.icon="https://i.ytimg.com/vi/CeTMThtg0VQ/maxresdefault.jpg"
     this.showPlayer=false
   }
 
   openDialog(data: any): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      // width: '500px',
+      height: 'auto',
+      width: '80rem',
       data: data
   
     });

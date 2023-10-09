@@ -28,7 +28,8 @@ export class UtilService {
           "mimeType",
           "primaryCategory",
           "status",
-          "artifactUrl"
+          "artifactUrl",
+          "appIcon"
         ]
       }
     }
