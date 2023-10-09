@@ -8,15 +8,14 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  data: any = JSON.parse(localStorage.getItem('filteredArray'));
-  icon:any;
-showPlayer: boolean=false;
 playerSource:any;
-  constructor(public dialog: MatDialog) { }
+data:any
+  constructor(public dialog: MatDialog) { 
+    this.data = JSON.parse(localStorage.getItem('filteredArray'));
+
+  }
 
   ngOnInit() {
-    // this.icon="https://i.ytimg.com/vi/CeTMThtg0VQ/maxresdefault.jpg"
-    this.showPlayer=false
   }
 
   openDialog(data: any): void {

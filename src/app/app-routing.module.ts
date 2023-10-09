@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { PitaraComponent } from './components/pitara/pitara.component';
-import { PitaraSearchComponent } from './components/pitara-search/pitara-search.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,10 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'pitara', component: PitaraComponent
-  },
-  {
-    path: 'pitara-search/:id', component: PitaraSearchComponent
-  },
+  }
 ];
 
 @NgModule({

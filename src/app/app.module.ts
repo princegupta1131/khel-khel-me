@@ -23,14 +23,11 @@ import { HeaderbarComponent } from './components/headerbar/headerbar.component';
 import { BackbarComponent } from './components/backbar/backbar.component';
 import { CardComponent } from './components/card/card.component';
 import { CardPComponent } from './components/pitara/card/card.component';
-import { PitaraSearchComponent } from './components/pitara-search/pitara-search.component';
 import { UtilService } from './services/utils.service';
 import {  HttpClientModule } from '@angular/common/http';
-import { DropdownFilterComponent } from './components/dropdown-filter/dropdown-filter.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { PitaraContentboxComponent } from './components/pitara-contentbox/pitara-contentbox.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +39,9 @@ import { PitaraContentboxComponent } from './components/pitara-contentbox/pitara
     BackbarComponent,
     CardComponent,
     CardPComponent,
-    PitaraSearchComponent,
-    DropdownFilterComponent,
     SafePipe,
     DialogComponent,
-    PitaraContentboxComponent
+    
   ],
   imports: [
     BrowserModule,

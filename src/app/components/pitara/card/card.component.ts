@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UtilService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-pcard',
@@ -8,16 +9,23 @@ import { Router } from '@angular/router';
 })
 export class CardPComponent implements OnInit {
 
-data:any;
-  constructor(public router:Router) { }
+  data: any;
+  result: any
+  constructor(public router: Router, public utils: UtilService) { }
 
   ngOnInit() {
-    const result = JSON.parse(localStorage.getItem('result'));
-     this.data = result.filter((content: any) =>  content.mimeType === 'application/vnd.ekstep.content-collection')
+    this.data = JSON.parse(localStorage.getItem('result'));
+    localStorage.removeItem('filteredArray')
   }
 
-  unboxPitara(value){
-    this.router.navigate(['pitara-search', value.identifier])
+  unboxPitara(value) {
+    this.utils.collectionRead(value.identifier).subscribe((data) => {
+      this.result = data.result.content
+      localStorage.setItem('filteredArray', JSON.stringify(this.result.children[0].children))
+      this.router.navigate(['explore'])
+    })
+
+
   }
 
 }

@@ -1,16 +1,15 @@
-
 <mat-card class="pt-box-card" *ngFor="let content of data;let i=index">
   <mat-card-title-group>
-    <img mat-card-sm-image src="{{content.appIcon}}" alt="content image" >
+    <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
     <mat-card-title>{{content.name}}</mat-card-title>
     <mat-card-subtitle>{{content.description}}</mat-card-subtitle>
   </mat-card-title-group>
-  <!-- <mat-card-content>
-    This is a {{content.primaryCategory}}
-  </mat-card-content> -->
   <mat-card-actions class="d-flex justify-content-between">
-    <div><button mat-button><mat-icon aria-hidden="false" aria-label="favorite icon" fontIcon="favorite"></mat-icon></button>
-      <button mat-button><mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon></button></div>
-    <button mat-button color="primary" (click)="unboxPitara(content)"><mat-icon aria-hidden="false" aria-label="share icon" fontIcon="east"></mat-icon> Open</button>
+    <div><button mat-button><mat-icon aria-hidden="false" aria-label="favorite icon"
+          fontIcon="favorite"></mat-icon></button>
+      <button mat-button><mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon></button>
+    </div>
+    <button mat-button color="primary" (click)="unboxPitara(content)"><mat-icon aria-hidden="false"
+        aria-label="share icon" fontIcon="east"></mat-icon> Open</button>
   </mat-card-actions>
 </mat-card>
