@@ -1,0 +1,32 @@
+<div class="container">
+  <!-- <app-headerbar></app-headerbar> -->
+  <app-backbar [title]="title"></app-backbar>
+
+  <mat-chip-list aria-label="Fish selection">
+    <mat-chip><mat-icon>apps</mat-icon><span>All</span></mat-chip>
+    <mat-chip color="primary" selected> <img matChipAvatar src="https://cdn-icons-png.flaticon.com/512/7082/7082148.png" alt="Photo of a Shiba Inu"/> <span>Toys and puppets</span></mat-chip>
+    <mat-chip><img matChipAvatar src="   https://cdn-icons-png.flaticon.com/512/10203/10203507.png " alt="Photo of a Shiba Inu"/> <span>Puzzles and games</span></mat-chip>
+    <mat-chip><img matChipAvatar src="https://cdn-icons-png.flaticon.com/512/3500/3500690.png" alt="Photo of a Shiba Inu"/> <span>Stories and poems</span></mat-chip>
+    <mat-chip><img matChipAvatar src="https://cdn-icons-png.flaticon.com/512/3813/3813681.png" alt="Photo of a Shiba Inu"/> <span>Flashcards and sequence cards</span></mat-chip>
+    <mat-chip><img matChipAvatar src="https://cdn-icons-png.flaticon.com/512/1668/1668531.png " alt="Photo of a Shiba Inu"/> <span>Activity Sheets</span></mat-chip>
+    <mat-chip><img matChipAvatar src="https://cdn-icons-png.flaticon.com/512/6348/6348248.png" alt="Photo of a Shiba Inu"/> <span>Manuals and Guidebooks</span></mat-chip>
+  </mat-chip-list>
+  <div class="row">
+    <!-- <div class="col-sm-12 col-sm-12 col-lg-3 text-white p-3">
+      <h4>Filters</h4>
+      <mat-chip-list
+  class="example-chip">
+  <mat-chip
+    class="example-box"
+    cdkDrag
+    *ngFor="let vegetable of vegetables">
+    {{vegetable.name}}
+  </mat-chip>
+</mat-chip-list>
+    </div> -->
+    <div class="col-sm-12 col-sm-12 col-lg-12 mt-2">
+      <h4 class="h4 text-white">Theme name</h4>
+      <app-card class="pt-box-card-container"></app-card>
+    </div>
+  </div>
+  </div>

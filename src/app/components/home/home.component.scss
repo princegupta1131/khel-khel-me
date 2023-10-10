@@ -1,0 +1,54 @@
+
+/* @import './../../../../node_modules/bootstrap/scss/mixins'; */
+
+.mat-toolbar.pt_navbar {
+	background: none !important;
+	align-items: center;
+    justify-content: center;
+	height: auto;
+}
+
+.logo {
+	width: 100%;
+	/* @include media-breakpoint-up(sm) { 
+		width:40rem;
+	 } */
+}
+
+$blue: #0E3E4E;
+$dark: #222226;
+
+body {
+    background: $dark;
+}
+
+
+
+svg {
+    width: 100%;
+}
+
+#Path-4,
+#Path-2,
+#Path-3 {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 5s linear infinite;
+}
+
+@keyframes dash {
+    from {
+        stroke-dashoffset: 1000;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes gleam {
+    100% {
+        fill: #D69E00;
+        opacity: 0.8;
+    }
+}
