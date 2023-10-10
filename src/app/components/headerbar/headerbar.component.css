@@ -8,7 +8,9 @@
 }
 
 .logo {
-	width: 100%;
+	text-align: center;
+	min-width: 12rem;
+	max-width: 20rem;
 	/* @include media-breakpoint-up(sm) { 
 		width:40rem;
 	 } */

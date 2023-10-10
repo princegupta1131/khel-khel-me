@@ -9,7 +9,6 @@ export class PitaraComponent implements OnInit {
   title = 'Pitara';
   data: any;
   constructor() { }
-
   ngOnInit(): void {
     const result = JSON.parse(localStorage.getItem('result'));
     this.data = result.filter((content: any) => content.mimeType === 'application/vnd.ekstep.content-collection')

@@ -1,10 +1,5 @@
-<div class="container">
-  <mat-card class="pt-box-card">
-
-    <app-headerbar></app-headerbar>
-
-    
-<svg width="1961px" height="500px" viewBox="-797 -97 1961 927" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<div class="container d-flex align-items-center justify-content-center flex-column" style="height: 100vh;">
+<svg width="100%" height="100%" class="py-5" style="width: 100%;position:absolute;top:0;left:0;height:100%;z-index:-1;" viewBox="-797 -97 1961 927" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g id="Group" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-797.000000, -97.000000)">
       <polygon id="star21" fill="#F8BF1C" points="15.5 254 6.38932859 258.944272 8.129312 248.472136 0.758623997 241.055728 10.9446643 239.527864 15.5 230 20.0553357 239.527864 30.241376 241.055728 22.870688 248.472136 24.6106714 258.944272"></polygon>
       <polygon id="star16" fill="#F8BF1C" points="1177.5 405 1168.38933 409.944272 1170.12931 399.472136 1162.75862 392.055728 1172.94466 390.527864 1177.5 381 1182.05534 390.527864 1192.24138 392.055728 1184.87069 399.472136 1186.61067 409.944272"></polygon>
@@ -45,15 +40,20 @@
       <polygon id="star26" fill="#F8BF1C" points="1808.5 671 1799.38933 675.944272 1801.12931 665.472136 1793.75862 658.055728 1803.94466 656.527864 1808.5 647 1813.05534 656.527864 1823.24138 658.055728 1815.87069 665.472136 1817.61067 675.944272"></polygon>
   </g>
 </svg>
-    <mat-card-actions class="d-flex justify-content-between">
-      <div class="col-sm-12 col-md-12 col-lg-12 d-flex align-items-lg-center justify-content-center">
-        <button mat-raised-button class="mt-3 btn-new d-flex align-items-center" [routerLink]="['/pitara']">
-          &#8594;
-        </button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
 
-
+<div class="py-3 text-center text-white container" style="display: flex;
+justify-content: space-evenly;
+flex-direction: column;
+align-items: center;
+height: 100%;">
+<app-headerbar></app-headerbar>
+  <div class="p-3">
+    <h1 class="h1">World of Jadui Pitara</h1>
+<p class="h4">You can either explore Pitaras' diverse content or search on your own.</p>
+<button mat-raised-button class="mt-3 btn-new" [routerLink]="['/pitara']">
+  <mat-icon aria-hidden="false" aria-label="Get started icon" fontIcon="arrow_forward"></mat-icon> Get started
+</button>
+  </div>
+</div>
 
 </div>

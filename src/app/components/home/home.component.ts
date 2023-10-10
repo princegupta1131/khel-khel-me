@@ -10,6 +10,7 @@ import { UtilService } from '../../services/utils.service';
 })
 export class HomeComponent implements OnInit {
   result: any;
+  hideback:true;
   constructor(public router: Router, public utils: UtilService) {}
 
   ngOnInit(): void {
