@@ -28,6 +28,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './pipes/safe.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { LocalStorageService } from './services/localStorage.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatDialogModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [UtilService],
+  providers: [UtilService,LocalStorageService],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })

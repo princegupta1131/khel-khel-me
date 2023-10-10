@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UtilService } from '../../services/utils.service';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,12 @@ import { UtilService } from '../../services/utils.service';
 export class HomeComponent implements OnInit {
   result: any;
   hideback:true;
-  constructor(public router: Router, public utils: UtilService) {}
+  constructor(public router: Router, public utils: UtilService,private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
     this.utils.search().subscribe((data) => {
       this.result = data.result.content
-      localStorage.setItem('result', JSON.stringify(this.result))
+      this.localStorageService.setItem('result', JSON.stringify(this.result))
     })
   }
 
