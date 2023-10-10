@@ -1,5 +1,5 @@
-<ng-container *ngIf="data.length">
-  <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" (click)="openDialog(content)">
+<ng-container *ngIf="data.length && !isPlayerInit"> 
+  <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" (click)="openPlayerPage(content)">
     <mat-card-title-group>
       <img mat-card-sm-image src="{{content.appIcon}}" alt="content image" >
       <mat-card-title>{{content.name}}</mat-card-title>
@@ -7,3 +7,13 @@
     </mat-card-title-group>
   </mat-card>
 </ng-container>
+
+
+
+<mat-card *ngIf="isPlayerInit">
+  <button matSuffix matTooltip="Back" class="back-btn"
+    (click)="exitPlayerPage()"><mat-icon>arrow_back</mat-icon></button>
+  <br>
+  <br>
+  <lib-player [playerData]="value"></lib-player>
+</mat-card>

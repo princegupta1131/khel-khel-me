@@ -28,6 +28,10 @@ import {  HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './pipes/safe.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { PlayerComponent } from './components/player/player.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +45,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     CardPComponent,
     SafePipe,
     DialogComponent,
-    
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatDialogModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [UtilService],
+  providers: [UtilService,DeviceDetectorService,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
