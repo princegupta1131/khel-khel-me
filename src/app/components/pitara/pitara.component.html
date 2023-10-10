@@ -1,5 +1,10 @@
 <div class="container">
-<app-headerbar></app-headerbar>
+<!-- <app-headerbar></app-headerbar> -->
 <app-backbar [title]="title"></app-backbar>
-<app-pcard class="pt-box-card-container"></app-pcard>
+<app-pcard class="pt-box-card-container" style="overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+display: grid;
+grid-gap: 1rem;
+grid-auto-flow: column;
+grid-auto-columns: calc(100% - 2rem);padding-bottom:2rem;grid-auto-columns: minmax(20rem, auto);"></app-pcard>
 </div>
