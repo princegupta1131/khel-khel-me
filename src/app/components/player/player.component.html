@@ -1,24 +1,7 @@
-<h4>Title : {{playerData?.name}}</h4>
-<h2>{{playerData?.mimeType}}</h2>
-<br>
 <div class="container">
-    <div class="content-player">
-        <iframe #preview id="contentPlayer"   title="Content Player" class="contentViewerIframeShadow" name="contentPlayer" src="/assets/content-player/preview.html?webview=true" width="1000" height="1000"></iframe>
-      </div>
-    <!-- <div *ngIf="isMobileOrTab" >
-        <div data-ratio="16:9" class="player-thumbnail" 
-        *ngIf="showPlayIcon" id="contentPlayer" tabindex="0" >
-        <img class="play-icon" src="assets/images/play_circle.svg">
-      </div>
-      <div id="playerFullscreen" *ngIf="!showPlayIcon" > 
-        <img appTelemetryInteract [telemetryInteractObject]="telemetryInteractObject" [telemetryInteractEdata]="closeButtonInteractEdata" (click)="closeFullscreen()" class="close-button" src="assets/images/close-Black.svg" alt=""> 
-        <iframe #contentIframe id="contentPlayer" *ngIf="playerData.mimeType==='video/x-youtube'" title="Content Player" [src]="playerData.artifactUrl | safe" frameborder="0" title="{{playerData.name}}" aria-label="Content Player" class="contentViewerIframeShadow" name="contentPlayer"></iframe>
-      </div>
-    </div>
-
-<div id="playerFullscreen"  class="player-fullscreen" [ngStyle]="{'display': mobileViewDisplay}"> 
-
-<div class="video" #video *ngIf="playerData.mimeType === 'video/mp4' || playerData.mimeType ==='video/webm' " ></div>
-<div class="pdf" #pdf class="pdf-player-container" *ngIf="playerData.mimeType === 'application/pdf'"> </div>
---></div> 
-
+  <div id="playerFullscreen" class="player-fullscreen" [ngStyle]="{'display': mobileViewDisplay}">
+    <img (click)="closeFullscreen()" class="close-button" src="assets/images/close-Black.svg" alt="">
+    <iframe #preview id="contentPlayer" title="Content Player" class="contentViewerIframeShadow" name="contentPlayer"
+      src="/assets/content-player/preview.html?webview=true" frameborder="0" aria-label="Content Player"></iframe>
+  </div>
+</div>

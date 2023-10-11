@@ -1,7 +1,8 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { playerConfig } from './playerConfig';
 import * as _ from 'lodash-es';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import * as $ from "jquery";
 
 
 @Component({
@@ -19,12 +20,15 @@ export class PlayerComponent implements OnInit {
   mobileViewDisplay = 'block';
   isMobileOrTab: boolean;
   playerConfiguration: any;
-
+  @Output() closePlayerscreen = new EventEmitter();
   @HostListener('window:orientationchange', ['$event'])
   public handleOrientationChange() {
     const screenType = _.get(screen, 'orientation.type');
     if (screenType === 'portrait-primary' || screenType === 'portrait-secondary') {
       this.closeFullscreen();
+      if (this.isMobileOrTab) {
+        this.closePlayerscreen.emit('closed')
+      }
     }
   }
   constructor(private deviceDetectorService: DeviceDetectorService) { }
@@ -50,7 +54,7 @@ export class PlayerComponent implements OnInit {
     this.previewElement.nativeElement.src = src;
     this.previewElement.nativeElement.onload = () => {
       setTimeout(() => {
-
+        this.adjustPlayerHeight();
         this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfiguration);
         this.previewElement.nativeElement.contentWindow.addEventListener('message', resp => {
           if (resp.data && typeof resp.data === 'object') {
@@ -69,6 +73,7 @@ export class PlayerComponent implements OnInit {
 
     this.previewElement.nativeElement.onload = () => {
       console.log('onloadd')
+      this.adjustPlayerHeight();
       this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfiguration);
     };
   }
@@ -135,5 +140,22 @@ export class PlayerComponent implements OnInit {
         screen.orientation.lock('landscape');
       } catch (error) { }
     });
+  }
+  /**
+  * Adjust player height after load
+  */
+  adjustPlayerHeight() {
+    const playerWidth = $('#contentPlayer').width();
+    if (playerWidth) {
+      let height = playerWidth * (9 / 16);
+      let width = playerWidth * (16 / 9);
+
+      if (_.get(screen, 'orientation.type') === 'landscape-primary' && this.isMobileOrTab) {
+        height = window.innerHeight;
+        width = window.innerWidth
+      }
+      $('#contentPlayer').css('height', height + 'px');
+      $('#contentPlayer').css('width', width + 'px');
+    }
   }
 }

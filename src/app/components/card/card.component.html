@@ -18,5 +18,5 @@
     (click)="exitPlayerPage()"><mat-icon>arrow_back</mat-icon></button>
   <br>
   <br>
-  <lib-player [playerData]="value"></lib-player>
+  <lib-player [playerData]="value"(closePlayerscreen)='handleClose($event)'></lib-player>
 </mat-card>

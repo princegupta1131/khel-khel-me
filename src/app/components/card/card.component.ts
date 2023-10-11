@@ -38,4 +38,7 @@ export class CardComponent implements OnInit {
     this.isPlayerInit = false;
     this.isContentInit = true;
   }
+  handleClose(data){
+    this.isPlayerInit = false;
+    this.isContentInit = true;  }
 }
