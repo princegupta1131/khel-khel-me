@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { Subscription } from 'rxjs';
@@ -12,6 +11,9 @@ import { Subscription } from 'rxjs';
 export class CardComponent implements OnInit {
   playerSource: any;
   data: any
+  isPlayerInit: boolean=false;
+  isContentInit: boolean=true;
+  value: any;
   localStorageSubscription: Subscription;
 
   constructor(public dialog: MatDialog, private localStorageService: LocalStorageService) {
@@ -26,16 +28,14 @@ export class CardComponent implements OnInit {
     this.data = JSON.parse(localStorage.getItem('filteredArray'));
   }
 
-  openDialog(data: any): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      height: 'auto',
-      width: '80rem',
-      data: data
-
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-    });
-
+  openPlayer(content: any) {
+    this.value = content;
+    console.log(this.value, 'test');
+    this.isPlayerInit = true;
+    this.isContentInit = false;
+  }
+  exitPlayerPage() {
+    this.isPlayerInit = false;
+    this.isContentInit = true;
   }
 }

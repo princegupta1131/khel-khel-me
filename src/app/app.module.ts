@@ -27,8 +27,8 @@ import { UtilService } from './services/utils.service';
 import {  HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './pipes/safe.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from './components/dialog/dialog.component';
 import { LocalStorageService } from './services/localStorage.service';
+import { PlayerComponent } from './components/player/player.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +40,7 @@ import { LocalStorageService } from './services/localStorage.service';
     CardComponent,
     CardPComponent,
     SafePipe,
-    DialogComponent,
+    PlayerComponent
     
   ],
   imports: [

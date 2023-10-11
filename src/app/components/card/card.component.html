@@ -1,13 +1,22 @@
-
-<ng-container >
-  <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" (click)="openDialog(content)">
+<ng-container *ngIf="isContentInit">
+  <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" (click)="openPlayer(content)">
     <mat-card-title-group>
-      <img mat-card-sm-image src="{{content.appIcon}}" alt="content image" >
+      <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
       <mat-card-title class="">{{content.name}}</mat-card-title>
       <mat-card-subtitle class="">This is a {{content.primaryCategory}}</mat-card-subtitle>
     </mat-card-title-group>
     <mat-card-actions class="d-flex justify-content-between">
-        <button mat-button><mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon> Share</button>
+      <button mat-button><mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
+        Share</button>
     </mat-card-actions>
   </mat-card>
 </ng-container>
+
+
+<mat-card *ngIf="isPlayerInit">
+  <button matSuffix matTooltip="Back" class="back-btn"
+    (click)="exitPlayerPage()"><mat-icon>arrow_back</mat-icon></button>
+  <br>
+  <br>
+  <lib-player [playerData]="value"></lib-player>
+</mat-card>
