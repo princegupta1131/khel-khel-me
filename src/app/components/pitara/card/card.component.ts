@@ -20,6 +20,7 @@ export class CardPComponent implements OnInit {
   }
 
   unboxPitara(value) {
+    this.utils.setTitle(value.name);
     this.utils.collectionRead(value.identifier).subscribe((data) => {
       this.result = data.result.content
       this.localStorageService.setItem('resultArray', JSON.stringify(this.result.children[0].children))

@@ -117,6 +117,7 @@ export class PlayerComponent implements OnInit {
     /** to change the view of the content-details page */
     this.showPlayIcon = true;
     // this.closePlayerEvent.emit();
+    this.closePlayerscreen.emit('closed');
   }
 
 

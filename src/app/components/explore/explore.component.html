@@ -1,10 +1,6 @@
-<div class="container">
-  <!-- <app-headerbar></app-headerbar> -->
-  <app-backbar [title]="title"></app-backbar>
-
-  <mat-chip-list aria-label="Fish selection" [(ngModel)]="selectedChips">
+ <mat-chip-list aria-label="Fish selection" [(ngModel)]="selectedChips">
     <!-- <mat-chip (click)="handleChipSelection()"><mat-icon>apps</mat-icon><span>All</span></mat-chip>    -->
-    <mat-chip *ngFor="let chip of allChips" [selectable]="true" [removable]="false"
+    <mat-chip *ngFor="let chip of allChips" [selectable]="true"  [removable]="false"
     (click)="handleChipSelection(chip)"><img matChipAvatar src={{chip.icon}} alt={{chip.key}}/> <span>{{chip.key}}</span></mat-chip>
   </mat-chip-list>
 
@@ -13,5 +9,4 @@
       <h4 class="h4 text-white">Theme name</h4>
       <app-card class="pt-box-card-container"></app-card>
     </div>
-  </div>
   </div>

@@ -13,10 +13,15 @@
 </ng-container>
 
 
-<mat-card *ngIf="isPlayerInit">
-  <button matSuffix matTooltip="Back" class="back-btn"
-    (click)="exitPlayerPage()"><mat-icon>arrow_back</mat-icon></button>
-  <br>
-  <br>
+<div *ngIf="isPlayerInit" style="    position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #fff;
+z-index: 9;">
+  <!-- <button style="position: absolute;
+  right:16px;
+  top: 16px;z-index: 999;" mat-mini-fab color="warn" (click)="exitPlayerPage()"><mat-icon>close</mat-icon></button> -->
   <lib-player [playerData]="value"(closePlayerscreen)='handleClose($event)'></lib-player>
-</mat-card>
+</div>

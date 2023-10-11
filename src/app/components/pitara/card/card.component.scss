@@ -21,13 +21,13 @@ $body--Background: #F0F1F1;
 $icon-rocket--Color: #4F5D75;
 
 .box-wrapper {
-  perspective: 800px;
-  perspective-origin: 50% 100px;
+  perspective: 50rem;
+  perspective-origin: 50% 6.25rem;
 }
 
 .box-faces {
   position: relative;
-  width: 150px;
+  width: 9.375rem;
   transform-style: preserve-3d;
 }
 .box-faces p {
@@ -36,48 +36,48 @@ $icon-rocket--Color: #4F5D75;
   img {
     width: 100%;
     height: auto;
-    // display: none;
+    display: block;
   }
 }
 .box-face {
 //   outline: 1px solid #999;
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 9.375rem;
+  height: 9.375rem;
   opacity: 0.98;
-//   box-shadow: inset 0px 0px 100px #555;
+  box-shadow: inset 0px 0px 3.125rem #555;
   overflow: hidden;
 }
 
 .box-face--is-back {
-  transform: translateZ(-100px) rotateY(180deg);
+  transform: translateZ(-6.25rem) rotateY(180deg);
   background-color: #ddd;
   background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 .box-face--is-right {
-  transform: rotateY(-270deg) translateX(100px);
+  transform: rotateY(-270deg) translateX(6.25rem);
   transform-origin: top right;
   background-color: #ddd;
   background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 .box-face--is-left {
-  transform: rotateY(270deg) translateX(-100px);
+  transform: rotateY(270deg) translateX(-6.25rem);
   transform-origin: center left;
   background-color: #ddd;
   background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 .box-face--is-top {
-  transform: rotateX(-90deg) translateY(-50px);
+  transform: rotateX(-90deg) translateY(-3.125rem);
   transform-origin: top center;
   background-color: #fafafa;
 }
 .box-face--is-bottom {
-  transform: rotateX(90deg) translateY(50px);
+  transform: rotateX(90deg) translateY(3.125rem);
   transform-origin: bottom center;
   background-color: #bbb;
 }
 .box-face--is-front {
-  transform: translateZ(50px);
+  transform: translateZ(3.125rem);
   background-color: #eee;
   background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
@@ -95,26 +95,26 @@ $icon-rocket--Color: #4F5D75;
 .icon-rocket { color: $icon-rocket--Color; }
 
 .shadow-wrapper {
-  perspective: 800px;
-  perspective-origin: 50% 100px;
+  perspective: 50rem;
+  perspective-origin: 50% 6.25rem;
 /*  -webkit-perspective: 800px;
-  -webkit-perspective-origin: 50% 100px;*/
+  -webkit-perspective-origin: 50% 6.25rem;*/
 }
 
 .shadow {
   position: relative;
-  width: 150px;
+  width: 9.375rem;
   transform-style: preserve-3d;
 }
 
 .shadow div{
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 9.375rem;
+  height: 9.375rem;
   top: 0px;
   opacity: 0.98;
-  box-shadow: 0px 0px 100px #000;
-  transform: rotateX(90deg) translateY(50px);
+  box-shadow: 0px 0px 6.25rem #000;
+  transform: rotateX(90deg) translateY(3.125rem);
   transform-origin: bottom center;
 }
 
@@ -122,20 +122,22 @@ $icon-rocket--Color: #4F5D75;
 .pitara-box-item {
     position: relative;
     overflow-x: visible;
-    height:320px;
+    height:20rem;
     // width: 100%;
     display: flex;
     align-items: baseline;
     justify-content: center;
     padding-top:2rem;
-    
+    &:hover .box-face--is-top{
+      transform: rotateX(-45deg) translateY(-3.125rem);
+    }
     &:hover .hover {
         display: block;
     }
     .hover {
         display: none;
         position: absolute;
-        top: -160px;left:0;
+        top: -10rem;left:0;
         z-index: 99;
     }
 }

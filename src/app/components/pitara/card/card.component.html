@@ -17,14 +17,14 @@
 
 
 
-<div class="pitara-box-item" *ngFor="let content of data;let i=index" (click)="unboxPitara(content)">
+<div class="pitara-box-item" *ngFor="let content of data;let i=index">
   <div class="">
   <div class="shadow-wrapper">
     <div class="shadow">
       <div>&nbsp;</div>
     </div>
   </div>
-  <div class="box-wrapper">
+  <div class="box-wrapper"  (click)="unboxPitara(content)">
     <div class="box-faces">
       <div class="box-face box-face--is-front">
         <p>
@@ -52,9 +52,11 @@
     </div><!-- end of .box -->
   </div>
   <div class="text-white" style="position: absolute;
-  top: 218px;left:0;width:100%;text-align: center;">
-    {{content.name}}<br>
-    {{content.description}}<br>
+  top: 13.625rem;left:0;width:100%;text-align: center;">
+  <div (click)="unboxPitara(content)">
+    <h4>{{content.name}}</h4>
+  <p>{{content.description}}</p>
+</div>
     <button mat-button><mat-icon aria-hidden="false" aria-label="favorite icon"
       fontIcon="favorite"></mat-icon></button>
   <button mat-button><mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon></button>
@@ -76,7 +78,7 @@
   </mat-card> -->
 </div>
   <div class="hover">
-    <lottie-player style="width: 300px; height: 300px;"src="https://lottie.host/42a7a928-4d6a-464f-bd95-a2fe3208be8c/5HHOxaxJIh.json"  background="transparent"  speed="2" loop  autoplay >
+    <lottie-player style="width: 18.75rem; height: 18.75rem;"src="https://lottie.host/42a7a928-4d6a-464f-bd95-a2fe3208be8c/5HHOxaxJIh.json"  background="transparent"  speed="2" loop  autoplay >
     </lottie-player>
 
     <!-- <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> <dotlottie-player src="https://lottie.host/837f3295-d004-4565-9669-5a0c8a89265e/Vjnv41sMwg.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player> -->

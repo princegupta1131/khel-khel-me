@@ -7,7 +7,7 @@ import { LocalStorageService } from 'src/app/services/localStorage.service';
   styleUrls: ['./pitara.component.scss']
 })
 export class PitaraComponent implements OnInit {
-  title = 'Pitara';
+  isHeaderbar = false;
   data: any;
   constructor(private localStorageService: LocalStorageService) { }
   ngOnInit(): void {
@@ -15,5 +15,4 @@ export class PitaraComponent implements OnInit {
     this.data = result.filter((content: any) => content.mimeType === 'application/vnd.ekstep.content-collection')
     this.localStorageService.setItem('result', JSON.stringify(this.data))
   }
-
 }

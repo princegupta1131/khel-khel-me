@@ -1,7 +1,6 @@
-<div class="container">
-  <div id="playerFullscreen" class="player-fullscreen" [ngStyle]="{'display': mobileViewDisplay}">
-    <img (click)="closeFullscreen()" class="close-button" src="assets/images/close-Black.svg" alt="">
+<div id="playerFullscreen" class="player-fullscreen" [ngStyle]="{'display': mobileViewDisplay}">
+  <button mat-mini-fab color="warn" (click)="closeFullscreen()" class="close-button" style="position: absolute;top:16px;right:16px;z-index: 9999;"><mat-icon>close</mat-icon></button>
+    <!-- <img (click)="closeFullscreen()" class="close-button" src="assets/images/close-Black.svg" alt=""> -->
     <iframe #preview id="contentPlayer" title="Content Player" class="contentViewerIframeShadow" name="contentPlayer"
       src="/assets/content-player/preview.html?webview=true" frameborder="0" aria-label="Content Player"></iframe>
   </div>
-</div>
