@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 
 interface Chip {
@@ -13,7 +14,6 @@ interface Chip {
 })
 
 export class ExploreComponent implements OnInit {
-  title = 'Explore';
   filteredArray;
   data: any = JSON.parse(localStorage.getItem('resultArray'));
   allChips: Chip[] = [
@@ -26,8 +26,12 @@ export class ExploreComponent implements OnInit {
     { key: 'Manuals and Guidebooks', value: 'djp_category_manuals', icon: 'https://cdn-icons-png.flaticon.com/512/6348/6348248.png' }
   ];
   selectedChips: Chip[] = [];
+  routeData:any;
+  constructor(private localStorageService: LocalStorageService,public route:ActivatedRoute) { 
 
-  constructor(private localStorageService: LocalStorageService) { }
+    this.routeData = this.route.snapshot.data['menuBar'];
+    console.log('routeData',this.routeData)
+  }
   ngOnInit(): void {
     this.localStorageService.removeItem('filteredArray')
     this.localStorageService.setItem('filteredArray', JSON.stringify(this.data))

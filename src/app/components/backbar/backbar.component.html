@@ -1,15 +1,16 @@
 <div class="pt_backbar-container py-3">
-  <button mat-mini-fab color="accent" aria-label="Example icon-button with menu icon" (click)="goBack()">
+  <!-- <button mat-mini-fab color="accent" aria-label="Example icon-button with menu icon" (click)="goBack()">
     <mat-icon>arrow_back</mat-icon>
-  </button>
-  <!-- <mat-toolbar color="accent" class="pt_backbar">
+  </button> -->
+  <mat-toolbar color="accent" class="pt_backbar">
     <button mat-icon-button class="example-icon me-2" aria-label="Example icon-button with menu icon" (click)="goBack()">
         <mat-icon>arrow_back</mat-icon>
       </button>
-      <span>{{title}}</span>
     <span class="example-spacer"></span>
-    <button mat-mini-fab color="warn" [routerLink]="['/pitara']">
+    <span>{{title}}</span>
+    <span class="example-spacer"></span>
+    <!-- <button mat-mini-fab color="warn" [routerLink]="['/pitara']">
       <mat-icon aria-hidden="false" aria-label="Close icon" fontIcon="close"></mat-icon>
-    </button>
-  </mat-toolbar> -->
+    </button> -->
+  </mat-toolbar>
 </div>

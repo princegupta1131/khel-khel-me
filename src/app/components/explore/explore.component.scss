@@ -2,19 +2,25 @@
     .mat-chip-list-wrapper {
         flex-wrap: nowrap !important;
         overflow-x: auto;
-        padding: 0 0 2rem 0 !important;
+        padding: 2rem 0 2rem 0 !important;
         margin-bottom: 1rem !important;
         justify-content: center;
         @media only screen and (max-width: 768px) {
             justify-content: flex-start;
         }
         gap: 1rem;
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        padding-left: 1.5rem !important;
+        mat-chip:last-child {
+            margin-right:24px;
+        }
     }
     .mat-standard-chip {
         white-space: nowrap;
-        min-height: 64px;
-        min-width: 64px;
-        max-width:64px;
+        min-height: 4rem;
+        min-width: 4rem;
+        max-width:4rem;
         border-radius: 28% 38% 35% 40%;
         transition: all 0.5s ease-in-out;
         display: flex;
@@ -25,7 +31,7 @@
         span {
             display: none;
             position: absolute;
-            bottom: -28px;
+            bottom: -1.75rem;
         }
         &:hover{
             scale: 1.15;
@@ -45,6 +51,7 @@
         }
         &.mat-chip-selected {
             scale: 1.15;
+            border: 0.1875rem solid #81ff00;
             span {
                 display: block;
                 color: #fff;

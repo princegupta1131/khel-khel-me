@@ -29,6 +29,7 @@ import { SafePipe } from './pipes/safe.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LocalStorageService } from './services/localStorage.service';
 import { PlayerComponent } from './components/player/player.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +41,8 @@ import { PlayerComponent } from './components/player/player.component';
     CardComponent,
     CardPComponent,
     SafePipe,
-    PlayerComponent
-    
+    PlayerComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

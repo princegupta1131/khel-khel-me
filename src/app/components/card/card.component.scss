@@ -15,7 +15,7 @@
             top: 0;
             z-index: -1;
             transform: skew(3deg, -4deg);
-            border-radius: 32px;
+            border-radius: 2rem;
             padding: 1.5rem;
         }
     }
@@ -31,7 +31,7 @@
 :host ::ng-deep {
     .mat-card-title {
         font-weight: bold;
-        min-height: 72px;
+        min-height: 4.5rem;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
