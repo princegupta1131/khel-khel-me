@@ -14,10 +14,10 @@ interface Chip {
 
 export class ExploreComponent implements OnInit {
   title = 'Explore';
-
+  filteredArray;
   data: any = JSON.parse(localStorage.getItem('resultArray'));
   allChips: Chip[] = [
-    { key: 'All', value: 'all', icon: 'https://cdn-icons-png.flaticon.com/512/7082/7082148.png' },
+    { key: 'All', value: 'all', icon: 'https://cdn-icons-png.flaticon.com/512/17/17704.png' },
     { key: 'Toys and puppets', value: 'djp_category_toys', icon: 'https://cdn-icons-png.flaticon.com/512/7082/7082148.png' },
     { key: 'Puzzles and games', value: 'djp_category_games', icon: 'https://cdn-icons-png.flaticon.com/512/10203/10203507.png' },
     { key: 'Stories and poems', value: 'djp_category_stories', icon: 'https://cdn-icons-png.flaticon.com/512/3500/3500690.png' },
@@ -34,9 +34,13 @@ export class ExploreComponent implements OnInit {
   }
 
   handleChipSelection(chip: Chip) {
-    let filteredArray = this.data.filter((content: any) => {
-      return content.keywords ? content.keywords.includes(chip.value) : false
-    })
-    this.localStorageService.setItem('filteredArray', JSON.stringify(filteredArray))
+    if (chip.value === 'all') {
+      this.filteredArray = this.data;
+    } else {
+      this.filteredArray = this.data.filter((content: any) => {
+        return content.keywords ? content.keywords.includes(chip.value) : false
+      })
+    }
+    this.localStorageService.setItem('filteredArray', JSON.stringify(this.filteredArray))
   }
 }
