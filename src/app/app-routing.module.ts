@@ -4,16 +4,17 @@ import { HomeComponent } from './components/home/home.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { PitaraComponent } from './components/pitara/pitara.component';
 
+
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: 'home', component: HomeComponent
+    path: '', component: HomeComponent,
   },
   {
-    path: 'explore', component: ExploreComponent
+    path: 'explore', component: ExploreComponent,
   },
   {
-    path: 'pitara', component: PitaraComponent
+    path: 'pitara', component: PitaraComponent,
   }
 ];
 

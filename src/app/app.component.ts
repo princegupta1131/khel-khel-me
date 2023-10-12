@@ -10,8 +10,8 @@ import { UtilService } from './services/utils.service';
 })
 export class AppComponent implements OnInit {
   title = '';
-  isMenuBarVisible: boolean ;
-  isHeaderBarVisible: boolean;
+  isMenuBarVisible: boolean = false ;
+  isHeaderBarVisible: boolean = true;
   routeData:any;
   disableElements = false;
   titleSubscription: Subscription;
@@ -21,11 +21,11 @@ export class AppComponent implements OnInit {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         // Check the current route and set disableElements accordingly
-        if (event.url.includes('/home')) {
-          this.isMenuBarVisible = false;
-          this.isHeaderBarVisible = true;
-        }
-        else if (event.url.includes('/pitara')) {
+        // if (event.url.includes('/')) {
+        //   this.isMenuBarVisible = false;
+        //   this.isHeaderBarVisible = true;
+        // }
+        if (event.url.includes('/pitara')) {
           this.title = 'Pitara';
           this.isMenuBarVisible = true;
           this.isHeaderBarVisible = false;
