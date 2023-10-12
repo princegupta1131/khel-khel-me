@@ -12,7 +12,7 @@ export class CardPComponent implements OnInit {
 
   data: any;
   result: any
-  constructor(public router: Router, public utils: UtilService,private localStorageService: LocalStorageService) { }
+  constructor(public router: Router, public utils: UtilService, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
     this.data = JSON.parse(this.localStorageService.getItem('result'));
@@ -24,7 +24,9 @@ export class CardPComponent implements OnInit {
     this.utils.collectionRead(value.identifier).subscribe((data) => {
       this.result = data.result.content
       this.localStorageService.setItem('resultArray', JSON.stringify(this.result.children[0].children))
-      this.router.navigate(['explore'])
+      setTimeout(() => {
+        this.router.navigate(['explore'])
+      }, 1000);
     })
 
 
