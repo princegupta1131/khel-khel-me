@@ -17,14 +17,14 @@
 
 
 
-<div class="pitara-box-item" *ngFor="let content of data;let i=index">
+<div class="pitara-box-item" *ngFor="let content of data;let i=index" (click)="unboxPitara(content)">
   <div class="">
   <div class="shadow-wrapper">
     <div class="shadow">
       <div>&nbsp;</div>
     </div>
   </div>
-  <div class="box-wrapper"  (click)="unboxPitara(content)">
+  <div class="box-wrapper">
     <div class="box-faces">
       <div class="box-face box-face--is-front">
         <p>
@@ -51,9 +51,8 @@
   
     </div><!-- end of .box -->
   </div>
-  <div class="text-white" style="position: absolute;
-  top: 13.625rem;left:0;width:100%;text-align: center;">
-  <div (click)="unboxPitara(content)">
+  <div class="text-white pitara-box-details">
+  <div>
     <h4>{{content.name}}</h4>
   <p>{{content.description}}</p>
 </div>

@@ -17,7 +17,7 @@ export class ExploreComponent implements OnInit {
   filteredArray;
   data: any = JSON.parse(localStorage.getItem('resultArray'));
   allChips: Chip[] = [
-    { key: 'All', value: 'all', icon: 'https://cdn-icons-png.flaticon.com/512/17/17704.png' },
+    { key: 'All', value: 'all', icon: 'https://cdn-icons-png.flaticon.com/512/7787/7787487.png' },
     { key: 'Toys and puppets', value: 'djp_category_toys', icon: 'https://cdn-icons-png.flaticon.com/512/7082/7082148.png' },
     { key: 'Puzzles and games', value: 'djp_category_games', icon: 'https://cdn-icons-png.flaticon.com/512/10203/10203507.png' },
     { key: 'Stories and poems', value: 'djp_category_stories', icon: 'https://cdn-icons-png.flaticon.com/512/3500/3500690.png' },
@@ -27,6 +27,7 @@ export class ExploreComponent implements OnInit {
   ];
   selectedChips: Chip[] = [];
   routeData:any;
+  selectedTab: Chip;
   constructor(private localStorageService: LocalStorageService,public route:ActivatedRoute) { 
 
     this.routeData = this.route.snapshot.data['menuBar'];
@@ -37,12 +38,18 @@ export class ExploreComponent implements OnInit {
     this.localStorageService.setItem('filteredArray', JSON.stringify(this.data))
   }
 
-  handleChipSelection(chip: Chip) {
-    if (chip.value === 'all') {
+  ngAfterViewInit(): void {
+    // document.getElementsByClassName('mat-tab-header-pagination-before')[0].remove();
+    //document.getElementsByClassName('mat-tab-header-pagination-after')[0].remove();
+  }
+
+  handleChipSelection(event: any) {
+    this.selectedTab = this.allChips[event.index];
+    if (this.selectedTab.value === 'all') {
       this.filteredArray = this.data;
     } else {
       this.filteredArray = this.data.filter((content: any) => {
-        return content.keywords ? content.keywords.includes(chip.value) : false
+        return content.keywords ? content.keywords.includes(this.selectedTab.value) : false
       })
     }
     this.localStorageService.setItem('filteredArray', JSON.stringify(this.filteredArray))
