@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { UtilService } from 'src/app/services/utils.service';
+import { Howl } from 'howler';
 
 @Component({
   selector: 'app-pcard',
@@ -11,12 +12,16 @@ import { UtilService } from 'src/app/services/utils.service';
 export class CardPComponent implements OnInit {
 
   data: any;
-  result: any
+  result: any;
+  sound:any;
   constructor(public router: Router, public utils: UtilService, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
     this.data = JSON.parse(this.localStorageService.getItem('result'));
     this.localStorageService.removeItem('resultArray')
+     this.sound = new Howl({
+      src: ['assets/audio/windchime.mp3'],
+    });
   }
 
   unboxPitara(value) {
@@ -24,6 +29,7 @@ export class CardPComponent implements OnInit {
     this.utils.collectionRead(value.identifier).subscribe((data) => {
       this.result = data.result.content
       this.localStorageService.setItem('resultArray', JSON.stringify(this.result.children[0].children))
+      this.sound.play();
       setTimeout(() => {
         this.router.navigate(['explore'])
       }, 1000);
