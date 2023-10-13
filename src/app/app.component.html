@@ -1,4 +1,7 @@
 <div class="layout">
+    <button mat-raised-button color="primary" #installButton (click)="installPwa()" class="mobile-install-button" *ngIf="installButtonVisible">
+  Install App
+</button>
 <header>
     <div class="container">
     <app-headerbar *ngIf="isHeaderBarVisible"></app-headerbar>
@@ -10,4 +13,3 @@
 </main>
 <app-footer></app-footer>
 </div>
-
