@@ -12,7 +12,7 @@ export class PitaraComponent implements OnInit {
   constructor(private localStorageService: LocalStorageService) { }
   ngOnInit(): void {
     const result = JSON.parse(this.localStorageService.getItem('result'));
-    this.data = result.filter((content: any) => content.mimeType === 'application/vnd.ekstep.content-collection')
+    this.data = result.filter((content: any) => content.mimeType === 'application/vnd.ekstep.content-collection' && content.keywords.includes('djp_master'))
     this.localStorageService.setItem('result', JSON.stringify(this.data))
   }
 }
