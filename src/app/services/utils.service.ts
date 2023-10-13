@@ -29,7 +29,8 @@ export class UtilService {
           "primaryCategory",
           "status",
           "artifactUrl",
-          "appIcon"
+          "appIcon",
+          "author"
         ]
       }
     }
