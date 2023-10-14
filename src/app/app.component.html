@@ -1,7 +1,10 @@
 <div class="layout">
-    <button mat-raised-button color="primary" #installButton (click)="installPwa()" class="mobile-install-button" *ngIf="installButtonVisible">
-  Install App
-</button>
+<div class="banner" *ngIf="isInstallButtonVisible">
+    To experience Pitara on your device, 
+    <button mat-stroked-button color="accent" *ngIf="showInstallButton() && isInstallButtonVisible" (click)="promptInstall()">Install App</button>
+    <button mat-stroked-button color="warn" *ngIf="showInstallButton() && isInstallButtonVisible" (click)="isInstallButtonVisible=!isInstallButtonVisible">x</button>    
+</div>
+
 <header>
     <div class="container">
     <app-headerbar *ngIf="isHeaderBarVisible"></app-headerbar>
