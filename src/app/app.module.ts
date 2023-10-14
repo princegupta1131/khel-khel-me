@@ -30,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LocalStorageService } from './services/localStorage.service';
 import { PlayerComponent } from './components/player/player.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { InstallService } from './services/install.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,8 +65,10 @@ import { FooterComponent } from './components/footer/footer.component';
     MatDialogModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [UtilService,LocalStorageService],
+  providers: [UtilService,LocalStorageService,InstallService],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {   constructor(private installService: InstallService) {
+  this.installService.initInstallPrompt();
+}}
