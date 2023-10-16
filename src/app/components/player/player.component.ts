@@ -107,7 +107,7 @@ export class PlayerComponent implements OnInit {
   */
   closeFullscreen() {
     /** to exit the fullscreen mode */
-    if (document['exitFullscreen']) {
+    if (document.fullscreenElement && document['exitFullscreen']) {
       document['exitFullscreen']();
     } else if (document['mozCancelFullScreen']) { /* Firefox */
       document['mozCancelFullScreen']();
