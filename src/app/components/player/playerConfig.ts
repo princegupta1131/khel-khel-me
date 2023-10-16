@@ -1,30 +1,28 @@
 export const playerConfig = {
   context: {
-    mode: 'play',
-    authToken: '',
-    sid: '7283cf2e-d215-9944-b0c5-269489c6fa56',
-    did: '3c0a3724311fe944dec5df559cc4e006',
-    uid: 'anonymous',
-    channel: '505c7c48ac6dc1edc9b08f21db5a571d',
-    pdata: {
-      id: 'sunbird.portal',
-      ver: '3.2.12',
-      pid: 'sunbird-portal.contentplayer'
+    "mode": "play",
+    "pdata": {
+      "id": "khelkhelme.portal",
+      "ver": "4.9.0",
+      "pid": "sunbird.contentplayer"
     },
-    contextRollup: {
-      l1: '505c7c48ac6dc1edc9b08f21db5a571d'
+    "contentId": "do_11319720466326323219",
+    "sid": "I9mq-3VN49rS3uz9J6ucVXxz5Cwf20HE",
+    "uid": "5a587cc1-e018-4859-a0a8-e842650b9d64",
+    "timeDiff": 0,
+    "contextRollup": {
+      "l1": "01309282781705830427",
     },
-    tags: [
-      ''
+    "channel": "01309282781705830427",
+    "did": "34a18ad500734f9f94078f92f2403d5b",
+    "dims": [
     ],
-    cdata: [],
-    timeDiff: 0,
-    objectRollup: {},
-    host: '',
-    endpoint: '',
-    userData: {
-      firstName: 'Harish',
-      lastName: 'Gangula'
+    "tags": [],
+    "app": [],
+    "cdata": [],
+    "userData": {
+      "firstName": "Test",
+      "lastName": "User"
     }
   },
   config: {

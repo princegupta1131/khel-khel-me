@@ -79,6 +79,10 @@ export class PlayerComponent implements OnInit {
   setContentData() {
     playerConfig.context['contentId'] = this.playerData.identifier
     playerConfig.context['channel'] = this.playerData.channel
+    playerConfig.context['app'] = [this.playerData.channel]
+    playerConfig.context['tags'] = [this.playerData.channel]
+    playerConfig.context['contextRollup'] = this.playerData.channel
+
     this.playerConfiguration = {
       context: playerConfig.context,
       config: playerConfig.config,

@@ -1,15 +1,12 @@
 const PROXY_CONFIG = [
     {
         context: [
-            "/content-plugins",
-            "/generic-editor",
-            "/content-editor",
             "/action",
             "/content",
             "/api",
             "/assets"
         ],
-        "target": "https://sunbirdsaas.com/",
+        "target": "https://staging.sunbirded.org/",
         "secure": false,
         "logLevel": "debug",
         "changeOrigin": true
