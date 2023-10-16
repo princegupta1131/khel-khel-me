@@ -34,6 +34,11 @@ export class UtilService {
     return this.http.get(url)
   }
 
+  contentRead(doId): Observable<any> {
+    const url = `https://sunbirdsaas.com/action/content/v3/read/${doId}?fields=body`
+    return this.http.get(url)
+  }
+
   getTitle(){
    return this.titleChange;
   }

@@ -3,6 +3,7 @@ import { playerConfig } from './playerConfig';
 import * as _ from 'lodash-es';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import * as $ from "jquery";
+import { UtilService } from 'src/app/services/utils.service';
 
 
 @Component({
@@ -31,12 +32,11 @@ export class PlayerComponent implements OnInit {
       }
     }
   }
-  constructor(private deviceDetectorService: DeviceDetectorService) { }
+  constructor(private deviceDetectorService: DeviceDetectorService, public utils: UtilService) { }
 
   ngOnInit(): void {
     this.isMobileOrTab = this.deviceDetectorService.isMobile() || this.deviceDetectorService.isTablet();
     console.log('device is ', this.isMobileOrTab)
-    console.log(this.playerData)
     this.setContentData();
   }
 
@@ -48,7 +48,6 @@ export class PlayerComponent implements OnInit {
   }
 
   loadPlayer() {
-    console.log('loadplayer')
     const src = this.previewElement.nativeElement.src;
     this.previewElement.nativeElement.src = '';
     this.previewElement.nativeElement.src = src;
@@ -72,14 +71,12 @@ export class PlayerComponent implements OnInit {
     };
 
     this.previewElement.nativeElement.onload = () => {
-      console.log('onloadd')
       this.adjustPlayerHeight();
       this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfiguration);
     };
   }
 
   setContentData() {
-    console.log('setContentDataabove')
     playerConfig.context['contentId'] = this.playerData.identifier
     playerConfig.context['channel'] = this.playerData.channel
     this.playerConfiguration = {
@@ -89,11 +86,13 @@ export class PlayerComponent implements OnInit {
       data: {}
     };
 
-    console.log('playerconfig', this.playerConfiguration)
     if (this.playerConfiguration.metadata.mimeType === 'application/vnd.ekstep.ecml-archive') {
-      this.playerConfiguration.data = this.playerData?.body;
+      this.utils.contentRead(this.playerConfiguration.metadata.identifier).subscribe((data) => {
+        return this.playerConfiguration.data = data?.result?.content?.body
+      }
+      )
+      console.log('config::', this.playerConfiguration)
     }
-    console.log('setContentData')
 
   }
 
