@@ -65,11 +65,16 @@ export const playerConfig = {
           id: 'org.ekstep.player.endpage',
           ver: 1.1,
           type: 'plugin'
+        },
+        {
+          id:"org.ekstep.navigation",
+          ver:1,
+          type: 'plugin'
         }
       ],
       sideMenu: {
-        showShare: true,
-        showDownload: true,
+        showShare: false,
+        showDownload: false,
         showExit: false
       },
       enableTelemetryValidation: false
