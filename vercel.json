@@ -1,0 +1,9 @@
+{
+    "routes": [
+    {
+      "src":  "/assets/public/content/*",
+      "dest": "https://sunbirdsaaspublic.blob.core.windows.net/content/content/$1",
+      "methods": ["GET", "POST"]
+    }
+  ]
+}
