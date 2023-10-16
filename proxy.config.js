@@ -4,9 +4,19 @@ const PROXY_CONFIG = [
             "/action",
             "/content",
             "/api",
-            "/assets"
+            "/assets",
+            
         ],
-        "target": "https://staging.sunbirded.org/",
+        "target": "https://sunbirdsaas.com/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    {
+        context: [
+            "/assets/public/content",
+        ],
+        "target": "https://sunbirdsaaspublic.blob.core.windows.net/content/content/",
         "secure": false,
         "logLevel": "debug",
         "changeOrigin": true
