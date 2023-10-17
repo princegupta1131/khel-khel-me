@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/assets/public/content/*",
-      "destination": "https://sunbirdsaaspublic.blob.core.windows.net/content/content/$1",
+      "destination": "https://sunbirdsaaspublic.blob.core.windows.net/content/content/$1"
     }
   ]
 }
