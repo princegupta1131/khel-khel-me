@@ -1,9 +1,8 @@
 {
-    "routes": [
+  "rewrites": [
     {
-      "src":  "/assets/public/content/*",
-      "dest": "https://sunbirdsaaspublic.blob.core.windows.net/content/content/$1",
-      "methods": ["GET", "POST"]
+      "source": "/assets/public/content/*",
+      "destination": "https://sunbirdsaaspublic.blob.core.windows.net/content/content/$1",
     }
   ]
 }
