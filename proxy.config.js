@@ -1,5 +1,25 @@
 const PROXY_CONFIG = [
     {
+        context: ["/assets/public/content/*"],
+        "target": "https://sunbirdsaaspublic.blob.core.windows.net/content/content/",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/assets/public/content": ""
+        }
+    },
+    {
+        context: ["/assets/content-player/assets/public/content/*"],
+        "target": "https://sunbirdsaaspublic.blob.core.windows.net/content/content/",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/assets/content-player/assets/public/content": ""
+        }
+    },
+    {
         context: [
             "/action",
             "/content",
@@ -12,16 +32,8 @@ const PROXY_CONFIG = [
         "logLevel": "debug",
         "changeOrigin": true
     },
-    {
-        context: [
-            "/assets/public/content",
-        ],
-        "target": "https://sunbirdsaaspublic.blob.core.windows.net/content/content/",
-        "secure": false,
-        "logLevel": "debug",
-        "changeOrigin": true
-    }
-  ]
-  
-  module.exports = PROXY_CONFIG;
-  
+
+
+]
+
+module.exports = PROXY_CONFIG;
