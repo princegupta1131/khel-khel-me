@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
           this.isLanguageOptionVisible=true
         }
         if (event.url.includes('/pitara')) {
-          this.title = 'Pitara';
+          this.title = 'pitara';
           this.isMenuBarVisible = true;
           this.isHeaderBarVisible = false;
           this.isInstallButtonVisible=false
