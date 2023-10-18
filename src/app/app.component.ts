@@ -17,7 +17,9 @@ export class AppComponent implements OnInit {
   isMenuBarVisible: boolean = false;
   isHeaderBarVisible: boolean = true;
   isInstallButtonVisible:boolean=false
+  isLanguageOptionVisible:boolean=false
   titleSubscription: Subscription;
+  selectedLanguage;
 
   constructor(private router: Router, private utilService: UtilService, private installService: InstallService,private translate: TranslateService) {
 
@@ -32,18 +34,22 @@ export class AppComponent implements OnInit {
         if (event.url === '/') {
           this.isMenuBarVisible = false;
           this.isHeaderBarVisible = true;
-          this.isInstallButtonVisible=true
+          this.isInstallButtonVisible=true;
+          this.isLanguageOptionVisible=true
         }
         if (event.url.includes('/pitara')) {
           this.title = 'Pitara';
           this.isMenuBarVisible = true;
           this.isHeaderBarVisible = false;
           this.isInstallButtonVisible=false
+          this.isLanguageOptionVisible=false
+
         }
         else if (event.url.includes('/explore')) {
           this.isMenuBarVisible = true;
           this.isHeaderBarVisible = false;
           this.isInstallButtonVisible=false
+          this.isLanguageOptionVisible=false
 
         }
       });
@@ -65,9 +71,8 @@ export class AppComponent implements OnInit {
     this.installService.promptUser();
   }
 
-  switchLanguage() {
-    // Toggle between 'en' and 'fr'
-    this.translate.use(this.translate.currentLang === 'en' ? 'hi' : 'en');
+  onLanguageChange() {
+     this.translate.use(this.selectedLanguage);
   }
 }
 

@@ -26,12 +26,8 @@ export class ExploreComponent implements OnInit {
     { key: 'Manuals and Guidebooks', value: 'djp_category_manuals', icon: 'https://cdn-icons-png.flaticon.com/512/6348/6348248.png' }
   ];
   selectedChips: Chip[] = [];
-  routeData:any;
   selectedTab: Chip;
-  constructor(private localStorageService: LocalStorageService,public route:ActivatedRoute) { 
-
-    this.routeData = this.route.snapshot.data['menuBar'];
-    console.log('routeData',this.routeData)
+  constructor(private localStorageService: LocalStorageService, public route: ActivatedRoute) {
   }
   ngOnInit(): void {
     this.localStorageService.removeItem('filteredArray')
@@ -39,8 +35,7 @@ export class ExploreComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    // document.getElementsByClassName('mat-tab-header-pagination-before')[0].remove();
-    //document.getElementsByClassName('mat-tab-header-pagination-after')[0].remove();
+
   }
 
   handleChipSelection(event: any) {
