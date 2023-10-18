@@ -58,8 +58,8 @@
   <p>Crafted by: {{content.author}}</p>
 </div>
 <div class="mt-2">
-  <button mat-mini-fab class="me-3" [color]="favBtnColor" (click)="handleClick($event, 'favorite')">
-    <mat-icon aria-hidden="false" aria-label="favorite icon" fontIcon="favorite"></mat-icon>
+  <button mat-mini-fab class="me-3" title="add to favorite" [color]="favBtnColor" (click)="handleClick($event, 'favorite')">
+    <mat-icon aria-hidden="false" aria-label="add to favorite icon" fontIcon="favorite"></mat-icon>
   </button>
   <button mat-mini-fab color="" (click)="handleClick($event, 'share')">
     <mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
