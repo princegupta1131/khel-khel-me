@@ -35,7 +35,7 @@ $icon-rocket--Color: #4F5D75;
   overflow: hidden;
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
   }
 }
@@ -92,7 +92,6 @@ $icon-rocket--Color: #4F5D75;
   animation: spin 15s infinite linear;
 }
 
-.icon-rocket { color: $icon-rocket--Color; }
 
 .shadow-wrapper {
   perspective: 50rem;

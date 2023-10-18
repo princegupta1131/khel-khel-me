@@ -16,7 +16,6 @@ const PROXY_CONFIG = [
         "changeOrigin": true,
         "logLevel": "debug",
     },
-
     {
         context: [
             "/action",
@@ -30,8 +29,6 @@ const PROXY_CONFIG = [
         "logLevel": "debug",
         "changeOrigin": true
     },
-
-
 ]
 
 module.exports = PROXY_CONFIG;

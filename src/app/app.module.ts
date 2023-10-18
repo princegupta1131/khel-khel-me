@@ -1,7 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -24,13 +23,20 @@ import { BackbarComponent } from './components/backbar/backbar.component';
 import { CardComponent } from './components/card/card.component';
 import { CardPComponent } from './components/pitara/card/card.component';
 import { UtilService } from './services/utils.service';
-import {  HttpClientModule } from '@angular/common/http';
+import {  HttpClient, HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './pipes/safe.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LocalStorageService } from './services/localStorage.service';
 import { PlayerComponent } from './components/player/player.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InstallService } from './services/install.service';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// Create a loader for translations
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +69,14 @@ import { InstallService } from './services/install.service';
     HttpClientModule,
     MatChipsModule,
     MatDialogModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [UtilService,LocalStorageService,InstallService],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -71,4 +84,5 @@ import { InstallService } from './services/install.service';
 })
 export class AppModule {   constructor(private installService: InstallService) {
   this.installService.initInstallPrompt();
-}}
+}
+}

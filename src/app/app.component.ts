@@ -3,6 +3,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter } from 'rxjs';
 import { UtilService } from './services/utils.service';
 import { InstallService } from './services/install.service';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-root',
@@ -17,7 +19,12 @@ export class AppComponent implements OnInit {
   isInstallButtonVisible:boolean=false
   titleSubscription: Subscription;
 
-  constructor(private router: Router, private utilService: UtilService, private renderer: Renderer2, private installService: InstallService) {
+  constructor(private router: Router, private utilService: UtilService, private installService: InstallService,private translate: TranslateService) {
+
+    translate.setDefaultLang('en');
+    // Use the browser's language if available, otherwise use the default language
+    translate.use(translate.getBrowserLang() || 'en');
+
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
@@ -56,6 +63,11 @@ export class AppComponent implements OnInit {
 
   promptInstall() {
     this.installService.promptUser();
+  }
+
+  switchLanguage() {
+    // Toggle between 'en' and 'fr'
+    this.translate.use(this.translate.currentLang === 'en' ? 'hi' : 'en');
   }
 }
 
