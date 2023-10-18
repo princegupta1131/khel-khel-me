@@ -11,7 +11,7 @@
         </div>
     </header>
     <main>
-        <div class="language m-auto ng-star-inserted w-25" *ngIf="isLanguageOptionVisible">
+        <div class="language m-auto ng-star-inserted" *ngIf="isLanguageOptionVisible">
             <mat-form-field  appearance="fill" color="primary" class="w-100">
                 <mat-label>Select your Langugage</mat-label>
                 <mat-select (selectionChange)="onLanguageChange()" [(ngModel)]="selectedLanguage">
