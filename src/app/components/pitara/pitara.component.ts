@@ -15,4 +15,6 @@ export class PitaraComponent implements OnInit {
     this.data = result.filter((content: any) => content.mimeType === 'application/vnd.ekstep.content-collection' && content.keywords.includes('djp_master'))
     this.localStorageService.setItem('result', JSON.stringify(this.data))
   }
+
+
 }

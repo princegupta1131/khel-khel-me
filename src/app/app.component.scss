@@ -12,9 +12,15 @@ main {
     justify-content: center;
     text-align: center;
     align-items: center;
-    padding: .5rem;
+    padding: .5rem 0.5rem 0.5rem 1rem;
     margin: 0 auto;
-    background: linear-gradient(180deg, #534949, black);
+    background: #000;
     border-radius: 0 0 1rem 1rem;
     color: white;
+}
+
+:host ::ng-deep {
+.mat-form-field-flex {
+    background: #fff;
+}
 }
