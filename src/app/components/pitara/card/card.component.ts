@@ -39,19 +39,17 @@ export class CardPComponent implements OnInit {
 
   // Define a single method to handle both favoriting and sharing
   handleClick(event: Event, action: string) {
+    const clickedElement = event.currentTarget as HTMLElement ;
     event.stopPropagation();
+    if (clickedElement.tagName === 'BUTTON') {
     if (action === 'favorite') {
-      if (this.favBtnColor === 'default') {
-        this.favBtnColor = 'primary';
-        alert('Added to favorites');
+      if (!clickedElement.classList.contains('favorite')) {
+        clickedElement.classList.add('favorite');
       } else {
-        this.favBtnColor = 'default';
-        alert('Removed from favorites');
+        clickedElement.classList.remove('favorite');
       }
-    } else if (action === 'share') {
-      alert('Share to');
-      // Add your custom logic for sharing here
     }
   }
+}
 
 }
