@@ -1,20 +1,8 @@
 <div class="layout">
     <div class="banner" *ngIf="showInstallButton() && isInstallButtonVisible">
         {{'installMessage'|translate}}
-        <button mat-stroked-button color="accent" (click)="promptInstall()">{{'installApp'|translate}}</button>
-        <button mat-stroked-button color="warn" (click)="isInstallButtonVisible=!isInstallButtonVisible">x</button>
-    </div>
-
-    <div class="language" *ngIf="isLanguageOptionVisible">
-        <mat-form-field>
-            <mat-label>Language</mat-label>
-            <mat-select (selectionChange)="onLanguageChange()" [(ngModel)]="selectedLanguage">
-                <mat-option value="en">English
-                </mat-option>
-                <mat-option value="hi">Hindi
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+        <button mat-raised-button color="primary" class="mx-3" (click)="promptInstall()">{{'installApp'|translate}}</button>
+        <button mat-button color="warn" (click)="isInstallButtonVisible=!isInstallButtonVisible">x</button>
     </div>
     <header>
         <div class="container">
@@ -23,6 +11,15 @@
         </div>
     </header>
     <main>
+        <div class="language m-auto ng-star-inserted" *ngIf="isLanguageOptionVisible">
+            <mat-form-field  appearance="fill" color="primary" class="w-100">
+                <mat-label>Select your Langugage</mat-label>
+                <mat-select (selectionChange)="onLanguageChange()" [(ngModel)]="selectedLanguage">
+                    <mat-option value="en">English</mat-option>
+                    <mat-option value="hi">Hindi</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
         <router-outlet></router-outlet>
     </main>
 

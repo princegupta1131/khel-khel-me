@@ -13,13 +13,14 @@ export class CardPComponent implements OnInit {
 
   data: any;
   result: any;
-  sound:any;
+  sound: any;
+  favBtnColor = 'default'; // Initially set to the default color
   constructor(public router: Router, public utils: UtilService, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
     this.data = JSON.parse(this.localStorageService.getItem('result'));
     this.localStorageService.removeItem('resultArray')
-     this.sound = new Howl({
+    this.sound = new Howl({
       src: ['assets/audio/windchime.mp3'],
     });
   }
@@ -34,8 +35,23 @@ export class CardPComponent implements OnInit {
         this.router.navigate(['explore'])
       }, 1000);
     })
+  }
 
-
+  // Define a single method to handle both favoriting and sharing
+  handleClick(event: Event, action: string) {
+    event.stopPropagation();
+    if (action === 'favorite') {
+      if (this.favBtnColor === 'default') {
+        this.favBtnColor = 'primary';
+        alert('Added to favorites');
+      } else {
+        this.favBtnColor = 'default';
+        alert('Removed from favorites');
+      }
+    } else if (action === 'share') {
+      alert('Share to');
+      // Add your custom logic for sharing here
+    }
   }
 
 }

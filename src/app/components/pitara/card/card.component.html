@@ -57,9 +57,14 @@
   <p>{{content.description}}</p>
   <p>Crafted by: {{content.author}}</p>
 </div>
-    <button mat-button><mat-icon aria-hidden="false" aria-label="favorite icon"
-      fontIcon="favorite"></mat-icon></button>
-  <button mat-button><mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon></button>
+<div class="mt-2">
+  <button mat-mini-fab class="me-3" title="add to favorite" [color]="favBtnColor" (click)="handleClick($event, 'favorite')">
+    <mat-icon aria-hidden="false" aria-label="add to favorite icon" fontIcon="favorite"></mat-icon>
+  </button>
+  <button mat-mini-fab color="" (click)="handleClick($event, 'share')">
+    <mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
+  </button>
+</div>
   </div>
   <!-- 
   <mat-card>
@@ -80,7 +85,6 @@
   <div class="hover">
     <lottie-player style="width: 18.75rem; height: 18.75rem;"src="https://lottie.host/42a7a928-4d6a-464f-bd95-a2fe3208be8c/5HHOxaxJIh.json"  background="transparent"  speed="2" loop  autoplay >
     </lottie-player>
-
     <!-- <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> <dotlottie-player src="https://lottie.host/837f3295-d004-4565-9669-5a0c8a89265e/Vjnv41sMwg.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player> -->
     <!-- <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> <dotlottie-player src="https://lottie.host/42a7a928-4d6a-464f-bd95-a2fe3208be8c/5HHOxaxJIh.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player> -->
    </div>
