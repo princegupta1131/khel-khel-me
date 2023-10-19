@@ -9,6 +9,8 @@ export class UtilService {
 
   constructor(private http: HttpClient) { }
   private titleChange = new Subject<string>();
+   languageChange;
+
   search(): Observable<any> {
     const url = `https://sunbirdsaas.com//api/content/v1/search`;// Add Chat service URL here
     let body = {
@@ -45,4 +47,11 @@ export class UtilService {
   setTitle(title){
     this.titleChange.next(title)
   }
+
+  getLanguage(){
+    return this.languageChange;
+   }
+   setLanguage(language){
+     this.languageChange=language
+   }
 }
