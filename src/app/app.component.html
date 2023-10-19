@@ -11,15 +11,6 @@
         </div>
     </header>
     <main>
-        <div class="language m-auto ng-star-inserted" *ngIf="isLanguageOptionVisible">
-            <mat-form-field  appearance="fill" color="primary" class="w-100">
-                <mat-label>Select your Langugage</mat-label>
-                <mat-select (selectionChange)="onLanguageChange()" [(ngModel)]="selectedLanguage">
-                    <mat-option value="en">English</mat-option>
-                    <mat-option value="hi">Hindi</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
         <router-outlet></router-outlet>
     </main>
 

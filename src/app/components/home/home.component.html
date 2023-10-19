@@ -108,6 +108,15 @@
     <div class="p-3">
       <h1 class="h1">{{'welcome'|translate}}</h1>
       <p class="h4">{{'explore'|translate}}</p>
+      <div class="language m-auto ng-star-inserted">
+        <mat-form-field  appearance="fill" color="primary" class="w-100">
+            <mat-label>{{'selectYourLanguage'|translate}}</mat-label>
+            <mat-select (selectionChange)="onLanguageChange()" [(ngModel)]="selectedLanguage">
+                <mat-option value="en">English</mat-option>
+                <mat-option value="hi">Hindi</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
       <button mat-raised-button class="mt-3 btn-new" [routerLink]="['/pitara']">
         <mat-icon aria-hidden="false" aria-label="Get started icon" fontIcon="arrow_forward"></mat-icon>
         {{'start'|translate}}
