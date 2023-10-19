@@ -49,4 +49,5 @@ export class ExploreComponent implements OnInit {
     }
     this.localStorageService.setItem('filteredArray', JSON.stringify(this.filteredArray))
   }
+
 }
