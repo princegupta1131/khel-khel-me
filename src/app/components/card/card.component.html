@@ -5,14 +5,12 @@
       <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
       <mat-card-title class="">{{content.name}}</mat-card-title>
       <mat-card-subtitle class="">
-        <p class="craftedby">Crafted by <b>{{content?.creator}}</b></p>
+        <p class="craftedby">{{'craftedBy'|translate}}: <b>{{content?.creator}}</b></p>
       </mat-card-subtitle>
     </mat-card-title-group>
     <mat-card-actions class="d-flex justify-content-between">
       <button mat-button><mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
-        Share</button>
-      <!-- <button mat-button><mat-icon aria-hidden="false" aria-label="open icon" fontIcon="arrow_forward"></mat-icon>
-          Open</button> -->
+        {{'share'|translate}}</button>
     </mat-card-actions>
   </mat-card>
 </ng-container>
@@ -25,8 +23,5 @@ width: 100%;
 height: 100%;
 background: #fff;
 z-index: 9;">
-  <!-- <button style="position: absolute;
-  right:16px;
-  top: 16px;z-index: 999;" mat-mini-fab color="warn" (click)="exitPlayerPage()"><mat-icon>close</mat-icon></button> -->
   <lib-player [playerData]="value" (closePlayerscreen)='handleClose($event)'></lib-player>
 </div>

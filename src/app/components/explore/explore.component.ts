@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { TranslateService } from '@ngx-translate/core';
 
 interface Chip {
   key: string;
@@ -27,15 +28,21 @@ export class ExploreComponent implements OnInit {
   ];
   selectedChips: Chip[] = [];
   selectedTab: Chip;
-  constructor(private localStorageService: LocalStorageService, public route: ActivatedRoute) {
+  constructor(private localStorageService: LocalStorageService, public route: ActivatedRoute, private translate: TranslateService) {
   }
   ngOnInit(): void {
     this.localStorageService.removeItem('filteredArray')
     this.localStorageService.setItem('filteredArray', JSON.stringify(this.data))
+
+    // Translate keys in the array
+    this.allChips.map(chip => ({
+      key: this.translate.get(chip.key).subscribe((translation: string) => {
+        return translation;
+      })
+    }));
   }
 
   ngAfterViewInit(): void {
-
   }
 
   handleChipSelection(event: any) {

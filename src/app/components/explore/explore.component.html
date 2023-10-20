@@ -1,28 +1,13 @@
- <!-- <mat-chip-list aria-label="Fish selection" [(ngModel)]="selectedChips">
-    <mat-chip (click)="handleChipSelection()"><mat-icon>apps</mat-icon><span>All</span></mat-chip> 
-    <mat-chip *ngFor="let chip of allChips" [selectable]="true"  [removable]="false"
-    (click)="handleChipSelection(chip)"><img matChipAvatar src={{chip.icon}} alt={{chip.key}}/> <span>{{chip.key}}</span></mat-chip>
-  </mat-chip-list> -->
-
-  <!-- <div class="row">
-    <div class="col-sm-12 col-sm-12 col-lg-12 mt-2">
-      <h4 class="h4 text-white">Theme name</h4>
-      <app-card class="pt-box-card-container"></app-card>
-    </div>
-  </div> -->
-
-  <mat-tab-group  mat-align-tabs="center" (selectedTabChange)="handleChipSelection($event)">
-    <mat-tab *ngFor="let tab of allChips">
-      <ng-template mat-tab-label>
-        <img src="{{tab.icon}}" width="40" alt="{{tab.key}} icon" />
-        <span>{{tab.key}}</span>
-      </ng-template>
-      <!-- <mat-chip-list><mat-chip>{{tab.key}}</mat-chip></mat-chip-list> -->
-      <div class="row">
-        <div class="col-sm-12 col-sm-12 col-lg-12">
-          <app-card class="pt-box-card-container"></app-card>
-        </div>
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="handleChipSelection($event)">
+  <mat-tab *ngFor="let tab of allChips">
+    <ng-template mat-tab-label>
+      <img src="{{tab.icon}}" width="40" alt="{{tab.key}} icon" />
+      <span>{{tab.key|translate}}</span>
+    </ng-template>
+    <div class="row">
+      <div class="col-sm-12 col-sm-12 col-lg-12">
+        <app-card class="pt-box-card-container"></app-card>
       </div>
-    </mat-tab>
-    
-  </mat-tab-group>
+    </div>
+  </mat-tab>
+</mat-tab-group>
