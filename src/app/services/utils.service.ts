@@ -12,7 +12,7 @@ export class UtilService {
    languageChange;
 
   search(): Observable<any> {
-    const url = `https://sunbirdsaas.com//api/content/v1/search`;// Add Chat service URL here
+    const url = `https://sunbirdsaas.com//api/content/v1/search?field=publisher`;
     let body = {
       "request": {
         "filters": {
