@@ -21,6 +21,7 @@ export class PlayerComponent implements OnInit {
   mobileViewDisplay = 'block';
   isMobileOrTab: boolean;
   playerConfiguration: any;
+  isYoutube:boolean=false
   @Output() closePlayerscreen = new EventEmitter();
   @HostListener('window:orientationchange', ['$event'])
   public handleOrientationChange() {
@@ -48,25 +49,17 @@ export class PlayerComponent implements OnInit {
   }
 
   loadPlayer() {
+    if(!this.isYoutube){
     const src = this.previewElement.nativeElement.src;
     this.previewElement.nativeElement.src = '';
     this.previewElement.nativeElement.src = src;
+    }else{
+     this.previewElement.nativeElement.src = this.playerConfiguration.metadata.artifactUrl;
+    }
     this.previewElement.nativeElement.onload = () => {
       setTimeout(() => {
         this.adjustPlayerHeight();
         this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfiguration);
-        this.previewElement.nativeElement.contentWindow.addEventListener('message', resp => {
-          if (resp.data && typeof resp.data === 'object') {
-            if (resp.data['player.pdf-renderer.error']) {
-              const pdfError = resp.data['player.pdf-renderer.error'];
-              if (pdfError.name === 'MissingPDFException') {
-                alert('This Pdf has some issue, please try with the differnet pdf content');
-              }
-            } else if (resp.data && resp.data.event === 'renderer:maxLimitExceeded') {
-              alert('Max limit reached to attempt the quiz');
-            }
-          }
-        });
       }, 1000);
     };
 
@@ -74,6 +67,20 @@ export class PlayerComponent implements OnInit {
       this.adjustPlayerHeight();
       this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfiguration);
     };
+    
+    // else{
+    //   this.previewElement.nativeElement.src = '';
+    //   this.previewElement.nativeElement.src = this.playerConfiguration.metadata.artifactUrl;
+    //   this.previewElement.nativeElement.onload = () => {
+    //     setTimeout(() => {
+    //       this.adjustPlayerHeight();
+    //     }, 1000);
+    //   };
+  
+    //   this.previewElement.nativeElement.onload = () => {
+    //     this.adjustPlayerHeight();
+    //   };
+    // }
   }
 
   setContentData() {
@@ -96,6 +103,8 @@ export class PlayerComponent implements OnInit {
       }
       )
       console.log('config::', this.playerConfiguration)
+    }else if(this.playerConfiguration.metadata.mimeType === 'video/x-youtube'){
+      this.isYoutube=true
     }
 
   }
