@@ -1,7 +1,7 @@
 <div class="layout">
     <div class="banner" *ngIf="showInstallButton() && isInstallButtonVisible">
         {{'installMessage'|translate}}
-        <button mat-raised-button color="primary" class="mx-3" (click)="promptInstall()">{{'installApp'|translate}}</button>
+        <button mat-raised-button color="primary" class="mx-3 btn" (click)="promptInstall()">{{'installApp'|translate}}</button>
         <button mat-button color="warn" (click)="isInstallButtonVisible=!isInstallButtonVisible">x</button>
     </div>
     <header>
