@@ -43,9 +43,9 @@ export class PlayerComponent implements OnInit {
 
   ngAfterViewInit() {
     this.loadPlayer();
-    if (this.isMobileOrTab) {
+    //if (this.isMobileOrTab) {
       this.rotatePlayer();
-    }
+   // }
   }
 
   loadPlayer() {
