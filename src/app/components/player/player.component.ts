@@ -138,7 +138,7 @@ export class PlayerComponent implements OnInit {
    * rotate it to landscape mode
    */
   rotatePlayer() {
-    setTimeout(() => {
+    // setTimeout(() => {
       const playVideo: any = document.querySelector('#playerFullscreen');
       try {
         if (playVideo.requestFullscreen) {
@@ -152,7 +152,7 @@ export class PlayerComponent implements OnInit {
         }
         screen.orientation.lock('landscape');
       } catch (error) { }
-    });
+    // });
   }
   /**
   * Adjust player height after load
