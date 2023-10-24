@@ -67,20 +67,6 @@ export class PlayerComponent implements OnInit {
       this.adjustPlayerHeight();
       this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfiguration);
     };
-    
-    // else{
-    //   this.previewElement.nativeElement.src = '';
-    //   this.previewElement.nativeElement.src = this.playerConfiguration.metadata.artifactUrl;
-    //   this.previewElement.nativeElement.onload = () => {
-    //     setTimeout(() => {
-    //       this.adjustPlayerHeight();
-    //     }, 1000);
-    //   };
-  
-    //   this.previewElement.nativeElement.onload = () => {
-    //     this.adjustPlayerHeight();
-    //   };
-    // }
   }
 
   setContentData() {
@@ -138,7 +124,7 @@ export class PlayerComponent implements OnInit {
    * rotate it to landscape mode
    */
   rotatePlayer() {
-    // setTimeout(() => {
+    setTimeout(() => {
       const playVideo: any = document.querySelector('#playerFullscreen');
       try {
         if (playVideo.requestFullscreen) {
@@ -152,7 +138,7 @@ export class PlayerComponent implements OnInit {
         }
         screen.orientation.lock('landscape');
       } catch (error) { }
-    // });
+     });
   }
   /**
   * Adjust player height after load
