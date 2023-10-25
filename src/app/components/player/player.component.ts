@@ -22,6 +22,8 @@ export class PlayerComponent implements OnInit {
   isMobileOrTab: boolean;
   playerConfiguration: any;
   isYoutube:boolean=false
+  isIOS: boolean = false;
+
   @Output() closePlayerscreen = new EventEmitter();
   @HostListener('window:orientationchange', ['$event'])
   public handleOrientationChange() {
@@ -37,6 +39,8 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit(): void {
     this.isMobileOrTab = this.deviceDetectorService.isMobile() || this.deviceDetectorService.isTablet();
+    this.checkIfIOS();
+
     console.log('device is ', this.isMobileOrTab)
     this.setContentData();
   }
@@ -58,13 +62,13 @@ export class PlayerComponent implements OnInit {
     }
     this.previewElement.nativeElement.onload = () => {
       setTimeout(() => {
-        this.adjustPlayerHeight();
+        // this.adjustPlayerHeight();
         this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfiguration);
       }, 1000);
     };
 
     this.previewElement.nativeElement.onload = () => {
-      this.adjustPlayerHeight();
+      //  this.adjustPlayerHeight();
       this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfiguration);
     };
   }
@@ -143,18 +147,22 @@ export class PlayerComponent implements OnInit {
   /**
   * Adjust player height after load
   */
-  adjustPlayerHeight() {
-    const playerWidth = $('#contentPlayer').width();
-    if (playerWidth) {
-      let height = playerWidth * (9 / 16);
-      let width = playerWidth * (16 / 9);
+  // adjustPlayerHeight() {
+  //   const playerWidth = $('#contentPlayer').width();
+  //   if (playerWidth) {
+  //     let height = playerWidth * (9 / 16);
+  //     let width = playerWidth * (16 / 9);
 
-      if (_.get(screen, 'orientation.type') === 'landscape-primary' && this.isMobileOrTab) {
-        height = window.innerHeight;
-        width = window.innerWidth
-      }
-      $('#contentPlayer').css('height', height + 'px');
-      $('#contentPlayer').css('width', width + 'px');
-    }
+  //     if (_.get(screen, 'orientation.type') === 'landscape-primary' && this.isMobileOrTab) {
+  //       height = window.innerHeight;
+  //       width = window.innerWidth
+  //     }
+  //     $('#contentPlayer').css('height', height + 'px');
+  //     $('#contentPlayer').css('width', width + 'px');
+  //   }
+  // }
+  checkIfIOS() {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    this.isIOS = /iphone|ipad|ipod/.test(userAgent);
   }
 }
