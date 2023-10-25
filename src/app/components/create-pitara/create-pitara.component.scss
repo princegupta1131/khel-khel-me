@@ -16,6 +16,57 @@
   }
 }
 
+.box-container {
+  padding: 40px;
+}
+
+@media screen and (orientation:landscape) { 
+  .box-container {
+    padding: 0 40px;
+
+    .biqWkE {
+      margin: -60px auto;
+    }
+
+    .pitara-box-details {
+      margin-top: -50px;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .create-pitara {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .border-end {
+      border-right: none !important;
+      width: 100%;
+
+      .box-container {
+        padding: 0 40px;
+
+        .pitara-box-details {
+          margin-top: -50px;
+        }
+      }
+    }
+
+    .pt-box-card-container {
+      width: 100%;
+      display: flex;
+      height: auto;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 300px;
+      .pt-box-card {
+        min-width: 280px;
+      }
+    }
+  }
+}
+
 .example-form {
   display: flex;
   align-items: center;
