@@ -11,7 +11,7 @@ export class UtilService {
   private titleChange = new Subject<string>();
    languageChange;
 
-  search(): Observable<any> {
+  searchSaas(): Observable<any> {
     const url = `https://sunbirdsaas.com//api/content/v1/search?field=publisher`;
     let body = {
       "request": {
@@ -30,9 +30,19 @@ export class UtilService {
     }
     return this.http.post(url, body)
   }
+  
+  searchOnest():Observable<any>{
+    const url=`https://onest-bap.tekdinext.com/seeker/collection/`
+    return this.http.get(url)
+  }
 
-  collectionRead(doId): Observable<any> {
+  saasCollectionRead(doId): Observable<any> {
     const url = `https://sunbirdsaas.com/action/content/v3/hierarchy/${doId}`
+    return this.http.get(url)
+  }
+
+  onestCollectionRead(doId): Observable<any> {
+    const url = `https://onest-bap.tekdinext.com/seeker/collection/${doId}`
     return this.http.get(url)
   }
 

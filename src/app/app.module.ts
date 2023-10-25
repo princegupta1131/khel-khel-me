@@ -21,7 +21,6 @@ import { PitaraComponent } from './components/pitara/pitara.component';
 import { HeaderbarComponent } from './components/headerbar/headerbar.component';
 import { BackbarComponent } from './components/backbar/backbar.component';
 import { CardComponent } from './components/card/card.component';
-import { CardPComponent } from './components/pitara/card/card.component';
 import { UtilService } from './services/utils.service';
 import {  HttpClient, HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './pipes/safe.pipe';
@@ -46,7 +45,6 @@ export function createTranslateLoader(http: HttpClient) {
     HeaderbarComponent,
     BackbarComponent,
     CardComponent,
-    CardPComponent,
     SafePipe,
     PlayerComponent,
     FooterComponent,
