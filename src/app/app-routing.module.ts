@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { PitaraComponent } from './components/pitara/pitara.component';
+import { MyPitaraComponent } from './components/my-pitara/my-pitara.component';
+import { CreatePitaraComponent } from './components/create-pitara/create-pitara.component';
 
 
 const routes: Routes = [
@@ -15,7 +17,13 @@ const routes: Routes = [
   },
   {
     path: 'pitara', component: PitaraComponent,
-  }
+  },
+  {
+    path: 'mypitara', component: MyPitaraComponent,
+  },
+  {
+    path: 'create-pitara', component: CreatePitaraComponent,
+  },
 ];
 
 @NgModule({

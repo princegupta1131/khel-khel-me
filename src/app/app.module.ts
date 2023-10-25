@@ -31,6 +31,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { InstallService } from './services/install.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CreatePitaraComponent } from './components/create-pitara/create-pitara.component';
+import { MyPitaraComponent } from './components/my-pitara/my-pitara.component';
 
 // Create a loader for translations
 export function createTranslateLoader(http: HttpClient) {
@@ -48,6 +50,8 @@ export function createTranslateLoader(http: HttpClient) {
     SafePipe,
     PlayerComponent,
     FooterComponent,
+    CreatePitaraComponent,
+    MyPitaraComponent,
   ],
   imports: [
     BrowserModule,

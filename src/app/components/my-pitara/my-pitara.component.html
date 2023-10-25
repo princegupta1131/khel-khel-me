@@ -1,0 +1,59 @@
+<button mat-raised-button class="mt-3 btn-new" [routerLink]="['/create-pitara']">
+    <mat-icon aria-hidden="false" aria-label="Get started icon"></mat-icon>
+    {{'Create Your Pitara'}}
+  </button>
+
+<div class="pt-box-card-container --magicbox">
+    <div class="pitara-box-item" *ngFor="let pitara of mypitaras;let i=index">
+        <div class="">
+        <div class="shadow-wrapper">
+          <div class="shadow">
+            <div>&nbsp;</div>
+          </div>
+        </div>
+        <div class="box-wrapper">
+          <div class="box-faces">
+            <div class="box-face box-face--is-front">
+              <p>
+                <img mat-card-sm-image src="../../../assets/images/box.png" alt="content image">
+              </p>
+            </div>
+            <div class="box-face box-face--is-back">
+              <p>
+                <img mat-card-sm-image src="../../../assets/images/box.png" alt="content image">
+              </p>
+            </div>
+            <div class="box-face box-face--is-top">&nbsp;</div>
+            <div class="box-face box-face--is-bottom">&nbsp;</div>
+            <div class="box-face box-face--is-left">
+              <p>
+                <img mat-card-sm-image src="../../../assets/images/box.png" alt="content image">
+              </p>
+            </div>
+            <div class="box-face box-face--is-right">
+              <p>
+                <img mat-card-sm-image src="../../../assets/images/box.png" alt="content image">
+              </p>
+            </div>
+        
+          </div><!-- end of .box -->
+        </div>
+        <div class="text-white pitara-box-details" >
+          <div >
+            <h4>{{pitara.name}}</h4>
+        </div>
+        <div class="mt-2">
+          <button mat-mini-fab color="" >
+            <mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
+          </button>
+      </div>
+        </div>
+      </div>
+        <div class="hover">
+          <lottie-player style="width: 18.75rem; height: 18.75rem;"src="https://lottie.host/42a7a928-4d6a-464f-bd95-a2fe3208be8c/5HHOxaxJIh.json"  background="transparent"  speed="2" loop  autoplay >
+          </lottie-player>
+          </div>
+        </div>
+      
+
+</div>
