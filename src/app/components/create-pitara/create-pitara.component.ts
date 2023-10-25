@@ -8,6 +8,7 @@ import { UtilService } from 'src/app/services/utils.service';
 })
 export class CreatePitaraComponent implements OnInit {
   data: any;
+  targetItems = [];
 
   constructor(public utils: UtilService) { }
 
@@ -15,5 +16,8 @@ export class CreatePitaraComponent implements OnInit {
     this.utils.setTitle('Create Your Own Pitara');
     this.data = JSON.parse(localStorage.getItem('contents'));
   }
-
+  onDrop(event: any) {
+    this.utils.drop(event);
+    this.data.splice(event.previousIndex, 1);
+  }
 }

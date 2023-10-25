@@ -33,6 +33,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CreatePitaraComponent } from './components/create-pitara/create-pitara.component';
 import { MyPitaraComponent } from './components/my-pitara/my-pitara.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 // Create a loader for translations
 export function createTranslateLoader(http: HttpClient) {
@@ -71,6 +72,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     MatChipsModule,
     MatDialogModule,
+    DragDropModule,
     FormsModule, ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
