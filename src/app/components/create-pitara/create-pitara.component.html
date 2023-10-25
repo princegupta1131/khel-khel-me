@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-5 border-end" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
+        <div class="col-5 border-end" id="list-one" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
             <div style="padding: 40px;">
                 <div class="sc-bdVaJa hCqOlD">
                     <div class="sc-bwzfXH biqWkE">
@@ -19,14 +19,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-white pitara-box-details">
+                <div class="text-black pitara-box-details">
                     <div>
                         <form class="example-form">
                             <mat-form-field appearance="fill" color="primary" class="w-100">
                                 <mat-label>Pitara Name</mat-label>
-                                <input matInput placeholder="Pitara Name" value="">
+                                <input name="pitara" matInput placeholder="Pitara Name" [(ngModel)]="pitaraName">
                             </mat-form-field>
-                            <button class="box-button" mat-raised-button color="primary">Create</button>
+                            <button class="box-button" mat-raised-button color="primary"(click)="createPitara()"[disabled]="!targetItems.length||!pitaraName ">Create</button>
                         </form>
                     </div>
 
@@ -54,7 +54,6 @@
                     </div>
                 </mat-card>
             </ng-container>
-
         </div>
     </div>
 </div>

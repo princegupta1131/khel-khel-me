@@ -9,22 +9,14 @@ import { UtilService } from 'src/app/services/utils.service';
 })
 export class MyPitaraComponent implements OnInit {
   contents;
-
-  mypitaras = [{
-    name: "My pitara 1",
-    identifier: 1,
-  }, {
-    name: "My pitara 2",
-    identifier: 2,
-  }
-  ]
+  mypitara: any;
   constructor(public utils: UtilService, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
     this.utils.setTitle('My Pitaras');
+    this.mypitara = JSON.parse(this.localStorageService.getItem('mypitara'));
 
     this.utils.searchSaas().subscribe(data => {
-      console.log(JSON.stringify(data))
       this.contents = data.result.content.filter((content: any) => content.mimeType !== 'application/vnd.ekstep.content-collection')
       this.localStorageService.setItem('contents', JSON.stringify(this.contents))
     })
