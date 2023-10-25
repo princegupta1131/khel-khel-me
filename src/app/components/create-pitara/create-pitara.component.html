@@ -1,55 +1,33 @@
 <div class="container">
     <div class="row">
-        <div class="col-4 border-end" id="list-one" cdkDropList (cdkDropListDropped)="onDrop($event)"
-            [cdkDropListData]="targetItems">
-            <div class=" --magicbox">
-                <div class="pitara-box-item">
-                    <div class="">
-                        <div class="shadow-wrapper">
-                            <div class="shadow">
-                                <div>&nbsp;</div>
+        <div class="col-5 border-end" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
+            <div style="padding: 40px;">
+                <div class="sc-bdVaJa hCqOlD">
+                    <div class="sc-bwzfXH biqWkE">
+                        <div class="sc-htpNat kGQype">
+                            <div class="sc-bxivhb sc-dnqmqq ZEDDw">
+                                <div class="sc-iwsKbI ekMwXW"></div>
+                                <div class="sc-gZMcBi fujrhZ"></div>
+                                <div class="sc-gqjmRU jRAgJu"></div>
+                                <div class="sc-VigVT gpuqLL"></div>
                             </div>
+                            <div class="sc-bxivhb sc-ifAKCX kLAltZ"></div>
+                            <div class="sc-bxivhb sc-EHOje gvPWuP"></div>
+                            <div class="sc-bxivhb sc-bZQynM ldKBkL"></div>
+                            <div class="sc-bxivhb sc-gzVnrw fFMyeM"></div>
+                            <div class="sc-bxivhb sc-htoDjs crPZsS"></div>
                         </div>
-                        <div class="box-wrapper">
-                            <div class="box-faces">
-                                <div class="box-face box-face--is-front">
-                                    <p>
-                                        <img mat-card-sm-image src="../../../assets/images/box.png" alt="content image">
-                                    </p>
-                                </div>
-                                <div class="box-face box-face--is-back">
-                                    <p>
-                                        <img mat-card-sm-image src="../../../assets/images/box.png" alt="content image">
-                                    </p>
-                                </div>
-                                <div class="box-face box-face--is-top">&nbsp;</div>
-                                <div class="box-face box-face--is-bottom">&nbsp;</div>
-                                <div class="box-face box-face--is-left">
-                                    <p>
-                                        <img mat-card-sm-image src="../../../assets/images/box.png" alt="content image">
-                                    </p>
-                                </div>
-                                <div class="box-face box-face--is-right">
-                                    <p>
-                                        <img mat-card-sm-image src="../../../assets/images/box.png" alt="content image">
-                                    </p>
-                                </div>
-
-                            </div><!-- end of .box -->
-                        </div>
-                        <div class="text-white pitara-box-details">
-                            <div>
-                                <form class="example-form">
-                                    <mat-form-field class="example-full-width">
-                                        <mat-label>Pitara Name</mat-label>
-                                        <input matInput placeholder="Pitara Name" value="">
-                                    </mat-form-field>
-                                    <button mat-raised-button color="primary">Create</button>
-
-                                </form>
-                            </div>
-
-                        </div>
+                    </div>
+                </div>
+                <div class="text-white pitara-box-details">
+                    <div>
+                        <form class="example-form">
+                            <mat-form-field appearance="fill" color="primary" class="w-100">
+                                <mat-label>Pitara Name</mat-label>
+                                <input matInput placeholder="Pitara Name" value="">
+                            </mat-form-field>
+                            <button class="box-button" mat-raised-button color="primary">Create</button>
+                        </form>
                     </div>
 
                 </div>
@@ -57,7 +35,7 @@
         </div>
 
 
-        <div class="col-8 pt-box-card-container" cdkDropList [cdkDropListData]="data"
+        <div class="col-7 pt-box-card-container" cdkDropList [cdkDropListData]="data"
             [cdkDropListConnectedTo]="['list-one']">
             <ng-container>
                 <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" cdkDrag>
