@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-create-pitara',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePitaraComponent implements OnInit {
 
-  constructor() { }
+  constructor(public utils: UtilService) { }
 
   ngOnInit(): void {
+    this.utils.setTitle('Create Your Own Pitara');
+
   }
 
 }

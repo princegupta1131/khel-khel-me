@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
           this.isInstallButtonVisible=false
 
         }
-        else if (event.url.includes('/explore')||event.url.includes('/mypitara')) {
+        else if (event.url.includes('/explore')||event.url.includes('/mypitara')||event.url.includes('/create-pitara')) {
           this.isMenuBarVisible = true;
           this.isHeaderBarVisible = false;
           this.isInstallButtonVisible=false
