@@ -4,6 +4,7 @@ import { Subscription, filter } from 'rxjs';
 import { UtilService } from './services/utils.service';
 import { InstallService } from './services/install.service';
 import { TranslateService } from '@ngx-translate/core';
+import { inject } from "@vercel/analytics";
 
 
 @Component({
@@ -47,6 +48,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
+    inject()
     this.utilService.getTitle().subscribe(
       (value) => {
         this.title = value
