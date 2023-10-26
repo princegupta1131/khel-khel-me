@@ -15,7 +15,7 @@ export class CreatePitaraComponent implements OnInit {
   constructor(public utils: UtilService, public router: Router, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.utils.setTitle('Create Your Own Pitara');
+    this.utils.setTitle('createYourPitara');
     this.data = JSON.parse(this.localStorageService.getItem('contents'));
   }
 

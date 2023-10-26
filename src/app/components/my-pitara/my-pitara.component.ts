@@ -17,7 +17,7 @@ export class MyPitaraComponent implements OnInit {
   constructor(public router: Router,public utils: UtilService, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.utils.setTitle('My Pitaras');
+    this.utils.setTitle('myPitara');
     this.sound = new Howl({
       src: ['assets/audio/windchime.mp3'],
     });

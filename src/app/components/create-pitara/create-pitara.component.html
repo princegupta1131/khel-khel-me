@@ -23,14 +23,14 @@
                     </div>
                 </div>
                 <div class="text-black pitara-box-details">
-                    <h3 class="box-description">Drag & Drop your content to pitara</h3>
+                    <h3 class="box-description">{{'dragMessage'|translate}}</h3>
                     <div>
                         <form class="example-form">
                             <mat-form-field appearance="fill" color="primary" class="w-100">
-                                <mat-label>Pitara Name</mat-label>
-                                <input name="pitara" matInput placeholder="Pitara Name" [(ngModel)]="pitaraName">
+                                <mat-label>{{'Pitara Name'|translate}}</mat-label>
+                                <input name="pitara" matInput placeholder="{{'Pitara Name'|translate}}" [(ngModel)]="pitaraName">
                             </mat-form-field>
-                            <button class="box-button" mat-raised-button color="primary"(click)="createPitara()"[disabled]="!targetItems.length||!pitaraName ">Create</button>
+                            <button class="box-button" mat-raised-button color="primary"(click)="createPitara()"[disabled]="!targetItems.length||!pitaraName ">{{'Create'|translate}}</button>
                         </form>
                     </div>
 
