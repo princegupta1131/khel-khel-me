@@ -49,6 +49,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     inject()
+    this.translate.use(this.utilService.getLanguage() || 'en')
+
     this.utilService.getTitle().subscribe(
       (value) => {
         this.title = value

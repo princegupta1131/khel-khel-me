@@ -2,13 +2,14 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { LocalStorageService } from './localStorage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private localStorageService:LocalStorageService) { }
   private titleChange = new Subject<string>();
    languageChange;
 
@@ -60,10 +61,10 @@ export class UtilService {
   }
 
   getLanguage(){
-    return this.languageChange;
+    return this.localStorageService.getItem('language')
    }
    setLanguage(language){
-     this.languageChange=language
+     this.localStorageService.setItem('language',language)
    }
    public drop(event: CdkDragDrop<string[]>) {
       transferArrayItem(event.previousContainer.data,

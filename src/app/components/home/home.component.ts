@@ -19,8 +19,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.translate.setDefaultLang('en');
-    this.selectedLanguage = this.utils.languageChange
-    this.translate.use(this.selectedLanguage || 'en')
+    this.selectedLanguage = this.utils.getLanguage()
 
     forkJoin([
       this.utils.searchOnest(),
@@ -53,6 +52,6 @@ export class HomeComponent implements OnInit {
 
   onLanguageChange() {
     this.utils.setLanguage(this.selectedLanguage)
-    this.translate.use(this.selectedLanguage);
+    this.translate.use(this.utils.getLanguage());
   }
 }
