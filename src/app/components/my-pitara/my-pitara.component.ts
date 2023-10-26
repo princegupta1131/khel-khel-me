@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { UtilService } from 'src/app/services/utils.service';
+import { Howl } from 'howler';
 
 @Component({
   selector: 'app-my-pitara',
@@ -10,10 +12,15 @@ import { UtilService } from 'src/app/services/utils.service';
 export class MyPitaraComponent implements OnInit {
   contents;
   mypitara: any;
-  constructor(public utils: UtilService, private localStorageService: LocalStorageService) { }
+  result: any;
+  sound: any;
+  constructor(public router: Router,public utils: UtilService, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
     this.utils.setTitle('My Pitaras');
+    this.sound = new Howl({
+      src: ['assets/audio/windchime.mp3'],
+    });
     this.mypitara = JSON.parse(this.localStorageService.getItem('mypitara'));
 
     this.utils.searchSaas().subscribe(data => {
@@ -22,4 +29,16 @@ export class MyPitaraComponent implements OnInit {
     })
   }
 
+  unboxPitara(value) {
+    console.log('val', value)
+    this.utils.setTitle(value.name);
+    if (!value.provider_id) {
+        this.result = value.children
+        this.localStorageService.setItem('resultArray', JSON.stringify(this.result))
+        this.sound.play();
+        setTimeout(() => {
+          this.router.navigate(['explore'])
+        }, 1000);
+      }
+    }
 }
