@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 interface Chip {
   key: string;
@@ -14,8 +15,16 @@ interface Chip {
   styleUrls: ['./explore.component.scss']
 })
 
-export class ExploreComponent implements OnInit {
+export class ExploreComponent implements OnInit{
   filteredArray;
+  playerSource: any;
+  isPlayerInit: boolean = false;
+  isContentInit: boolean = true;
+  value: any;
+  localStorageSubscription: Subscription;
+  selectedTab: Chip;
+  selectedTabIndex: number = 0;
+
   data: any = JSON.parse(localStorage.getItem('resultArray'));
   allChips: Chip[] = [
     { key: 'All', value: 'all', icon: 'https://cdn-icons-png.flaticon.com/512/7787/7787487.png' },
@@ -26,14 +35,10 @@ export class ExploreComponent implements OnInit {
     { key: 'Activity Sheets', value: 'djp_category_activitys', icon: 'https://cdn-icons-png.flaticon.com/512/1668/1668531.png' },
     { key: 'Manuals and Guidebooks', value: 'djp_category_manuals', icon: 'https://cdn-icons-png.flaticon.com/512/6348/6348248.png' }
   ];
-  selectedChips: Chip[] = [];
-  selectedTab: Chip;
+
   constructor(private localStorageService: LocalStorageService, public route: ActivatedRoute, private translate: TranslateService) {
   }
   ngOnInit(): void {
-    this.localStorageService.removeItem('filteredArray')
-    this.localStorageService.setItem('filteredArray', JSON.stringify(this.data))
-
     // Translate keys in the array
     this.allChips.map(chip => ({
       key: this.translate.get(chip.key).subscribe((translation: string) => {
@@ -42,11 +47,11 @@ export class ExploreComponent implements OnInit {
     }));
   }
 
-  ngAfterViewInit(): void {
-  }
-
+  
   handleChipSelection(event: any) {
+    this.data = JSON.parse(localStorage.getItem('resultArray'));
     this.selectedTab = this.allChips[event.index];
+    this.localStorageService.setTabIndex(event.index);
     if (this.selectedTab.value === 'all') {
       this.filteredArray = this.data;
     } else {
@@ -54,7 +59,22 @@ export class ExploreComponent implements OnInit {
         return content.keywords ? content.keywords.includes(this.selectedTab.value) : false
       })
     }
-    this.localStorageService.setItem('filteredArray', JSON.stringify(this.filteredArray))
+     this.data = this.filteredArray
   }
 
+  openPlayer(content: any) {
+    this.value = content;
+    console.log(this.value, 'test');
+    this.isPlayerInit = true;
+    this.isContentInit = false;
+  }
+
+  handleClose(data) {
+    this.isPlayerInit = false;
+    this.isContentInit = true;
+    const storedTabIndex = this.localStorageService.getTabIndex();
+    if (storedTabIndex !== null) {
+      this.selectedTabIndex = storedTabIndex;
+    }
+  }
 }

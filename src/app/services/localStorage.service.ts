@@ -33,5 +33,14 @@ export class LocalStorageService {
   removeItem(key:string){
     return localStorage.removeItem(key)
   }
+  private storageKey = 'selectedTabIndex';
 
+  getTabIndex(): number | null {
+    const storedValue = localStorage.getItem(this.storageKey);
+    return storedValue !== null ? +storedValue : null;
+  }
+
+  setTabIndex(index: number): void {
+    localStorage.setItem(this.storageKey, index.toString());
+  }
 }
