@@ -1,10 +1,13 @@
 <div class="container">
     <div class="row create-pitara">
-        <div class="col-5 border-end" id="list-one" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
+        <div class="col-6 border-end" id="list-one" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
             <div class="box-container">
                 <div style="position: relative;">
-                    <div class="arrow arrow-down"></div>
-                    <div class="box-description">{{'dragMessage'|translate}}</div>
+                    <div class="arrow-box">
+                        <div class="empty-box"></div>
+                        <div class="arrow arrow-down"></div>
+                        <div class="box-description">{{'dragMessage'|translate}}</div>
+                    </div>
                     <div class="sc-bdVaJa hCqOlD">
                         <div class="sc-bwzfXH biqWkE">
                             <div class="sc-htpNat kGQype">
@@ -39,7 +42,7 @@
         </div>
 
 
-        <div class="col-7 pt-box-card-container" cdkDropList [cdkDropListData]="data"
+        <div class="col-6 pt-box-card-container" cdkDropList [cdkDropListData]="data"
             [cdkDropListConnectedTo]="['list-one']">
             <ng-container>
                 <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" cdkDrag>
