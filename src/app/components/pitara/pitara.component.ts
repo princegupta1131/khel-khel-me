@@ -26,7 +26,7 @@ export class PitaraComponent implements OnInit {
 
   unboxPitara(value) {
     console.log('val', value)
-    this.utils.setTitle('myPitara');
+    this.utils.setTitle(value.name);
     if (!value.provider_id) {
       this.utils.saasCollectionRead(value.identifier).subscribe((data) => {
         this.result = data.result.content
