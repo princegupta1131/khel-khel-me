@@ -16,7 +16,7 @@
 </ng-container>
 
 
-<div *ngIf="isPlayerInit" style="    position: fixed;
+<ng-container *ngIf="isPlayerInit" style="    position: fixed;
 top: 0;
 left: 0;
 width: 100%;
@@ -24,4 +24,4 @@ height: 100%;
 background: #fff;
 z-index: 9;">
   <lib-player [playerData]="value" (closePlayerscreen)='handleClose($event)'></lib-player>
-</div>
+</ng-container>
