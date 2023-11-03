@@ -32,7 +32,6 @@
                 </div>
             </div>
             <div class="text-black pitara-box-details">
-                <div>
                     <form class="example-form">
                         <mat-form-field appearance="fill" color="primary" class="w-100">
                             <mat-label>{{'Enter Pitara Name'|translate}}</mat-label>
@@ -40,8 +39,6 @@
                         </mat-form-field>
                         <button class="box-button" mat-raised-button color="primary"(click)="createPitara()"[disabled]="!targetItems.length||!pitaraName ">{{'Create'|translate}}</button>
                     </form>
-                </div>
-
             </div>
         </div>
         <div *ngIf="showModal"  class="position-sticky dragdropbox">
@@ -52,7 +49,7 @@
             <ng-container>
                 <div class="d-flex flex-column" style="height: calc(100vh - 6.625rem);
                 overflow-y: auto;">
-                <mat-card class="pt-box-card mb-1" *ngFor="let content of targetItems;let i=index" cdkDrag>
+                <mat-card class="pt-box-card mb-2" *ngFor="let content of targetItems;let i=index" cdkDrag>
                     <div>
                         <span class="description">{{content.primaryCategory}}</span>
                         <mat-card-title-group>
@@ -98,6 +95,5 @@
                 </div>
             </mat-card>
         </ng-container>
-
     </div>
 </div>
