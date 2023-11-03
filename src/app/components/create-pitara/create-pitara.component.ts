@@ -12,6 +12,7 @@ export class CreatePitaraComponent implements OnInit {
   data: any;
   targetItems = [];
   pitaraName = '';
+  showModal=false
   constructor(public utils: UtilService, public router: Router, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
@@ -22,7 +23,7 @@ export class CreatePitaraComponent implements OnInit {
   onDrop(event: any) {
     this.utils.drop(event);
     console.log(this.targetItems, '--')
-    this.data.splice(event.previousIndex, 1);
+    // this.data.splice(event.previousIndex, 1);
   }
   
   createPitara() {
