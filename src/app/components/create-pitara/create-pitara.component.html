@@ -1,17 +1,18 @@
 <div class="container">
     <div class="row create-pitara">
-        <div class="col-6 border-end" id="list-one" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
-            <div class="box-container">
-                <div style="position: relative;">
+        <div class="col-sm-12 col-md-4 col-md-4 border-end" id="list-one" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
+            <div class="box-container position-sticky" style="top:0">
+                <div class="d-flex flex-column justify-content-center position-relative align-items-center">
                     <div class="arrow-box">
-                        <div class="empty-box"></div>
-                        <div class="arrow arrow-down"></div>
                         <div class="box-description">{{'dragMessage'|translate}}</div>
+                        <div class="arrow arrow-down"></div>
                     </div>
+                    <div class="counter">24</div>
                     <div class="sc-bdVaJa hCqOlD">
                         <div class="sc-bwzfXH biqWkE">
                             <div class="sc-htpNat kGQype">
                                 <div class="sc-bxivhb sc-dnqmqq ZEDDw">
+                                    
                                     <div class="sc-iwsKbI ekMwXW"></div>
                                     <div class="sc-gZMcBi fujrhZ"></div>
                                     <div class="sc-gqjmRU jRAgJu"></div>
@@ -30,7 +31,7 @@
                     <div>
                         <form class="example-form">
                             <mat-form-field appearance="fill" color="primary" class="w-100">
-                                <mat-label>{{'Pitara Name'|translate}}</mat-label>
+                                <mat-label>{{'Enter Pitara Name'|translate}}</mat-label>
                                 <input name="pitara" matInput placeholder="{{'Pitara Name'|translate}}" [(ngModel)]="pitaraName">
                             </mat-form-field>
                             <button class="box-button" mat-raised-button color="primary"(click)="createPitara()"[disabled]="!targetItems.length||!pitaraName ">{{'Create'|translate}}</button>
@@ -42,7 +43,7 @@
         </div>
 
 
-        <div class="col-6 pt-box-card-container" cdkDropList [cdkDropListData]="data"
+        <div class="col-sm-12 col-md-8 col-lg-8 pt-box-card-container" cdkDropList [cdkDropListData]="data"
             [cdkDropListConnectedTo]="['list-one']">
             <ng-container>
                 <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" cdkDrag>
@@ -58,6 +59,9 @@
                                 </p>
                             </mat-card-subtitle>
                         </mat-card-title-group>
+                        <mat-card-actions class="p-0 m-0 d-none d-sm-block d-md-none" align="end">
+                            <button mat-button>Select</button>
+                          </mat-card-actions>
                     </div>
                 </mat-card>
             </ng-container>
