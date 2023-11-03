@@ -191,8 +191,9 @@ p {
   .btn-fix {
     position: fixed;
     right: unset;
-    top: 60%;
     left: 50%;
     transform: translateX(-50%);
+    bottom: 88px;
+    top: unset;
   }
 }

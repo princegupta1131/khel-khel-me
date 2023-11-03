@@ -185,3 +185,13 @@ p {
   right: 16px;
   top: 8px;
 }
+
+@media only screen and (max-width: 576px) { 
+  .btn-fix {
+    bottom: 88px;
+    top: unset;
+    left: 50%;
+    right: unset;
+    transform: translateX(-50%);
+  }
+}
