@@ -33,7 +33,7 @@ export const playerConfig = {
           contentType: ['SelfAssess']
         }
       ],
-      showStartPage: true,
+      showStartPage: false,
       host: '',
       overlay: {
           enableUserSwitcher: true,

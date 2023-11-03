@@ -21,7 +21,7 @@ export class PlayerComponent implements OnInit {
   mobileViewDisplay = 'block';
   isMobileOrTab: boolean;
   playerConfiguration: any;
-  isYoutube:boolean=false
+  isEmbed: boolean = false
   isIOS: boolean = false;
 
   @Output() closePlayerscreen = new EventEmitter();
@@ -48,17 +48,17 @@ export class PlayerComponent implements OnInit {
   ngAfterViewInit() {
     this.loadPlayer();
     //if (this.isMobileOrTab) {
-      this.rotatePlayer();
-   // }
+    this.rotatePlayer();
+    // }
   }
 
   loadPlayer() {
-    if(!this.isYoutube){
-    const src = this.previewElement.nativeElement.src;
-    this.previewElement.nativeElement.src = '';
-    this.previewElement.nativeElement.src = src;
-    }else{
-     this.previewElement.nativeElement.src = this.playerConfiguration.metadata.artifactUrl;
+    if (!this.isEmbed) {
+      const src = this.previewElement.nativeElement.src;
+      this.previewElement.nativeElement.src = '';
+      this.previewElement.nativeElement.src = src;
+    } else {
+      this.previewElement.nativeElement.src = this.playerConfiguration.metadata.artifactUrl;
     }
     this.previewElement.nativeElement.onload = () => {
       setTimeout(() => {
@@ -74,29 +74,60 @@ export class PlayerComponent implements OnInit {
   }
 
   setContentData() {
-    playerConfig.context['contentId'] = this.playerData.identifier
-    playerConfig.context['channel'] = this.playerData.channel
-    playerConfig.context['app'] = [this.playerData.channel]
-    playerConfig.context['tags'] = [this.playerData.channel]
-    playerConfig.context['contextRollup'] = this.playerData.channel
-
     this.playerConfiguration = {
       context: playerConfig.context,
       config: playerConfig.config,
-      metadata: this.playerData,
+      metadata: {},
       data: {}
     };
 
-    if (this.playerConfiguration.metadata.mimeType === 'application/vnd.ekstep.ecml-archive') {
-      this.utils.contentRead(this.playerConfiguration.metadata.identifier).subscribe((data) => {
-        return this.playerConfiguration.data = data?.result?.content?.body
+    if (!this.playerData.urlType) {
+      this.playerConfiguration.metadata.artifactUrl = this.playerData.artifactUrl
+      this.playerConfiguration.metadata.mimeType = this.playerData.mimeType
+      this.playerConfiguration.metadata.streamingUrl = this.playerData.streamingUrl
+      this.playerConfiguration.metadata.identifier = this.playerData.identifier
+
+      if (this.playerConfiguration.metadata.mimeType === ('application/vnd.ekstep.ecml-archive')) {
+        this.utils.contentRead(this.playerConfiguration.metadata.streamingUrl + '/index.json').subscribe((data) => {
+          this.playerConfiguration.data = data
+        }
+        )
+      }
+      else if (this.playerConfiguration.metadata.mimeType === 'video/x-youtube') {
+        this.isEmbed = true
+        this.playerConfiguration.metadata.artifactUrl = this.getYouTubeEmbedUrl(this.playerConfiguration.metadata.artifactUrl);
+      } else if (this.playerConfiguration.metadata.mimeType === ('application/vnd.ekstep.html-archive')) {
+        this.isEmbed = true
+        this.playerConfiguration.metadata.artifactUrl = this.playerConfiguration.metadata.streamingUrl + '/index.html'
+      }
+      console.log('playerConfig', this.playerConfiguration)
+    } else if (this.playerData.urlType === "Embed") {
+      this.playerConfiguration.metadata.artifactUrl = this.playerData.artifactUrl
+      this.isEmbed = true
+      this.playerConfiguration.metadata.artifactUrl = this.getYouTubeEmbedUrl(this.playerConfiguration.metadata.artifactUrl);
+    } else if (this.playerData.urlType === "Page") {
+      window.open(this.playerData.artifactUrl, '_blank', "fullscreen=yes,toolbar=no,location=no");
+      this.closePlayerscreen.emit('closed')
+    } else if (this.playerData.urlType === "Asset") {
+      this.playerConfiguration.metadata.mimeType = 'application/vnd.ekstep.ecml-archive'
+      this.playerConfiguration.metadata.artifactUrl = this.playerData.artifactUrl
+      this.utils.contentRead(this.playerConfiguration.metadata.artifactUrl + '/index.json').subscribe((data) => {
+        this.playerConfiguration.data = data
       }
       )
-      console.log('config::', this.playerConfiguration)
-    }else if(this.playerConfiguration.metadata.mimeType === 'video/x-youtube'){
-      this.isYoutube=true
+      console.log('playerConfig', this.playerConfiguration)
     }
+  }
 
+  getYouTubeEmbedUrl(url) {
+    // Extract video ID from the URL
+    if (url.match(/[?&]v=([^?&]+)/)) {
+      var videoId = url.match(/[?&]v=([^?&]+)/)[1];
+      // Construct the embed URL
+      var embedUrl = "https://www.youtube.com/embed/" + videoId + '?enablejsapi=1';
+      return embedUrl;
+    }
+    else return url;
   }
 
   /** when user clicks on close button
@@ -140,9 +171,9 @@ export class PlayerComponent implements OnInit {
         } else if (playVideo.msRequestFullscreen) { /* IE/Edge */
           playVideo.msRequestFullscreen();
         }
-        screen.orientation.lock('landscape');
+        screen.orientation.lock('landscape-primary');
       } catch (error) { }
-     });
+    });
   }
   /**
   * Adjust player height after load

@@ -38,26 +38,28 @@ export class PitaraComponent implements OnInit {
       })
     }
     else {
-      //   this.utils.onestCollectionRead(value.identifier).subscribe((data) => {
-      //     this.result = data.data.collection[0].collectionContentRelation
-
-      //     let onestContent = this.result.map((content) => {
-      //       return {
-      //         appIcon: content.icon,
-      //         description: content.description,
-      //         name: content.title,
-      //         publisher: content.publisher,
-      //         identifier: content.id,
-      //         provider_id:content.provider_id
-      //       }
-      //     })
-
-      //     this.localStorageService.setItem('resultArray', JSON.stringify(this.result))
-      //     this.sound.play();
-      //     setTimeout(() => {
-      //       this.router.navigate(['explore'])
-      //     }, 1000);
-      //  })
+      this.utils.onestCollectionRead(value.identifier).subscribe((data) => {
+        this.result = data.data.collection[0].collectionContentRelation
+        let onestContent = this.result.map((content) => {
+          return {
+            appIcon: content.contentFlncontentRelation.image,
+            description: content.contentFlncontentRelation.description,
+            name: content.contentFlncontentRelation.title,
+            author: content.contentFlncontentRelation.author,
+            identifier: content.contentFlncontentRelation.id,
+            artifactUrl: content.contentFlncontentRelation.link,
+            primaryCategory: content.contentFlncontentRelation.contentType,
+            category: content.contentFlncontentRelation.category,
+            mimeType: content.contentFlncontentRelation.mimeType,
+            urlType: content.contentFlncontentRelation.urlType,
+          }
+        })
+        this.localStorageService.setItem('resultArray', JSON.stringify(onestContent))
+        this.sound.play();
+        setTimeout(() => {
+          this.router.navigate(['explore'])
+        }, 1000);
+      })
     }
   }
 
