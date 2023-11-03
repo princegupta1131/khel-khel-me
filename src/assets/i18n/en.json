@@ -21,7 +21,8 @@
   "createYourPitara":"Create Your Pitara",
   "Pitara Name":"Pitara Name",
   "Create":"Create",
-  "dragMessage":"Drag & Drop your content into the Pitara!"
+  "dragMessage":"Drag & Drop your content into the Pitara!",
+  "dragRemoveMessage":"Drag & Drop to Remove or Add your content"
 
 
 }

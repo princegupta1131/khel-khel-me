@@ -1,78 +1,57 @@
 
-    <div class="row create-pitara p-3">
-        <div class="col-sm-12 col-md-4 col-md-4" id="list-one" cdkDropList [cdkDropListConnectedTo]="['list-two']"  (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
-            <div *ngIf="!showModal"  class="position-sticky dragdropbox" style="top:0">
-                <div class="d-flex flex-column justify-content-center position-relative align-items-center">
-                    <div class="arrow-box">
-                        <div class="box-description">{{'dragMessage'|translate}}</div>
-                        <div class="arrow arrow-down"></div>
-                    </div>
-                   
-                    <div class="sc-bdVaJa hCqOlD">
-                        <div class="sc-bwzfXH biqWkE">
-                            <div class="sc-htpNat kGQype">
-                                <div class="sc-bxivhb sc-dnqmqq ZEDDw">
-                                    
-                                    <div class="sc-iwsKbI ekMwXW"></div>
-                                    <div class="sc-gZMcBi fujrhZ"></div>
-                                    <div class="sc-gqjmRU jRAgJu"></div>
-                                    <div class="sc-VigVT gpuqLL"></div>
-                                </div>
-                                <div class="sc-bxivhb sc-ifAKCX kLAltZ"></div>
-                                <div class="sc-bxivhb sc-EHOje gvPWuP"></div>
-                                <div class="sc-bxivhb sc-bZQynM ldKBkL"></div>
-                                <div class="sc-bxivhb sc-gzVnrw fFMyeM"></div>
-                                <div class="sc-bxivhb sc-htoDjs crPZsS"></div>
+<div class="row create-pitara p-3">
+    <div class="col-sm-12 col-md-4 col-md-4" id="list-one" cdkDropList [cdkDropListConnectedTo]="['list-two']"  (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
+        <div *ngIf="!showModal"  class="position-sticky dragdropbox">
+            <div class="d-flex flex-column justify-content-center position-relative align-items-center">
+                <div class="arrow-box">
+                    <div class="box-description">{{'dragMessage'|translate}}</div>
+                    <div class="arrow arrow-down"></div>
+                </div>
+               
+                <div class="sc-bdVaJa hCqOlD">
+                    <div class="sc-bwzfXH biqWkE">
+                        <div class="sc-htpNat kGQype">
+                            <div class="sc-bxivhb sc-dnqmqq ZEDDw">
+                                
+                                <div class="sc-iwsKbI ekMwXW"></div>
+                                <div class="sc-gZMcBi fujrhZ"></div>
+                                <div class="sc-gqjmRU jRAgJu"></div>
+                                <div class="sc-VigVT gpuqLL"></div>
                             </div>
+                            <div class="sc-bxivhb sc-ifAKCX kLAltZ"></div>
+                            <div class="sc-bxivhb sc-EHOje gvPWuP"></div>
+                            <div class="sc-bxivhb sc-bZQynM ldKBkL"></div>
+                            <div class="sc-bxivhb sc-gzVnrw fFMyeM"></div>
+                            <div class="sc-bxivhb sc-htoDjs crPZsS"></div>
                         </div>
                     </div>
-                    <div class="d-flex mb-3 justify-content-center align-items-center">
-                        <div class="counter me-1"(click)="showModal=!showModal">{{targetItems.length}}</div>
-                    </div>
                 </div>
-                <div class="text-black pitara-box-details">
-                    <div>
-                        <form class="example-form">
-                            <mat-form-field appearance="fill" color="primary" class="w-100">
-                                <mat-label>{{'Enter Pitara Name'|translate}}</mat-label>
-                                <input name="pitara" matInput placeholder="{{'Pitara Name'|translate}}" [(ngModel)]="pitaraName">
-                            </mat-form-field>
-                            <button class="box-button" mat-raised-button color="primary"(click)="createPitara()"[disabled]="!targetItems.length||!pitaraName ">{{'Create'|translate}}</button>
-                        </form>
-                    </div>
-
+                <div class="d-flex mb-3 justify-content-center align-items-center" *ngIf="targetItems.length !== 0">
+                    <div class="counter me-1">{{targetItems.length}}</div>
+                    <button mat-button (click)="showModal=!showModal">Modify</button>
                 </div>
             </div>
-            <div *ngIf="showModal"  class="position-sticky dragdropbox" style="top:0">
-                <button mat-mini-fab color="warn" (click)="showModal=!showModal" class="close-button" style="position: absolute;top:16px;right:16px;z-index: 9999;"><mat-icon>close</mat-icon></button>
-                <ng-container>
-                    <mat-card class="pt-box-card" *ngFor="let content of targetItems;let i=index" cdkDrag>
-                        <div>
-                            <span class="description">{{content.primaryCategory}}</span>
-                            <mat-card-title-group>
-                                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-                                <mat-card-title class="">{{content.name}}</mat-card-title>
-                                <mat-card-subtitle class="">
-                                    <p class="craftedby">{{'craftedBy'|translate}}:
-                                        <b>{{content.author?content.author:'Ekstep
-                                            Foundation'}}</b>
-                                    </p>
-                                </mat-card-subtitle>
-                            </mat-card-title-group>
-                            <mat-card-actions class="p-0 m-0 d-block d-sm-block d-md-none" align="end">
-                                <button mat-button>Select</button>
-                              </mat-card-actions>
-                        </div>
-                    </mat-card>
-                </ng-container>
+            <div class="text-black pitara-box-details">
+                <div>
+                    <form class="example-form">
+                        <mat-form-field appearance="fill" color="primary" class="w-100">
+                            <mat-label>{{'Enter Pitara Name'|translate}}</mat-label>
+                            <input name="pitara" matInput placeholder="{{'Pitara Name'|translate}}" [(ngModel)]="pitaraName">
+                        </mat-form-field>
+                        <button class="box-button" mat-raised-button color="primary"(click)="createPitara()"[disabled]="!targetItems.length||!pitaraName ">{{'Create'|translate}}</button>
+                    </form>
+                </div>
+
             </div>
         </div>
-
-
-        <div class="col-sm-12 col-md-8 col-lg-8 pt-box-card-container" cdkDropList [cdkDropListData]="data"
-            [cdkDropListConnectedTo]="['list-one']" id="list-two"  (cdkDropListDropped)="onDrop($event)">
+        <div *ngIf="showModal"  class="position-sticky dragdropbox">
+            <div class="box-description text-start">{{'dragRemoveMessage'|translate}}</div>
+            <button mat-mini-fab color="warn" (click)="showModal=!showModal" class="close-button" style="position: absolute;top:16px;right:16px;z-index: 9999;"><mat-icon>close</mat-icon></button>
+            <br>
             <ng-container>
-                <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" cdkDrag>
+                <div class="d-flex flex-column" style="height: calc(100vh - 6.625rem);
+                overflow-y: auto;">
+                <mat-card class="pt-box-card mb-1" *ngFor="let content of targetItems;let i=index" cdkDrag>
                     <div>
                         <span class="description">{{content.primaryCategory}}</span>
                         <mat-card-title-group>
@@ -86,11 +65,38 @@
                             </mat-card-subtitle>
                         </mat-card-title-group>
                         <mat-card-actions class="p-0 m-0 d-block d-sm-block d-md-none" align="end">
-                            <button mat-button>Select</button>
+                            <button mat-button color="warn">Remove</button>
                           </mat-card-actions>
                     </div>
                 </mat-card>
+            </div>
             </ng-container>
-
         </div>
     </div>
+
+
+    <div class="col-sm-12 col-md-8 col-lg-8 pt-box-card-container" cdkDropList [cdkDropListData]="data"
+        [cdkDropListConnectedTo]="['list-one']" id="list-two"  (cdkDropListDropped)="onDrop($event)">
+        <ng-container>
+            <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" cdkDrag>
+                <div>
+                    <span class="description">{{content.primaryCategory}}</span>
+                    <mat-card-title-group>
+                        <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
+                        <mat-card-title class="">{{content.name}}</mat-card-title>
+                        <mat-card-subtitle class="">
+                            <p class="craftedby">{{'craftedBy'|translate}}:
+                                <b>{{content.author?content.author:'Ekstep
+                                    Foundation'}}</b>
+                            </p>
+                        </mat-card-subtitle>
+                    </mat-card-title-group>
+                    <mat-card-actions class="p-0 m-0 d-block d-sm-block d-md-none" align="end">
+                        <button mat-button color="primary">Select</button>
+                      </mat-card-actions>
+                </div>
+            </mat-card>
+        </ng-container>
+
+    </div>
+</div>
