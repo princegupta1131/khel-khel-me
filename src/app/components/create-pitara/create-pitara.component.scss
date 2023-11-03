@@ -8,8 +8,8 @@
 }
 .dragdropbox{
   top: 0;
-  background: #fff;
-  padding: 1rem;
+  background: #fff3ca;
+  padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 1px 6px 12px 0px rgba(0, 0, 0, 0.2);
 }
@@ -774,4 +774,9 @@ $icon-rocket--Color: #4F5D75;
     -ms-transform: rotate3d(1, 0, 0, -190deg);
     transform: rotate3d(1, 0, 0, -190deg);
   }
+}
+
+
+.cdk-drop-list mat-card:hover {
+  cursor: move;
 }
