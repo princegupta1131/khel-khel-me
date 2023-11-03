@@ -1,13 +1,13 @@
-<div class="container">
-    <div class="row create-pitara">
-        <div class="col-sm-12 col-md-4 col-md-4 border-end" id="list-one" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
-            <div class="box-container position-sticky" style="top:0">
+
+    <div class="row create-pitara p-3">
+        <div class="col-sm-12 col-md-4 col-md-4" id="list-one" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
+            <div class="position-sticky" style="top:0">
                 <div class="d-flex flex-column justify-content-center position-relative align-items-center">
                     <div class="arrow-box">
                         <div class="box-description">{{'dragMessage'|translate}}</div>
                         <div class="arrow arrow-down"></div>
                     </div>
-                    <div class="counter">24</div>
+                   
                     <div class="sc-bdVaJa hCqOlD">
                         <div class="sc-bwzfXH biqWkE">
                             <div class="sc-htpNat kGQype">
@@ -25,6 +25,9 @@
                                 <div class="sc-bxivhb sc-htoDjs crPZsS"></div>
                             </div>
                         </div>
+                    </div>
+                    <div class="d-flex mb-3 justify-content-center align-items-center">
+                        <div class="counter me-1"><span>24</span></div> <button mat-button>Modify</button>
                     </div>
                 </div>
                 <div class="text-black pitara-box-details">
@@ -59,7 +62,7 @@
                                 </p>
                             </mat-card-subtitle>
                         </mat-card-title-group>
-                        <mat-card-actions class="p-0 m-0 d-none d-sm-block d-md-none" align="end">
+                        <mat-card-actions class="p-0 m-0 d-block d-sm-block d-md-none" align="end">
                             <button mat-button>Select</button>
                           </mat-card-actions>
                     </div>
@@ -68,4 +71,3 @@
 
         </div>
     </div>
-</div>
