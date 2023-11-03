@@ -46,8 +46,9 @@
         </div>
         <div *ngIf="showModal"  class="position-sticky dragdropbox">
             <div class="box-description text-start">{{'dragRemoveMessage'|translate}}</div>
-            <button mat-mini-fab color="warn" (click)="showModal=!showModal" class="close-button" style="position: absolute;top:16px;right:16px;z-index: 9999;"><mat-icon>close</mat-icon></button>
+            <button mat-button color="warn" (click)="showModal=!showModal" class="close-button" style="position: absolute;top:16px;right:16px;z-index: 9999;"><mat-icon>close</mat-icon> Close</button>
             <br>
+            <button mat-button color="warn">Clear All</button>
             <ng-container>
                 <div class="d-flex flex-column" style="height: calc(100vh - 6.625rem);
                 overflow-y: auto;">
