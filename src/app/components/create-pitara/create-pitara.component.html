@@ -1,7 +1,7 @@
 
     <div class="row create-pitara p-3">
         <div class="col-sm-12 col-md-4 col-md-4" id="list-one" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
-            <div class="position-sticky" style="top:0">
+            <div class="position-sticky dragdropbox" style="top:0">
                 <div class="d-flex flex-column justify-content-center position-relative align-items-center">
                     <div class="arrow-box">
                         <div class="box-description">{{'dragMessage'|translate}}</div>
