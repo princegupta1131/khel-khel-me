@@ -1,0 +1,51 @@
+<div class="pitara-box-item" *ngFor="let content of data;let i=index" (click)="unboxPitara(content)">
+  <div class="">
+  <div class="shadow-wrapper">
+    <div class="shadow">
+      <div>&nbsp;</div>
+    </div>
+  </div>
+  <div class="box-wrapper">
+    <div class="box-faces">
+      <div class="box-face box-face--is-front">
+        <p><img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
+        </p>
+      </div>
+      <div class="box-face box-face--is-back">
+        <p><img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
+        </p>
+      </div>
+      <div class="box-face box-face--is-top">&nbsp;T</div>
+      <div class="box-face box-face--is-bottom">&nbsp;B</div>
+      <div class="box-face box-face--is-left">
+        <p><img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
+        </p>
+      </div>
+      <div class="box-face box-face--is-right">
+        <p><img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
+        </p>
+      </div>
+  
+    </div><!-- end of .box -->
+  </div>
+  <div class="text-white pitara-box-details" >
+    <div (click)="unboxPitara(content)">
+      <h4>{{content.name}}</h4>
+    <p class="description" title="{{content.description}}">{{content.description}}</p>
+    <p><span>{{'craftedBy'|translate}}:</span> {{content.publisher?content.publisher:'Ekstep Foundation'}}</p>
+  </div>
+  <div class="mt-2">
+    <button mat-mini-fab class="me-3" title="add to favorite"  (click)="handleClick($event ,'favorite')">
+      <mat-icon aria-hidden="false" aria-label="add to favorite icon" fontIcon="favorite"></mat-icon>
+    </button>
+    <button mat-mini-fab color="" (click)="handleClick($event ,'share')">
+      <mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
+    </button>
+</div>
+  </div>
+</div>
+  <div class="hover">
+    <lottie-player style="width: 18.75rem; height: 18.75rem;"src="https://lottie.host/42a7a928-4d6a-464f-bd95-a2fe3208be8c/5HHOxaxJIh.json"  background="transparent"  speed="2" loop  autoplay >
+    </lottie-player>
+    </div>
+  </div>
