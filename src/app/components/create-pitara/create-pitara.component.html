@@ -47,8 +47,7 @@
             <br>
             <button mat-button color="warn">Clear All</button>
             <ng-container>
-                <div class="d-flex flex-column" style="height: calc(100vh - 6.625rem);
-                overflow-y: auto;">
+                <div class="d-flex flex-column removeDragDropCt">
                 <mat-card class="pt-box-card mb-2" *ngFor="let content of targetItems;let i=index" cdkDrag>
                     <div>
                         <span class="description">{{content.primaryCategory}}</span>
