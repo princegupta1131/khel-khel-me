@@ -1,6 +1,6 @@
 
-<div class="row create-pitara p-3">
-    <div class="col-sm-12 col-md-4 col-md-4" id="list-one" cdkDropList [cdkDropListConnectedTo]="['list-two']"  (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
+<div class="row create-pitara px-3">
+    <div class="col-sm-12 col-md-5 col-lg-4" id="list-one" cdkDropList [cdkDropListConnectedTo]="['list-two']"  (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="targetItems">
         <div *ngIf="!showModal"  class="position-sticky dragdropbox">
             <div class="d-flex flex-column justify-content-center position-relative align-items-center">
                 <div class="arrow-box">
@@ -26,26 +26,28 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="text-black pitara-box-details">
                 <div class="d-flex mb-3 justify-content-center align-items-center" *ngIf="targetItems.length !== 0">
                     <div class="counter me-1">{{targetItems.length}}</div>
                     <button mat-button (click)="showModal=!showModal">Modify</button>
                 </div>
-            </div>
-            <div class="text-black pitara-box-details">
-                    <form class="example-form">
-                        <mat-form-field appearance="fill" color="primary" class="w-100">
-                            <mat-label>{{'Enter Pitara Name'|translate}}</mat-label>
-                            <input name="pitara" matInput placeholder="{{'Pitara Name'|translate}}" [(ngModel)]="pitaraName">
-                        </mat-form-field>
-                        <button class="box-button" mat-raised-button color="primary"(click)="createPitara()"[disabled]="!targetItems.length||!pitaraName ">{{'Create'|translate}}</button>
-                    </form>
+                <form class="example-form">
+                    <mat-form-field appearance="fill" color="primary" class="w-100">
+                        <mat-label>{{'Enter Pitara Name'|translate}}</mat-label>
+                        <input name="pitara" matInput placeholder="{{'Pitara Name'|translate}}" [(ngModel)]="pitaraName">
+                    </mat-form-field>
+                    <button class="box-button" mat-raised-button color="primary"(click)="createPitara()"[disabled]="!targetItems.length||!pitaraName ">{{'Create'|translate}}</button>
+                </form>
             </div>
         </div>
         <div *ngIf="showModal"  class="position-sticky dragdropbox">
-            <div class="box-description text-start">{{'dragRemoveMessage'|translate}}</div>
-            <button mat-button color="warn" (click)="showModal=!showModal" class="close-button" style="position: absolute;top:16px;right:16px;z-index: 9999;"><mat-icon>close</mat-icon> Close</button>
+            <div class="d-flex">
+                <div class="box-description text-start mr-auto">{{'dragRemoveMessage'|translate}}</div>
+                <button mat-button color="warn" (click)="showModal=!showModal" class="close-button"><mat-icon>close</mat-icon> Close</button>
+            </div>
             <br>
-            <button mat-button color="warn">Clear All</button>
+            <!-- <button mat-button color="warn">Clear All</button> -->
             <ng-container>
                 <div class="d-flex flex-column removeDragDropCt">
                 <mat-card class="pt-box-card mb-2" *ngFor="let content of targetItems;let i=index" cdkDrag>
@@ -72,7 +74,7 @@
     </div>
 
 
-    <div class="col-sm-12 col-md-8 col-lg-8 pt-box-card-container" cdkDropList [cdkDropListData]="data"
+    <div class="col-sm-12 col-md-7 col-lg-8 pt-box-card-container" cdkDropList [cdkDropListData]="data"
         [cdkDropListConnectedTo]="['list-one']" id="list-two"  (cdkDropListDropped)="onDrop($event)">
         <ng-container>
             <mat-card class="pt-box-card" *ngFor="let content of data;let i=index" cdkDrag>
