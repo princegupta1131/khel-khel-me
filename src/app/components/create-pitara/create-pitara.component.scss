@@ -17,6 +17,10 @@
   // @media (max-width: 1024px) { 
   //   height: auto;
   // }
+  &.content-list {
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+  }
 }
 // .removeDragDropCt {
 //   height: calc(100vh - 6.625rem);
