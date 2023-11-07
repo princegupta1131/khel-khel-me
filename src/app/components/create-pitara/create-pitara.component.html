@@ -47,7 +47,7 @@
                 <button mat-button color="warn" (click)="showModal=!showModal" class="close-button"><mat-icon>close</mat-icon> Close</button>
             </div>
             <br>
-            <!-- <button mat-button color="warn">Clear All</button> -->
+            <button mat-button color="warn" (click)="clearAll()">Clear All</button>
             <ng-container>
                 <div class="d-flex flex-column removeDragDropCt">
                 <mat-card class="pt-box-card mb-2" *ngFor="let content of targetItems;let i=index" cdkDrag>
@@ -64,7 +64,7 @@
                             </mat-card-subtitle>
                         </mat-card-title-group>
                         <mat-card-actions class="p-0 m-0 d-block d-sm-block d-md-none" align="end">
-                            <button mat-button color="warn">Remove</button>
+                            <button mat-button color="warn"(click)="moveToTarget(content)">Remove</button>
                           </mat-card-actions>
                     </div>
                 </mat-card>
@@ -91,7 +91,7 @@
                         </mat-card-subtitle>
                     </mat-card-title-group>
                     <mat-card-actions class="p-0 m-0 d-block d-sm-block d-md-none" align="end">
-                        <button mat-button color="primary">Select</button>
+                        <button mat-button color="primary" (click)="moveToTarget(content)">Select</button>
                       </mat-card-actions>
                 </div>
             </mat-card>

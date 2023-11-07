@@ -12,7 +12,7 @@ export class CreatePitaraComponent implements OnInit {
   data: any;
   targetItems = [];
   pitaraName = '';
-  showModal=false
+  showModal = false
   constructor(public utils: UtilService, public router: Router, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class CreatePitaraComponent implements OnInit {
     console.log(this.targetItems, '--')
     // this.data.splice(event.previousIndex, 1);
   }
-  
+
   createPitara() {
     var sUnique = (performance.now() + '').replace('.', '');
     var fiveDigitNumber = parseInt(sUnique.slice(0, 5), 10);
@@ -45,5 +45,25 @@ export class CreatePitaraComponent implements OnInit {
     this.localStorageService.setItem('mypitara', JSON.stringify(existingPitara))
     this.router.navigate(['mypitara'])
     console.log(newPitara)
+  }
+
+  moveToTarget(item: string) {
+    const sourceIndex = this.data.indexOf(item);
+    const targetIndex = this.targetItems.indexOf(item);
+
+    if (sourceIndex !== -1) {
+      // Move from source to target
+      this.data.splice(sourceIndex, 1);
+      this.targetItems.push(item);
+    } else if (targetIndex !== -1) {
+      // Move from target to source
+      this.targetItems.splice(targetIndex, 1);
+      this.data.push(item);
+    }
+  }
+  
+  clearAll() {
+    this.data = JSON.parse(this.localStorageService.getItem('contents'));
+    this.targetItems = []
   }
 }
