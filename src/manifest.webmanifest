@@ -1,10 +1,10 @@
 {
-  "name": "Beshumar BachFun",
-  "short_name": "Khel Khel Me Sikho",
+  "name": "BachFun",
+  "short_name": "BachFun",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "fullscreen",
-  "orientation": "landscape",
+  "orientation": "portrait",
   "scope": "./",
   "start_url": "./",
   "icons": [
