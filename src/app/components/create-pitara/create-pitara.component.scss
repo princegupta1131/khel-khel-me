@@ -20,6 +20,9 @@
   &.content-list {
     max-height: calc(100vh - 100px);
     overflow: auto;
+    @media (max-width: 1024px) { 
+      max-height: 50vh;
+    }
   }
 }
 // .removeDragDropCt {
@@ -53,6 +56,9 @@
   gap:1rem;
   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   grid-auto-flow: row;
+  overflow-x: auto;
+  grid-auto-columns: minmax(20rem, 20rem);
+  padding: 1rem 1rem 1.5rem 1.5rem;
   @media (max-width: 1024px) { 
     grid-auto-flow: column !important;
   }

@@ -1,9 +1,9 @@
-.--magicbox {
-    overflow-x: auto;
--webkit-overflow-scrolling: touch;
-grid-gap: 1rem;
-padding-bottom:2rem;
-}
+// .--magicbox {
+//     overflow-x: auto;
+// -webkit-overflow-scrolling: touch;
+// grid-gap: 1rem;
+// padding-bottom:2rem;
+// }
 
 
 /* box */
@@ -184,10 +184,12 @@ p {
   position: fixed;
   right: 16px;
   top: 8px;
+  z-index: 2;
 }
 
-@media only screen and (max-width: 576px) { 
+@media only screen and (max-width: 768px) { 
   .btn-fix {
+    width: 90%;
     bottom: 88px;
     top: unset;
     left: 50%;
