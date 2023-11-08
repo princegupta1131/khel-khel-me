@@ -126,8 +126,12 @@ export class PlayerComponent implements OnInit {
       // Construct the embed URL
       var embedUrl = "https://www.youtube.com/embed/" + videoId + '?enablejsapi=1';
       return embedUrl;
+    }else if(url.match(/^https:\/\/youtu\.be\/([a-zA-Z0-9_-]+)$/)) {
+      var videoId = url.split("/").pop();
+      var embedUrl = "https://www.youtube.com/embed/" + videoId + '?enablejsapi=1';
+      return embedUrl;
     }
-    else return url;
+  else return url;
   }
 
   /** when user clicks on close button

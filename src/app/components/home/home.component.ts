@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
 
         let data = data2.result.content.filter((content: any) => content.mimeType === 'application/vnd.ekstep.content-collection' && content.keywords.includes('djp_master'))
         let result = [
-          ...data,...onestCollection
+          ...data
         ]
         this.localStorageService.setItem('result', JSON.stringify(result))
       },

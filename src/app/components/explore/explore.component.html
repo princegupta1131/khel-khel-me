@@ -3,8 +3,8 @@
     (selectedTabChange)="handleChipSelection($event)">
     <mat-tab *ngFor="let tab of allChips">
       <ng-template mat-tab-label>
-        <img src="{{tab.icon}}" width="40" alt="{{tab.key}} icon" />
-        <span>{{tab.key|translate}}</span>
+        <img src="{{tab.icon}}" width="40" alt="{{tab.value}} icon" />
+        <span>{{tab.value|translate}}</span>
       </ng-template>
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">

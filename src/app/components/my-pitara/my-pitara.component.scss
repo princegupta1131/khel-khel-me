@@ -185,9 +185,10 @@ p {
   position: fixed;
   right: 16px;
   top: 8px;
+  z-index: 2;
 }
 
-@media only screen and (max-width: 576px) { 
+@media only screen and (max-width: 768px) { 
   .btn-fix {
     position: fixed;
     right: unset;
@@ -195,5 +196,8 @@ p {
     transform: translateX(-50%);
     bottom: 88px;
     top: unset;
+    width: 90%
   }
 }
+
+// ref - pzt2310070629zugo806

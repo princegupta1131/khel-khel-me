@@ -27,13 +27,13 @@ export class ExploreComponent implements OnInit{
 
   data: any = JSON.parse(localStorage.getItem('resultArray'));
   allChips: Chip[] = [
-    { key: 'All', value: 'all', icon: 'https://cdn-icons-png.flaticon.com/512/7787/7787487.png' },
-    { key: 'Toys and puppets', value: 'djp_category_toys', icon: 'https://cdn-icons-png.flaticon.com/512/7082/7082148.png' },
-    { key: 'Puzzles and games', value: 'djp_category_games', icon: 'https://cdn-icons-png.flaticon.com/512/10203/10203507.png' },
-    { key: 'Stories and poems', value: 'djp_category_stories', icon: 'https://cdn-icons-png.flaticon.com/512/3500/3500690.png' },
-    { key: 'Flashcards and sequence cards', value: 'djp_category_flashc', icon: 'https://cdn-icons-png.flaticon.com/512/3813/3813681.png' },
-    { key: 'Activity Sheets', value: 'djp_category_activitys', icon: 'https://cdn-icons-png.flaticon.com/512/1668/1668531.png' },
-    { key: 'Manuals and Guidebooks', value: 'djp_category_manuals', icon: 'https://cdn-icons-png.flaticon.com/512/6348/6348248.png' }
+    { value: 'All', key: 'all', icon: 'https://cdn-icons-png.flaticon.com/512/7787/7787487.png' },
+    { value: 'Toys and puppets', key: 'djp_category_toys', icon: 'https://cdn-icons-png.flaticon.com/512/7082/7082148.png' },
+    { value: 'Puzzles and games', key: 'djp_category_games', icon: 'https://cdn-icons-png.flaticon.com/512/10203/10203507.png' },
+    { value: 'Stories and poems', key: 'djp_category_stories', icon: 'https://cdn-icons-png.flaticon.com/512/3500/3500690.png' },
+    { value: 'Flashcards and sequence cards', key: 'djp_category_flashc', icon: 'https://cdn-icons-png.flaticon.com/512/3813/3813681.png' },
+    { value: 'Activity Sheets', key: 'djp_category_activitys', icon: 'https://cdn-icons-png.flaticon.com/512/1668/1668531.png' },
+    { value: 'Manuals and Guidebooks', key: 'djp_category_manuals', icon: 'https://cdn-icons-png.flaticon.com/512/6348/6348248.png' }
   ];
 
   constructor(private localStorageService: LocalStorageService, public route: ActivatedRoute, private translate: TranslateService) {
@@ -41,7 +41,7 @@ export class ExploreComponent implements OnInit{
   ngOnInit(): void {
     // Translate keys in the array
     this.allChips.map(chip => ({
-      key: this.translate.get(chip.key).subscribe((translation: string) => {
+      value: this.translate.get(chip.value).subscribe((translation: string) => {
         return translation;
       })
     }));
@@ -52,11 +52,11 @@ export class ExploreComponent implements OnInit{
     this.data = JSON.parse(localStorage.getItem('resultArray'));
     this.selectedTab = this.allChips[event.index];
     this.localStorageService.setTabIndex(event.index);
-    if (this.selectedTab.value === 'all') {
+    if (this.selectedTab.key === 'all') {
       this.filteredArray = this.data;
     } else {
       this.filteredArray = this.data.filter((content: any) => {
-        return content.keywords ? content.keywords.includes(this.selectedTab.value) : false
+        return content.keywords ? content.keywords.includes(this.selectedTab.key) : false
       })
     }
      this.data = this.filteredArray
