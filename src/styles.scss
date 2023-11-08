@@ -111,15 +111,18 @@ line-height: normal;display: flex !important;
     display: grid;
     gap: 1.5rem;
     padding-bottom: 120px;
-    // grid-auto-columns: minmax(20rem, 20rem);
-    // grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    // overflow-x: auto;
-    // grid-auto-flow: column;
-    // justify-content: center;
-    // margin:0 -1.5rem 0 -1.5rem !important;
-    // mat-card:first-child {
-    //   margin-left:1.5rem;
-    // }
+    @media screen and (min-width: 786px) {
+        
+      grid-auto-columns: minmax(20rem, 20rem);
+      // grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      overflow-x: auto;
+      grid-auto-flow: column;
+      justify-content: flex-start;
+      padding : 1rem 1rem 1.5rem 1.5rem !important;
+      mat-card:first-child {
+        margin-left:1.5rem;
+      }
+    }
 }
 ::-webkit-scrollbar {
   display: none;
