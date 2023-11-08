@@ -182,18 +182,21 @@ p {
 }
 .btn-fix {
   position: fixed;
-  right: 16px;
+  right: 4px;
   top: 8px;
   z-index: 2;
-}
-
-@media only screen and (max-width: 768px) { 
-  .btn-fix {
-    width: 90%;
-    bottom: 88px;
-    top: unset;
-    left: 50%;
-    right: unset;
-    transform: translateX(-50%);
+  @media only screen and (max-width: 768px) {
+    padding: 4px 16px !important;
   }
 }
+
+// @media only screen and (max-width: 768px) { 
+//   .btn-fix {
+//     width: 90%;
+//     bottom: 88px;
+//     top: unset;
+//     left: 50%;
+//     right: unset;
+//     transform: translateX(-50%);
+//   }
+// }
