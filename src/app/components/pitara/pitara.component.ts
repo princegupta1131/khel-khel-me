@@ -11,13 +11,17 @@ import { Howl } from 'howler';
 })
 
 export class PitaraComponent implements OnInit {
-  data: any;
+  saaspitara: any;
+  onestpitara: any;
+  mypitara: any;
   result: any;
   sound: any;
   constructor(public router: Router, public utils: UtilService, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
-    this.data = JSON.parse(this.localStorageService.getItem('result'));
+    this.saaspitara = JSON.parse(this.localStorageService.getItem('saaspitara'));
+    this.onestpitara = JSON.parse(this.localStorageService.getItem('onestpitara'));
+    this.mypitara = JSON.parse(this.localStorageService.getItem('mypitara'));
     this.localStorageService.removeItem('resultArray')
     this.sound = new Howl({
       src: ['assets/audio/windchime.mp3'],
@@ -28,6 +32,7 @@ export class PitaraComponent implements OnInit {
     console.log('val', value)
     this.utils.setTitle(value.name);
     if (!value.provider_id) {
+      if(!value.myPitara)
       this.utils.saasCollectionRead(value.identifier).subscribe((data) => {
         this.result = data.result.content
         this.localStorageService.setItem('resultArray', JSON.stringify(this.result.children[0].children))
@@ -36,6 +41,12 @@ export class PitaraComponent implements OnInit {
           this.router.navigate(['explore'])
         }, 1000);
       })
+      this.result = value.children
+        this.localStorageService.setItem('resultArray', JSON.stringify(this.result))
+        this.sound.play();
+        setTimeout(() => {
+          this.router.navigate(['explore'])
+        }, 1000);
     }
     else {
       this.utils.onestCollectionRead(value.identifier).subscribe((data) => {

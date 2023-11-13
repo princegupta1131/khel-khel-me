@@ -13,11 +13,17 @@ export class CreatePitaraComponent implements OnInit {
   targetItems = [];
   pitaraName = '';
   showModal = false
+  contents;
+
   constructor(public utils: UtilService, public router: Router, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
     this.utils.setTitle('createYourPitara');
-    this.data = JSON.parse(this.localStorageService.getItem('contents'));
+    this.utils.searchSaas().subscribe(data => {
+      this.contents = data.result.content.filter((content: any) => content.mimeType !== 'application/vnd.ekstep.content-collection')
+      this.localStorageService.setItem('contents', JSON.stringify(this.contents))
+      this.data = this.contents
+    })
   }
 
   onDrop(event: any) {
@@ -36,6 +42,7 @@ export class CreatePitaraComponent implements OnInit {
     {
       name: this.pitaraName,
       identifier: fiveDigitNumber,
+      myPitara:true,
       children: [
         ...this.targetItems
       ]
@@ -43,7 +50,7 @@ export class CreatePitaraComponent implements OnInit {
 
     existingPitara.push(newPitara);
     this.localStorageService.setItem('mypitara', JSON.stringify(existingPitara))
-    this.router.navigate(['mypitara'])
+    this.router.navigate(['pitara'])
     console.log(newPitara)
   }
 

@@ -39,10 +39,11 @@ export class HomeComponent implements OnInit {
         })
 
         let data = data2.result.content.filter((content: any) => content.mimeType === 'application/vnd.ekstep.content-collection' && content.keywords.includes('djp_master'))
-        let result = [
-          ...data
-        ]
-        this.localStorageService.setItem('result', JSON.stringify(result))
+        // let result = [
+        //   ...data
+        // ]
+        this.localStorageService.setItem('saaspitara', JSON.stringify(data))
+        this.localStorageService.setItem('onestpitara', JSON.stringify(onestCollection))
       },
       (error) => {
         console.error('Error in one of the API calls', error);
