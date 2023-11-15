@@ -1,7 +1,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { LocalStorageService } from './localStorage.service';
 
 @Injectable({
@@ -9,9 +9,18 @@ import { LocalStorageService } from './localStorage.service';
 })
 export class UtilService {
 
-  constructor(private http: HttpClient,private localStorageService:LocalStorageService) { }
   private titleChange = new Subject<string>();
    languageChange;
+
+  addClassToHeaderSubject = new BehaviorSubject<string>('');
+  // currentBodyComponent$: Observable<string> = this.addClassToHeaderSubject.asObservable();
+
+  
+  constructor(private http: HttpClient,private localStorageService:LocalStorageService) { }
+
+  updateHeaderClass(headerClass: string) {
+    this.addClassToHeaderSubject.next(headerClass);
+  }
 
   searchSaas(): Observable<any> {
     const url = `https://sunbirdsaas.com//api/content/v1/search?field=publisher`;

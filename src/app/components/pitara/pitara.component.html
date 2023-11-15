@@ -2,7 +2,7 @@
   {{'createYourPitara'|translate}}
 </button>
 <ng-container *ngIf="saaspitara">
-  <h3>Saas Pitaras</h3>
+  <h3 class="pitara-type-header">Saas Pitaras</h3>
   <div class="pt-box-card-container">
     <div class="pitara-box-item" *ngFor="let content of saaspitara;let i=index" (click)="unboxPitara(content)">
       <div class="">
@@ -67,7 +67,7 @@
 
 </ng-container>
 <ng-container *ngIf="onestpitara">
-  <h3>Onest Pitaras</h3>
+  <h3 class="pitara-type-header">Onest Pitaras</h3>
   <div class="pt-box-card-container">
     <div class="pitara-box-item" *ngFor="let content of onestpitara;let i=index" (click)="unboxPitara(content)">
       <div class="">
@@ -131,7 +131,7 @@
   </div>
 </ng-container>
 <ng-container *ngIf="mypitara">
-  <h3>My Pitaras</h3>
+  <h3 class="pitara-type-header">My Pitaras</h3>
   <div class="pt-box-card-container">
     <div class="pitara-box-item" *ngFor="let content of mypitara;let i=index" (click)="unboxPitara(content)">
       <div class="">
