@@ -19,6 +19,7 @@ export class PitaraComponent implements OnInit {
   constructor(public router: Router, public utils: UtilService, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
+    this.utils.updateHeaderClass('pitara');
     this.saaspitara = JSON.parse(this.localStorageService.getItem('saaspitara'));
     this.onestpitara = JSON.parse(this.localStorageService.getItem('onestpitara'));
     this.mypitara = JSON.parse(this.localStorageService.getItem('mypitara'));
