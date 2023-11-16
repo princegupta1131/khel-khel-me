@@ -205,3 +205,18 @@ p {
 //     transform: translateX(-50%);
 //   }
 // }
+
+::ng-deep {
+  .pitara-tab .mat-tab-label {
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .pitara-tab.mat-tab-group.mat-primary .mat-ink-bar {
+    background-color: #fff;
+  }
+
+  .pitara-tab .mat-tab-header-pagination-chevron {
+    border-color: #fff;
+  }
+}

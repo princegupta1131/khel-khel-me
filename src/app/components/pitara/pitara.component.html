@@ -2,7 +2,7 @@
   {{'createYourPitara'|translate}}
 </button>
 
-<mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedTabIndex"
+<mat-tab-group mat-align-tabs="center" class="pitara-tab mt-1" [selectedIndex]="selectedTabIndex"
 (selectedTabChange)="handlePitaraSelection($event)">
 <mat-tab *ngFor="let tab of allChips">
   <ng-template mat-tab-label>
