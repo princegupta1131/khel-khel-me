@@ -4,19 +4,34 @@ import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { UtilService } from 'src/app/services/utils.service';
 import { Howl } from 'howler';
 
+interface Chip {
+  key: string;
+  value: string;
+}
+
 @Component({
   selector: 'app-pitara',
   templateUrl: './pitara.component.html',
   styleUrls: ['./pitara.component.scss']
 })
-
 export class PitaraComponent implements OnInit {
   saaspitara: any;
   onestpitara: any;
   mypitara: any;
   result: any;
   sound: any;
+  selectedTab: Chip;
+  selectedTabIndex: number = 0;
+  saasArray;
+  data;
+  allChips: Chip[] = [
+    { value: 'Saas Pitaras', key: 'saaspitara' },
+    { value: 'Pitaras from open network', key: 'onestpitara' },
+    { value: 'My Pitaras', key: 'mypitara' },
+  ];
+
   constructor(public router: Router, public utils: UtilService, private localStorageService: LocalStorageService) { }
+
 
   ngOnInit() {
     this.utils.updateHeaderClass('pitara');
@@ -27,27 +42,28 @@ export class PitaraComponent implements OnInit {
     this.sound = new Howl({
       src: ['assets/audio/windchime.mp3'],
     });
+    this.data = this.saaspitara
   }
 
   unboxPitara(value) {
     console.log('val', value)
     this.utils.setTitle(value.name);
     if (!value.provider_id) {
-      if(!value.myPitara)
-      this.utils.saasCollectionRead(value.identifier).subscribe((data) => {
-        this.result = data.result.content
-        this.localStorageService.setItem('resultArray', JSON.stringify(this.result.children[0].children))
-        this.sound.play();
-        setTimeout(() => {
-          this.router.navigate(['explore'])
-        }, 1000);
-      })
+      if (!value.myPitara)
+        this.utils.saasCollectionRead(value.identifier).subscribe((data) => {
+          this.result = data.result.content
+          this.localStorageService.setItem('resultArray', JSON.stringify(this.result.children[0].children))
+          this.sound.play();
+          setTimeout(() => {
+            this.router.navigate(['explore'])
+          }, 1000);
+        })
       this.result = value.children
-        this.localStorageService.setItem('resultArray', JSON.stringify(this.result))
-        this.sound.play();
-        setTimeout(() => {
-          this.router.navigate(['explore'])
-        }, 1000);
+      this.localStorageService.setItem('resultArray', JSON.stringify(this.result))
+      this.sound.play();
+      setTimeout(() => {
+        this.router.navigate(['explore'])
+      }, 1000);
     }
     else {
       this.utils.onestCollectionRead(value.identifier).subscribe((data) => {
@@ -89,4 +105,18 @@ export class PitaraComponent implements OnInit {
       }
     }
   }
+
+  handlePitaraSelection(event: any) {
+    this.selectedTab = this.allChips[event.index];
+    // this.localStorageService.setTabIndex(event.index);
+    if (this.selectedTab.key === 'saaspitara') {
+      this.saasArray = this.saaspitara;
+    } else if (this.selectedTab.key === 'onestpitara') {
+      this.saasArray = this.onestpitara;
+    } else if (this.selectedTab.key === 'mypitara') {
+      this.saasArray = this.mypitara;
+    }
+    this.data = this.saasArray
+  }
 }
+

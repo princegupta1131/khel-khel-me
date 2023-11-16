@@ -1,194 +1,79 @@
 <button mat-raised-button class="btn-new btn-fix" [routerLink]="['/create-pitara']">
   {{'createYourPitara'|translate}}
 </button>
-<ng-container *ngIf="saaspitara">
-  <h3 class="pitara-type-header">Saas Pitaras</h3>
-  <div class="pt-box-card-container">
-    <div class="pitara-box-item" *ngFor="let content of saaspitara;let i=index" (click)="unboxPitara(content)">
-      <div class="">
-        <div class="shadow-wrapper">
-          <div class="shadow">
-            <div>&nbsp;</div>
-          </div>
-        </div>
-        <div class="box-wrapper">
-          <div class="box-faces">
-            <div class="box-face box-face--is-front">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
-            <div class="box-face box-face--is-back">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
-            <div class="box-face box-face--is-top">&nbsp;</div>
-            <div class="box-face box-face--is-bottom">&nbsp;</div>
-            <div class="box-face box-face--is-left">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
-            <div class="box-face box-face--is-right">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
 
-          </div><!-- end of .box -->
-        </div>
-        <div class="text-white pitara-box-details">
-          <div (click)="unboxPitara(content)">
-            <h4>{{content.name}}</h4>
-            <p>{{content.description}}</p>
-            <p>{{'craftedBy'|translate}}: {{content.publisher?content.publisher:'Ekstep Foundation'}}</p>
-          </div>
-          <div class="mt-2">
-            <button mat-mini-fab class="me-3" title="add to favorite" (click)="handleClick($event ,'favorite')">
-              <mat-icon aria-hidden="false" aria-label="add to favorite icon" fontIcon="favorite"></mat-icon>
-            </button>
-            <button mat-mini-fab color="" (click)="handleClick($event ,'share')">
-              <mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="hover">
-        <lottie-player style="width: 18.75rem; height: 18.75rem;"
-          src="https://lottie.host/42a7a928-4d6a-464f-bd95-a2fe3208be8c/5HHOxaxJIh.json" background="transparent"
-          speed="2" loop autoplay>
-        </lottie-player>
-      </div>
-    </div>
-
-
-  </div>
-
-</ng-container>
-<ng-container *ngIf="onestpitara">
-  <h3 class="pitara-type-header">Onest Pitaras</h3>
-  <div class="pt-box-card-container">
-    <div class="pitara-box-item" *ngFor="let content of onestpitara;let i=index" (click)="unboxPitara(content)">
-      <div class="">
-        <div class="shadow-wrapper">
-          <div class="shadow">
-            <div>&nbsp;</div>
-          </div>
-        </div>
-        <div class="box-wrapper">
-          <div class="box-faces">
-            <div class="box-face box-face--is-front">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
+<mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedTabIndex"
+(selectedTabChange)="handlePitaraSelection($event)">
+<mat-tab *ngFor="let tab of allChips">
+  <ng-template mat-tab-label>
+    <span>{{tab.value|translate}}</span>
+  </ng-template>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div >
+        <ng-container>
+          <div class="pt-box-card-container">
+            <div class="pitara-box-item" *ngFor="let pitara of data;let i=index" (click)="unboxPitara(pitara)">
+              <div class="">
+                <div class="shadow-wrapper">
+                  <div class="shadow">
+                    <div>&nbsp;</div>
+                  </div>
+                </div>
+                <div class="box-wrapper">
+                  <div class="box-faces">
+                    <div class="box-face box-face--is-front">
+                      <p>
+                        <img mat-card-sm-image src="{{pitara.appIcon}}" alt="pitara image">
+                      </p>
+                    </div>
+                    <div class="box-face box-face--is-back">
+                      <p>
+                        <img mat-card-sm-image src="{{pitara.appIcon}}" alt="pitara image">
+                      </p>
+                    </div>
+                    <div class="box-face box-face--is-top">&nbsp;</div>
+                    <div class="box-face box-face--is-bottom">&nbsp;</div>
+                    <div class="box-face box-face--is-left">
+                      <p>
+                        <img mat-card-sm-image src="{{pitara.appIcon}}" alt="pitara image">
+                      </p>
+                    </div>
+                    <div class="box-face box-face--is-right">
+                      <p>
+                        <img mat-card-sm-image src="{{pitara.appIcon}}" alt="pitara image">
+                      </p>
+                    </div>
+        
+                  </div><!-- end of .box -->
+                </div>
+                <div class="text-white pitara-box-details">
+                  <div (click)="unboxPitara(pitara)">
+                    <h4>{{pitara.name}}</h4>
+                    <p>{{pitara.description}}</p>
+                    <p>{{'craftedBy'|translate}}: {{pitara.publisher?pitara.publisher:'Ekstep Foundation'}}</p>
+                  </div>
+                  <div class="mt-2">
+                    <button mat-mini-fab class="me-3" title="add to favorite" (click)="handleClick($event ,'favorite')">
+                      <mat-icon aria-hidden="false" aria-label="add to favorite icon" fontIcon="favorite"></mat-icon>
+                    </button>
+                    <button mat-mini-fab color="" (click)="handleClick($event ,'share')">
+                      <mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="hover">
+                <lottie-player style="width: 18.75rem; height: 18.75rem;"
+                  src="https://lottie.host/42a7a928-4d6a-464f-bd95-a2fe3208be8c/5HHOxaxJIh.json" background="transparent"
+                  speed="2" loop autoplay>
+                </lottie-player>
+              </div>
             </div>
-            <div class="box-face box-face--is-back">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
-            <div class="box-face box-face--is-top">&nbsp;</div>
-            <div class="box-face box-face--is-bottom">&nbsp;</div>
-            <div class="box-face box-face--is-left">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
-            <div class="box-face box-face--is-right">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
-
-          </div><!-- end of .box -->
-        </div>
-        <div class="text-white pitara-box-details">
-          <div (click)="unboxPitara(content)">
-            <h4>{{content.name}}</h4>
-            <p>{{content.description}}</p>
-            <p>{{'craftedBy'|translate}}: {{content.publisher?content.publisher:'Ekstep Foundation'}}</p>
           </div>
-          <div class="mt-2">
-            <button mat-mini-fab class="me-3" title="add to favorite" (click)="handleClick($event ,'favorite')">
-              <mat-icon aria-hidden="false" aria-label="add to favorite icon" fontIcon="favorite"></mat-icon>
-            </button>
-            <button mat-mini-fab color="" (click)="handleClick($event ,'share')">
-              <mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="hover">
-        <lottie-player style="width: 18.75rem; height: 18.75rem;"
-          src="https://lottie.host/42a7a928-4d6a-464f-bd95-a2fe3208be8c/5HHOxaxJIh.json" background="transparent"
-          speed="2" loop autoplay>
-        </lottie-player>
-      </div>
-    </div>
-
-
-  </div>
-</ng-container>
-<ng-container *ngIf="mypitara">
-  <h3 class="pitara-type-header">My Pitaras</h3>
-  <div class="pt-box-card-container">
-    <div class="pitara-box-item" *ngFor="let content of mypitara;let i=index" (click)="unboxPitara(content)">
-      <div class="">
-        <div class="shadow-wrapper">
-          <div class="shadow">
-            <div>&nbsp;</div>
-          </div>
-        </div>
-        <div class="box-wrapper">
-          <div class="box-faces">
-            <div class="box-face box-face--is-front">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
-            <div class="box-face box-face--is-back">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
-            <div class="box-face box-face--is-top">&nbsp;</div>
-            <div class="box-face box-face--is-bottom">&nbsp;</div>
-            <div class="box-face box-face--is-left">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
-            <div class="box-face box-face--is-right">
-              <p>
-                <img mat-card-sm-image src="{{content.appIcon}}" alt="content image">
-              </p>
-            </div>
-
-          </div><!-- end of .box -->
-        </div>
-        <div class="text-white pitara-box-details">
-          <div (click)="unboxPitara(content)">
-            <h4>{{content.name}}</h4>
-            <p>{{content.description}}</p>
-            <p>{{'craftedBy'|translate}}: {{content.publisher?content.publisher:'Ekstep Foundation'}}</p>
-          </div>
-          <div class="mt-2">
-            <button mat-mini-fab class="me-3" title="add to favorite" (click)="handleClick($event ,'favorite')">
-              <mat-icon aria-hidden="false" aria-label="add to favorite icon" fontIcon="favorite"></mat-icon>
-            </button>
-            <!-- <button mat-mini-fab color="" (click)="handleClick($event ,'share')">
-              <mat-icon aria-hidden="false" aria-label="share icon" fontIcon="share"></mat-icon>
-            </button> -->
-          </div>
-        </div>
-      </div>
-      <div class="hover">
-        <lottie-player style="width: 18.75rem; height: 18.75rem;"
-          src="https://lottie.host/42a7a928-4d6a-464f-bd95-a2fe3208be8c/5HHOxaxJIh.json" background="transparent"
-          speed="2" loop autoplay>
-        </lottie-player>
+        </ng-container>
       </div>
     </div>
   </div>
-</ng-container>
+</mat-tab>
+</mat-tab-group>
