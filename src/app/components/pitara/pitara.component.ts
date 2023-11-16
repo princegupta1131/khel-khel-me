@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { UtilService } from 'src/app/services/utils.service';
 import { Howl } from 'howler';
@@ -49,9 +49,20 @@ export class PitaraComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    const hammer = new Hammer(this.tabGroup._elementRef.nativeElement, { touchAction: 'auto' });
-    hammer.on('swipeleft', () => this.tabGroup.selectedIndex = (this.tabGroup.selectedIndex + 1) % this.tabGroup._tabs.length);
-    hammer.on('swiperight', () => this.tabGroup.selectedIndex = (this.tabGroup.selectedIndex - 1 + this.tabGroup._tabs.length) % this.tabGroup._tabs.length);
+    const hammer = new Hammer.Manager(this.tabGroup._elementRef.nativeElement);
+    const pan = new Hammer.Pan({ direction: Hammer.DIRECTION_HORIZONTAL });
+    hammer.add(pan);
+    hammer.on('panright', (event) => this.handleSwipe(event, 'right'));
+    hammer.on('panleft', (event) => this.handleSwipe(event, 'left'));
+  }
+
+  handleSwipe(event, direction?: 'left' | 'right'): void {
+    const deltaX = event.deltaX;
+    if (Math.abs(deltaX) > 50) {
+      this.tabGroup.selectedIndex = (direction === 'left')
+        ? Math.min(this.tabGroup.selectedIndex + 1, this.tabGroup._tabs.length - 1)
+        : Math.max(this.tabGroup.selectedIndex - 1, 0);
+    }
   }
 
   unboxPitara(value) {
