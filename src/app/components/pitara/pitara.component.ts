@@ -129,27 +129,34 @@ export class PitaraComponent implements OnInit {
 
   handlePitaraSelection(event?: any) {
     this.storedTabIndex = this.localStorageService.getTabIndex('pitaraIndex');
+    if(this.utils.getPreviousUrl()==='create-pitara'){
+      this.utils.setPreviousUrl('pitara')
+      this.selectedTab = this.allChips[2];
+      this.selectedTabIndex = 2;
 
-    if (this.storedTabIndex !== null && !event) {
-      this.selectedTabIndex = this.storedTabIndex;
-      this.selectedTab = this.allChips[this.selectedTabIndex];
-
-    } else if (this.storedTabIndex === null && !event) {
-      this.saasArray = this.saaspitara;
-      this.selectedTab = this.allChips[0];
+      this.data = this.mypitara
+    }else{
+      if (this.storedTabIndex !== null && !event) {
+        this.selectedTabIndex = this.storedTabIndex;
+        this.selectedTab = this.allChips[this.selectedTabIndex];
+  
+      } else if (this.storedTabIndex === null && !event) {
+        this.saasArray = this.saaspitara;
+        this.selectedTab = this.allChips[0];
+      }
+      else {
+        this.selectedTab = this.allChips[event.index];
+        this.localStorageService.setTabIndex(event.index, 'pitaraIndex');
+      }
+      if (this.selectedTab.key === 'saaspitara') {
+        this.saasArray = this.saaspitara;
+      } else if (this.selectedTab.key === 'onestpitara') {
+        this.saasArray = this.onestpitara;
+      } else if (this.selectedTab.key === 'mypitara') {
+        this.saasArray = this.mypitara;
+      }
+      this.data = this.saasArray
     }
-    else {
-      this.selectedTab = this.allChips[event.index];
-      this.localStorageService.setTabIndex(event.index, 'pitaraIndex');
-    }
-    if (this.selectedTab.key === 'saaspitara') {
-      this.saasArray = this.saaspitara;
-    } else if (this.selectedTab.key === 'onestpitara') {
-      this.saasArray = this.onestpitara;
-    } else if (this.selectedTab.key === 'mypitara') {
-      this.saasArray = this.mypitara;
-    }
-    this.data = this.saasArray
   }
 }
 
