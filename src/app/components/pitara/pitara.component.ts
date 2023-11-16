@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { UtilService } from 'src/app/services/utils.service';
 import { Howl } from 'howler';
+import { MatTabGroup } from '@angular/material/tabs';
+import * as Hammer from 'hammerjs';
 
 interface Chip {
   key: string;
@@ -32,6 +34,7 @@ export class PitaraComponent implements OnInit {
 
   constructor(public router: Router, public utils: UtilService, private localStorageService: LocalStorageService) { }
 
+  @ViewChild(MatTabGroup, { static: true }) tabGroup: MatTabGroup;
 
   ngOnInit() {
     this.utils.updateHeaderClass('pitara');
@@ -43,6 +46,12 @@ export class PitaraComponent implements OnInit {
       src: ['assets/audio/windchime.mp3'],
     });
     this.data = this.saaspitara
+  }
+
+  ngAfterViewInit() {
+    const hammer = new Hammer(this.tabGroup._elementRef.nativeElement, { touchAction: 'auto' });
+    hammer.on('swipeleft', () => this.tabGroup.selectedIndex = (this.tabGroup.selectedIndex + 1) % this.tabGroup._tabs.length);
+    hammer.on('swiperight', () => this.tabGroup.selectedIndex = (this.tabGroup.selectedIndex - 1 + this.tabGroup._tabs.length) % this.tabGroup._tabs.length);
   }
 
   unboxPitara(value) {
