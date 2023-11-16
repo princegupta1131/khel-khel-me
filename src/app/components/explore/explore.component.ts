@@ -51,7 +51,7 @@ export class ExploreComponent implements OnInit{
   handleChipSelection(event: any) {
     this.data = JSON.parse(localStorage.getItem('resultArray'));
     this.selectedTab = this.allChips[event.index];
-    this.localStorageService.setTabIndex(event.index);
+    this.localStorageService.setTabIndex(event.index,'selectedTabIndex');
     if (this.selectedTab.key === 'all') {
       this.filteredArray = this.data;
     } else {
@@ -72,7 +72,7 @@ export class ExploreComponent implements OnInit{
   handleClose(data) {
     this.isPlayerInit = false;
     this.isContentInit = true;
-    const storedTabIndex = this.localStorageService.getTabIndex();
+    const storedTabIndex = this.localStorageService.getTabIndex('selectedTabIndex');
     if (storedTabIndex !== null) {
       this.selectedTabIndex = storedTabIndex;
     }

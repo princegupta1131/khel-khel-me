@@ -35,12 +35,12 @@ export class LocalStorageService {
   }
   private storageKey = 'selectedTabIndex';
 
-  getTabIndex(): number | null {
-    const storedValue = localStorage.getItem(this.storageKey);
+  getTabIndex(storageKey): number | null {
+    const storedValue = localStorage.getItem(storageKey);
     return storedValue !== null ? +storedValue : null;
   }
 
-  setTabIndex(index: number): void {
-    localStorage.setItem(this.storageKey, index.toString());
+  setTabIndex(index: number,storageKey): void {
+    localStorage.setItem(storageKey, index.toString());
   }
 }

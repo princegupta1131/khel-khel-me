@@ -47,7 +47,7 @@ export class CreatePitaraComponent implements OnInit {
         ...this.targetItems
       ]
     }
-
+    this.utils.setPreviousUrl('create-pitara')
     existingPitara.push(newPitara);
     this.localStorageService.setItem('mypitara', JSON.stringify(existingPitara))
     this.router.navigate(['pitara'])

@@ -26,6 +26,7 @@ export class PitaraComponent implements OnInit {
   selectedTabIndex: number = 0;
   saasArray;
   data;
+  storedTabIndex;
   allChips: Chip[] = [
     { value: 'Saas Pitaras', key: 'saaspitara' },
     { value: 'Pitaras from open network', key: 'onestpitara' },
@@ -45,7 +46,7 @@ export class PitaraComponent implements OnInit {
     this.sound = new Howl({
       src: ['assets/audio/windchime.mp3'],
     });
-    this.data = this.saaspitara
+    this.handlePitaraSelection();
   }
 
   ngAfterViewInit() {
@@ -57,12 +58,12 @@ export class PitaraComponent implements OnInit {
   }
 
   handleSwipe(event, direction?: 'left' | 'right'): void {
-    const deltaX = event.deltaX;
-    if (Math.abs(deltaX) > 50) {
-      this.tabGroup.selectedIndex = (direction === 'left')
-        ? Math.min(this.tabGroup.selectedIndex + 1, this.tabGroup._tabs.length - 1)
-        : Math.max(this.tabGroup.selectedIndex - 1, 0);
-    }
+    var angle = Math.abs(event.angle);
+    if ((angle >= 90 && angle < 150) || (angle > 30 && angle < 90))
+      return;
+    this.tabGroup.selectedIndex = (direction === 'left')
+      ? Math.min(this.tabGroup.selectedIndex + 1, this.tabGroup._tabs.length - 1)
+      : Math.max(this.tabGroup.selectedIndex - 1, 0);
   }
 
   unboxPitara(value) {
@@ -126,9 +127,21 @@ export class PitaraComponent implements OnInit {
     }
   }
 
-  handlePitaraSelection(event: any) {
-    this.selectedTab = this.allChips[event.index];
-    // this.localStorageService.setTabIndex(event.index);
+  handlePitaraSelection(event?: any) {
+    this.storedTabIndex = this.localStorageService.getTabIndex('pitaraIndex');
+
+    if (this.storedTabIndex !== null && !event) {
+      this.selectedTabIndex = this.storedTabIndex;
+      this.selectedTab = this.allChips[this.selectedTabIndex];
+
+    } else if (this.storedTabIndex === null && !event) {
+      this.saasArray = this.saaspitara;
+      this.selectedTab = this.allChips[0];
+    }
+    else {
+      this.selectedTab = this.allChips[event.index];
+      this.localStorageService.setTabIndex(event.index, 'pitaraIndex');
+    }
     if (this.selectedTab.key === 'saaspitara') {
       this.saasArray = this.saaspitara;
     } else if (this.selectedTab.key === 'onestpitara') {
