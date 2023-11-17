@@ -95,7 +95,7 @@ export class PlayerComponent implements OnInit {
       }
       else if (this.playerConfiguration.metadata.mimeType === 'video/x-youtube') {
         this.isEmbed = true
-        this.playerConfiguration.metadata.artifactUrl = this.getYouTubeEmbedUrl(this.playerConfiguration.metadata.artifactUrl);
+        this.playerConfiguration.metadata.artifactUrl = this.getEmbedUrl(this.playerConfiguration.metadata.artifactUrl);
       } else if (this.playerConfiguration.metadata.mimeType === ('application/vnd.ekstep.html-archive')) {
         this.isEmbed = true
         this.playerConfiguration.metadata.artifactUrl = this.playerConfiguration.metadata.streamingUrl + '/index.html'
@@ -104,7 +104,8 @@ export class PlayerComponent implements OnInit {
     } else if (this.playerData.urlType === "Embed") {
       this.playerConfiguration.metadata.artifactUrl = this.playerData.artifactUrl
       this.isEmbed = true
-      this.playerConfiguration.metadata.artifactUrl = this.getYouTubeEmbedUrl(this.playerConfiguration.metadata.artifactUrl);
+
+      this.playerConfiguration.metadata.artifactUrl = this.getEmbedUrl(this.playerConfiguration.metadata.artifactUrl);
     } else if (this.playerData.urlType === "Page") {
       window.open(this.playerData.artifactUrl, '_blank', "fullscreen=yes,toolbar=no,location=no");
       this.closePlayerscreen.emit('closed')
@@ -119,7 +120,7 @@ export class PlayerComponent implements OnInit {
     }
   }
 
-  getYouTubeEmbedUrl(url) {
+  getEmbedUrl(url) {
     // Extract video ID from the URL
     if (url.match(/[?&]v=([^?&]+)/)) {
       var videoId = url.match(/[?&]v=([^?&]+)/)[1];
@@ -130,6 +131,13 @@ export class PlayerComponent implements OnInit {
       var videoId = url.split("/").pop();
       var embedUrl = "https://www.youtube.com/embed/" + videoId + '?enablejsapi=1';
       return embedUrl;
+    }else if(url.match(/storyweaver\.org/)) {
+      const regex = /\/stories\/(.+)/;
+      const match = url.match(regex);
+      if (match && match[1]) {
+        var embedUrl = "https://storyweaver.org.in/stories/show-in-iframe/" + match[1] + '?iframe=true';
+        return embedUrl;
+      } 
     }
   else return url;
   }
