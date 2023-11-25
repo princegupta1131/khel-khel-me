@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { PitaraComponent } from './components/pitara/pitara.component';
 import { CreatePitaraComponent } from './components/create-pitara/create-pitara.component';
+import { QrScannerComponent } from './components/qr-scanner/qr-scanner.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,9 @@ const routes: Routes = [
   },
   {
     path: 'create-pitara', component: CreatePitaraComponent,
+  },
+  {
+    path: 'qr', component: QrScannerComponent,
   },
 ];
 

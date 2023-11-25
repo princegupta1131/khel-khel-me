@@ -32,6 +32,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CreatePitaraComponent } from './components/create-pitara/create-pitara.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { QrScannerComponent } from './components/qr-scanner/qr-scanner.component';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 // Create a loader for translations
 export function createTranslateLoader(http: HttpClient) {
@@ -49,6 +51,7 @@ export function createTranslateLoader(http: HttpClient) {
     PlayerComponent,
     FooterComponent,
     CreatePitaraComponent,
+    QrScannerComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +72,7 @@ export function createTranslateLoader(http: HttpClient) {
     MatChipsModule,
     MatDialogModule,
     DragDropModule,
+    ZXingScannerModule ,
     FormsModule, ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {

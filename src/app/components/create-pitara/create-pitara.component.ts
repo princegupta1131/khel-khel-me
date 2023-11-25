@@ -73,4 +73,7 @@ export class CreatePitaraComponent implements OnInit {
     this.data = JSON.parse(this.localStorageService.getItem('contents'));
     this.targetItems = []
   }
+  scanQr(){
+    this.router.navigate(['qr'])
+  }
 }

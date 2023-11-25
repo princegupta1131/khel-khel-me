@@ -56,6 +56,9 @@
                     <div class="counter me-1">{{targetItems.length}}</div>
                     <button mat-button (click)="showModal=!showModal">Modify</button>
                 </div>
+                <div class="d-flex mb-3 justify-content-center align-items-center">
+                    <button mat-button (click)="scanQr()">Scan QR</button>
+                </div>
                 <form class="example-form">
                     <mat-form-field appearance="fill" color="primary" class="w-100">
                         <mat-label>{{'Enter Pitara Name'|translate}}</mat-label>
